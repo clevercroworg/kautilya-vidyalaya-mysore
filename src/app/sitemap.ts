@@ -1,10 +1,11 @@
 import { MetadataRoute } from "next";
+import { eventsDetailData } from "@/data/eventsDetailData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://kautilyavidyalaya.edu.in";
   const currentDate = new Date().toISOString();
 
-  const routes = [
+  const staticRoutes = [
     { path: "", changeFrequency: "daily" as const, priority: 1.0 },
     { path: "/about-us", changeFrequency: "monthly" as const, priority: 0.8 },
     { path: "/chairmans-desk", changeFrequency: "monthly" as const, priority: 0.8 },
@@ -21,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/monthly-newsletter", changeFrequency: "weekly" as const, priority: 0.8 },
     { path: "/news-circular", changeFrequency: "weekly" as const, priority: 0.8 },
     { path: "/awards-and-achievements", changeFrequency: "monthly" as const, priority: 0.8 },
-    { path: "/events-gallery", changeFrequency: "weekly" as const, priority: 0.8 },
+    { path: "/events-gallery", changeFrequency: "weekly" as const, priority: 0.85 },
     { path: "/alumni-forum", changeFrequency: "monthly" as const, priority: 0.7 },
     { path: "/faqs", changeFrequency: "monthly" as const, priority: 0.8 },
     { path: "/parent-perspectives", changeFrequency: "weekly" as const, priority: 0.9 },
@@ -31,7 +32,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/contact-us", changeFrequency: "weekly" as const, priority: 0.95 },
   ];
 
-  return routes.map((route) => ({
+  const eventRoutes = eventsDetailData.map((event) => ({
+    path: `/events-gallery/${event.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  const allRoutes = [...staticRoutes, ...eventRoutes];
+
+  return allRoutes.map((route) => ({
     url: `${baseUrl}${route.path}`,
     lastModified: currentDate,
     changeFrequency: route.changeFrequency,

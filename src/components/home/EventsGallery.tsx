@@ -17,23 +17,27 @@ export default function EventsGallery() {
   const events = [
     {
       title: "Colors Day Celebrations",
-      image: "/images/events/kautilya-annual-sports-meet.webp",
-      href: "https://kautilyavidyalaya.edu.in/portfolio-item/colors-day-celebrations/",
+      image: "/images/events/kautilya-colors-day-celebration.webp",
+      href: "/events-gallery/colors-day-celebrations",
+      category: "Campus Event",
     },
     {
       title: "Science Display",
-      image: "/images/events/kautilya-independence-day.webp",
-      href: "https://kautilyavidyalaya.edu.in/portfolio-item/science-display/",
+      image: "/images/events/kautilya-annual-science-display.webp",
+      href: "/events-gallery/science-display",
+      category: "STEM & Science",
     },
     {
       title: "Educational Trip To Singapore",
-      image: "/images/events/kautilya-investiture-ceremony.webp",
-      href: "https://kautilyavidyalaya.edu.in/portfolio-item/educational-trip-to-singapore/",
+      image: "/images/events/kautilya-singapore-educational-trip.webp",
+      href: "/events-gallery/educational-trip-to-singapore",
+      category: "Global Immersion",
     },
     {
       title: "Saamskrithika Parva 2023-24",
-      image: "/images/events/kautilya-yoga-day.webp",
-      href: "https://kautilyavidyalaya.edu.in/portfolio-item/saamskrithika-parva-2023-24/",
+      image: "/images/events/kautilya-saamskrithika-parva.webp",
+      href: "/events-gallery/saamskrithika-parva-2023-24",
+      category: "Cultural Fest",
     },
   ];
 
@@ -62,10 +66,10 @@ export default function EventsGallery() {
         >
           {events.map((evt) => (
             <StaggerItem key={evt.title} direction="up">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col group border border-slate-100">
-                <div
-                  onClick={() => setSelectedImage(evt.image)}
-                  className="relative w-full h-56 overflow-hidden bg-slate-900 cursor-pointer"
+              <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group border border-slate-100 h-full">
+                <Link
+                  href={evt.href}
+                  className="relative w-full h-56 overflow-hidden bg-slate-900 cursor-pointer block"
                 >
                   <Image
                     src={evt.image}
@@ -74,21 +78,27 @@ export default function EventsGallery() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover group-hover:scale-108 transition-transform duration-500"
                   />
-                </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                    <span className="text-white text-xs font-bold bg-[#001744]/80 px-2.5 py-1 rounded-full backdrop-blur-sm">
+                      View Event Gallery
+                    </span>
+                  </div>
+                </Link>
 
                 <div className="p-5 flex-1 flex flex-col justify-between">
-                  <h6 className="font-bold text-slate-900 text-base group-hover:text-blue-900 transition-colors">
-                    {evt.title}
-                  </h6>
+                  <Link href={evt.href}>
+                    <h3 className="font-bold text-slate-900 text-base group-hover:text-[#001744] transition-colors line-clamp-2">
+                      {evt.title}
+                    </h3>
+                  </Link>
                   <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                    <span>Campus Event</span>
+                    <span className="font-semibold text-slate-400">{evt.category}</span>
                     <Link
                       href={evt.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bold text-[#001744] hover:underline"
+                      className="font-extrabold text-[#001744] hover:text-blue-600 transition-colors flex items-center gap-1 group/link"
                     >
-                      View Details →
+                      <span>View Details</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
                     </Link>
                   </div>
                 </div>
