@@ -2,6 +2,8 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import {
   ScrollRevealText,
@@ -100,7 +102,10 @@ export default function FacilitiesSection() {
           {facilityItems.map((item) => (
             <StaggerItem key={item.name} direction="up">
               {/* Unified sharp-cornered card with NO border and title solidly inside bottom of card */}
-              <div className="group flex flex-col bg-[#001744] rounded-none shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+              <Link
+                href="/other-facilities"
+                className="group flex flex-col bg-[#001744] rounded-none shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden block"
+              >
                 {/* Image: Unobstructed square photo */}
                 <div className="relative w-full aspect-square overflow-hidden bg-[#001744]">
                   <Image
@@ -110,18 +115,31 @@ export default function FacilitiesSection() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover rounded-none group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
                 </div>
 
                 {/* Solid Card Footer Bar: Name INSIDE card container, completely opaque */}
-                <div className="bg-[#001744] px-4 py-3 sm:py-3.5 text-left">
+                <div className="bg-[#001744] px-4 py-3 sm:py-3.5 flex items-center justify-between">
                   <h3 className="text-lg sm:text-xl font-medium text-white tracking-wide group-hover:text-[#FFD907] transition-colors">
                     {item.name}
                   </h3>
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-[#FFD907] group-hover:translate-x-1 transition-all" />
                 </div>
-              </div>
+              </Link>
             </StaggerItem>
           ))}
         </StaggerContainer>
+
+        {/* Explore All Facilities CTA Button */}
+        <div className="mt-12 sm:mt-16 text-center">
+          <Link
+            href="/other-facilities"
+            className="inline-flex items-center gap-2.5 bg-[#FFD907] hover:bg-yellow-400 text-[#001744] font-black px-8 py-3.5 rounded-full text-sm shadow-xl hover:scale-105 transition-all group"
+          >
+            <span>Explore All Campus Facilities</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
       </div>
     </section>
   );

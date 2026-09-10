@@ -28,9 +28,7 @@ export default function HappyParentsSection() {
             </FadeUp>
             <FadeUp delay={0.35}>
               <Link
-                href="https://kautilyavidyalaya.edu.in/videos/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/parent-perspectives"
                 className="inline-flex items-center gap-2.5 bg-[#001744] hover:bg-[#002b7a] text-white font-bold px-7 py-3.5 rounded-full text-sm shadow-md hover:shadow-xl transition-all group"
               >
                 <span>View More Parent Stories</span>

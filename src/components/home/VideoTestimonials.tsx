@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Play, ExternalLink, Quote, Sparkles } from "lucide-react";
+import { Play, ArrowRight, Quote, Sparkles } from "lucide-react";
 
 export default function VideoTestimonials() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
@@ -41,13 +41,11 @@ export default function VideoTestimonials() {
           </div>
 
           <Link
-            href="https://kautilyavidyalaya.edu.in/videos/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#001744] hover:text-blue-700 underline underline-offset-4"
+            href="/parent-perspectives"
+            className="inline-flex items-center gap-2 text-sm font-bold text-[#001744] hover:text-blue-700 transition-colors group"
           >
             <span>View More Parent Stories</span>
-            <ExternalLink className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 

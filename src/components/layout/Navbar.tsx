@@ -229,7 +229,8 @@ export default function Navbar({ onOpenAdmissionModal }: NavbarProps) {
               >
                 {item.children ? (
                   <button
-                    className={`flex items-center gap-1 px-2.5 2xl:px-3 py-2 text-[13px] 2xl:text-sm font-bold rounded-lg transition-colors whitespace-nowrap ${
+                    onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
+                    className={`flex items-center gap-1 px-2.5 2xl:px-3 py-2 text-[13px] 2xl:text-sm font-bold rounded-lg transition-colors whitespace-nowrap cursor-pointer ${
                       activeDropdown === item.label
                         ? "text-[#001744] bg-slate-100/80"
                         : "text-slate-700 hover:text-[#001744] hover:bg-slate-50"

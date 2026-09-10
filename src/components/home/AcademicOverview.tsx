@@ -17,16 +17,19 @@ export default function AcademicOverview() {
       title: "Balanced Schooling",
       desc: "Right balance – between academics, co-curricular and extracurricular activities.",
       image: "/images/kautilya-academic-pillars.jpg",
+      href: "/what-it-means-at-kautilya",
     },
     {
       title: "Centre of Excellence",
       desc: "Building 21st century skills & developing independent minded students that are ready for the world.",
       image: "/images/kautilya-holistic-development.jpg",
+      href: "/other-facilities",
     },
     {
       title: "Achievements",
-      desc: "Wipro Earthian School Award",
+      desc: "Wipro Earthian School Award & State Distinctions",
       image: "/images/kautilya-kindergarten-learning.jpg",
+      href: "/awards-and-achievements",
     },
   ];
 
@@ -69,9 +72,7 @@ export default function AcademicOverview() {
             </p>
             <div className="pt-2">
               <Link
-                href="https://kautilyavidyalaya.edu.in/about-us/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/about-us"
                 className="inline-flex items-center gap-2 bg-[#001744] hover:bg-[#002b7a] text-white font-bold px-7 py-3.5 rounded-full text-sm shadow-md hover:shadow-xl transition-all group"
               >
                 <span>Read More</span>
@@ -95,7 +96,10 @@ export default function AcademicOverview() {
                 }}
                 className="transform-gpu"
               >
-                <div className="bg-white rounded-xl p-5 sm:p-6 shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-100 flex items-center gap-5 sm:gap-6 hover:-translate-y-1.5 group cursor-default">
+                <Link
+                  href={item.href}
+                  className="bg-white rounded-xl p-5 sm:p-6 shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-100 flex items-center gap-5 sm:gap-6 hover:-translate-y-1.5 group cursor-pointer block"
+                >
                   {/* Circular image with subtle zoom */}
                   <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shrink-0 border-2 border-slate-100 shadow-sm">
                     <Image
@@ -108,14 +112,17 @@ export default function AcademicOverview() {
 
                   {/* Card text */}
                   <div className="flex-1">
-                    <h5 className="text-lg sm:text-xl font-bold text-[#001744] mb-1 group-hover:text-blue-900 transition-colors">
-                      {item.title}
-                    </h5>
+                    <div className="flex items-center justify-between">
+                      <h5 className="text-lg sm:text-xl font-bold text-[#001744] mb-1 group-hover:text-blue-600 transition-colors">
+                        {item.title}
+                      </h5>
+                      <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-[#001744] group-hover:translate-x-1 transition-all" />
+                    </div>
                     <p className="text-sm sm:text-base text-slate-600 leading-snug">
                       {item.desc}
                     </p>
                   </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
