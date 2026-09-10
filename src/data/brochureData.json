@@ -1,0 +1,44 @@
+{
+  "title": "Kautilya Vidyalaya Official School Brochure & Prospectus",
+  "academicYear": "2026-27",
+  "pdfUrl": "/documents/brochure/Kautilya-School-Brochure.pdf",
+  "fileSize": "1.4 MB",
+  "lastUpdated": "Academic Session 2026-27",
+  "coverImage": "/images/kautilya-school-heritage-hero.jpg",
+  "overview": "Download the official institutional prospectus of Kautilya Vidyalaya, Mysore. Explore our 20+ year legacy, CBSE affiliated academic curriculum, Atal Tinkering STEM labs, world-class athletic facilities, and holistic admissions roadmap.",
+  "highlights": [
+    "Comprehensive CBSE Curriculum Roadmap (Pre-KG to Class X & PUC)",
+    "Niti Aayog Approved Atal Tinkering Lab & Robotics Infrastructure",
+    "Recipient of the National Wipro Earthian Sustainability Award",
+    "Consistent 100% CBSE Class X Board Pass Rate for Over Two Decades",
+    "GPS & CCTV Monitored Bus Transport Network Across Mysuru (15 km Radius)",
+    "Full-time Medical Infirmary, Child Counseling & Extended Daycare"
+  ],
+  "brochureSections": [
+    {
+      "title": "Institutional Legacy & Values",
+      "desc": "Founded on timeless principles of character, humility, and academic rigor in Mysuru."
+    },
+    {
+      "title": "Pedagogy & Dual-Teacher KG Care",
+      "desc": "Low 1:12 teacher-taught ratio in pre-primary and personalized classroom mentorship."
+    },
+    {
+      "title": "Innovation Labs & Future Tech",
+      "desc": "State-of-the-art Physics, Chemistry, Biology, Mathematics and Atal Tinkering Labs."
+    },
+    {
+      "title": "Athletic & Co-Curricular Arts",
+      "desc": "Daily sports coaching across football, cricket, basketball, yoga, skating, music, and dance."
+    },
+    {
+      "title": "Step-by-Step Admission Guide",
+      "desc": "Eligibility age criteria, document checklists, fee structure transparency, and campus visit scheduling."
+    }
+  ],
+  "contactInfo": {
+    "phone": ["+91 9900038358", "+91 7090671299", "0821-2460266"],
+    "email": "admissions@kautilyavidyalaya.edu.in",
+    "address": "No 9/1, 13th Main, J Block, Kanakadasa Nagar, Dattagalli 3rd Stage, Mysuru, Karnataka 570033"
+  }
+}

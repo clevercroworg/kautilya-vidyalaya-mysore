@@ -1,0 +1,74 @@
+{
+  "pageTitle": "Care, Safety & Essential Campus Amenities",
+  "pageSubtitle": "Comprehensive student care infrastructure including a medically staffed infirmary, extended daycare, and a GPS-monitored bus fleet.",
+  "facilities": [
+    {
+      "id": "infirmary",
+      "title": "4-Bed School Infirmary",
+      "category": "Medical Care",
+      "badge": "Healthcare & First Aid",
+      "image": "/images/facilities/kautilya-campus-infirmary.jpeg",
+      "timing": "Campus Working Hours",
+      "description": "Dedicated 4-bed infirmary providing immediate first aid and medical supervision under a full-time certified staff nurse.",
+      "points": [
+        "Full-time certified nursing personnel on campus during all working hours",
+        "Formal emergency tie-ups with leading multi-specialty hospitals in Mysuru",
+        "Annual pediatric dental, vision, and general health checkup camps"
+      ]
+    },
+    {
+      "id": "daycare",
+      "title": "Extended Day Care Facility",
+      "category": "Parent Support",
+      "badge": "Ages 3 to 8 Years",
+      "image": "/images/facilities/kautilya-campus-daycare.jpeg",
+      "timing": "1:00 PM – 4:00 PM",
+      "description": "A safe, nurturing environment for early learners, helping working parents balance professional duties with trusted child care.",
+      "points": [
+        "Supervised nap zones, creative toys, and age-appropriate indoor recreation",
+        "Dedicated child caregivers and homework assistance mentors",
+        "Hygienic, child-safe environment tailored for early childhood care"
+      ]
+    },
+    {
+      "id": "transport",
+      "title": "GPS-Tracked School Bus Fleet",
+      "category": "Safe Commute",
+      "badge": "Mysuru-Wide Routes",
+      "image": "/images/facilities/kautilya-school-bus-fleet.jpeg",
+      "timing": "Morning & Evening Routes",
+      "description": "School-owned fleet serving major residential sectors across Mysuru, equipped with real-time GPS tracking and RTO-mandated speed governors.",
+      "points": [
+        "Dedicated female bus attendant on every bus during morning and evening trips",
+        "Real-time GPS tracking enabled for precise stop timing and route monitoring",
+        "First-aid kits, emergency fire extinguishers, and speed limiters installed"
+      ]
+    }
+  ],
+  "safetyProtocols": [
+    {
+      "id": "cctv",
+      "title": "CCTV Surveillance",
+      "desc": "24x7 security monitoring covering gates, hallways, and outdoor grounds.",
+      "icon": "Video"
+    },
+    {
+      "id": "fire-safety",
+      "title": "Fire Safety Certified",
+      "desc": "Smoke alarms, extinguishers, and periodic student evacuation drills.",
+      "icon": "Flame"
+    },
+    {
+      "id": "ro-water",
+      "title": "RO Purified Water",
+      "desc": "Multi-stage Reverse Osmosis drinking water dispensers on every floor.",
+      "icon": "Droplet"
+    },
+    {
+      "id": "pocso",
+      "title": "Child Protection Cell",
+      "desc": "Strict POCSO compliance, visitor badging, and background-verified staff.",
+      "icon": "ShieldCheck"
+    }
+  ]
+}

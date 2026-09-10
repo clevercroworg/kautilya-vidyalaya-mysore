@@ -1,0 +1,78 @@
+{
+  "institutionName": "Kautilya Vidyalaya Group of Institutions",
+  "affiliationNumber": "830193",
+  "schoolCode": "45158",
+  "address": {
+    "street": "No 9/1, 13th Main, J Block",
+    "landmark": "Kanakadasa Nagar",
+    "area": "Dattagalli 3rd Stage",
+    "city": "Mysuru",
+    "state": "Karnataka",
+    "pincode": "570033",
+    "fullFormatted": "No 9/1, 13th Main, J Block, Kanakadasa Nagar, Dattagalli 3rd Stage, Mysuru, Karnataka 570033",
+    "directionsUrl": "https://maps.google.com/?q=Kautilya+Vidyalaya+Group+of+Institutions+Mysore"
+  },
+  "phones": [
+    {
+      "label": "Admissions Helpline",
+      "value": "+91 99000 38358",
+      "href": "tel:+919900038358",
+      "description": "For admission inquiries, campus tours, and seat availability",
+      "badge": "Primary"
+    },
+    {
+      "label": "Administrative Office",
+      "value": "+91 70906 71299",
+      "href": "tel:+917090671299",
+      "description": "For student records, transfer certificates, and general queries",
+      "badge": "Office"
+    },
+    {
+      "label": "Campus Landline",
+      "value": "0821 - 2460266",
+      "href": "tel:08212460266",
+      "description": "Direct campus reception desk",
+      "badge": "Landline"
+    }
+  ],
+  "emails": [
+    {
+      "label": "Admissions Desk",
+      "value": "admissions@kautilyavidyalaya.edu.in",
+      "href": "mailto:admissions@kautilyavidyalaya.edu.in",
+      "description": "Submit admission forms & application documentation",
+      "badge": "Admissions"
+    },
+    {
+      "label": "General Enquiries",
+      "value": "enquiry@kautilyavidyalaya.edu.in",
+      "href": "mailto:enquiry@kautilyavidyalaya.edu.in",
+      "description": "General communication, parent feedback, and coordination",
+      "badge": "Helpdesk"
+    }
+  ],
+  "socialLinks": {
+    "whatsapp": "https://wa.me/919900038358",
+    "youtube": "https://www.youtube.com/@kautilya_vidyalaya_official",
+    "facebook": "https://www.facebook.com/kautilyavidyalayamysore/",
+    "instagram": "https://www.instagram.com/kautilya_vidyalaya_official/"
+  },
+  "officeHours": [
+    {
+      "days": "Monday – Friday",
+      "timing": "8:30 AM – 4:00 PM",
+      "note": "Administrative & Admissions open for visits"
+    },
+    {
+      "days": "Saturday",
+      "timing": "8:30 AM – 1:00 PM",
+      "note": "Office open (Half Day)"
+    },
+    {
+      "days": "Sunday & Public Holidays",
+      "timing": "Closed",
+      "note": "Campus closed; online enquiries active"
+    }
+  ],
+  "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31188.914385360025!2d76.610872!3d12.27436!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf65313404ff39%3A0x3ef1d5e7edd122d5!2sKautilya%20Vidyalaya%20Group%20of%20Institutions!5e0!3m2!1sen!2sus!4v1758034316941!5m2!1sen!2sus"
+}

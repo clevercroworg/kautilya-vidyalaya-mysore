@@ -1,0 +1,69 @@
+{
+  "seriesTitle": "Kautilya Konnect",
+  "tagline": "Stories That Matter, Connections That Last",
+  "description": "An inspiring conversation series featuring healthcare experts, pedagogical innovators, campus leaders, and distinguished alumni discussing holistic child growth, modern education, and life skills.",
+  "channelUrl": "https://www.youtube.com/@kautilya_vidyalaya_official",
+  "totalEpisodes": 5,
+  "episodes": [
+    {
+      "id": "ep-1",
+      "episodeNumber": 1,
+      "title": "Kautilya Konnect: Stories That Matter, Connections That Last",
+      "guest": "School Mentors & Student Ambassadors",
+      "category": "Campus & Culture",
+      "duration": "18 mins",
+      "date": "Official Launch",
+      "description": "Welcome to the launch of Kautilya Konnect! Discover the philosophy behind 20+ years of value-grounded CBSE education in Mysore and our vision for balanced student learning.",
+      "youtubeId": "W_mRJid7N28",
+      "featured": true
+    },
+    {
+      "id": "ep-2",
+      "episodeNumber": 2,
+      "title": "How to Build Strong Bones & Prevent Disorders: Pediatric Health",
+      "guest": "Dr. Expert Orthopedic Consultant",
+      "category": "Health & Wellness",
+      "duration": "24 mins",
+      "date": "Health Special",
+      "description": "Essential posture guidelines, calcium nutrition, physical active play, and preventative tips every parent needs to know for healthy bone development in growing children.",
+      "youtubeId": "YekUhDR0FpE",
+      "featured": false
+    },
+    {
+      "id": "ep-3",
+      "episodeNumber": 3,
+      "title": "Doctor's Day: Honoring Healers & Inspiring Young Minds",
+      "guest": "Distinguished Medical Professionals",
+      "category": "Health & Community",
+      "duration": "22 mins",
+      "date": "Doctor's Day Special",
+      "description": "Honoring healthcare champions and discussing the dedication, science, and empathy required in medical sciences to inspire young aspirants pursuing Science streams.",
+      "youtubeId": "DtbgyR2SVwE",
+      "featured": false
+    },
+    {
+      "id": "ep-4",
+      "episodeNumber": 4,
+      "title": "Campus Leadership, Lab Innovations & Progressive Pedagogy",
+      "guest": "Academic Coordinators & Faculty",
+      "category": "Academics",
+      "duration": "20 mins",
+      "date": "Education Insights",
+      "description": "A deep dive into Kautilya's experiential pedagogy, Atal Tinkering Lab hands-on robotics, and how student-centered classrooms nurture critical thinkers.",
+      "youtubeId": "0GTGJVhsGT8",
+      "featured": false
+    },
+    {
+      "id": "ep-5",
+      "episodeNumber": 5,
+      "title": "Enriching Conversations with Industry Pioneers & Environmental Leaders",
+      "guest": "Eminent Guest Speakers & Pioneers",
+      "category": "Inspiration",
+      "duration": "26 mins",
+      "date": "Pioneers Edition",
+      "description": "Thought-provoking discussions on sustainable agriculture, career pathways, and instilling responsibility towards nature and society among young citizens.",
+      "youtubeId": "-RxCmdrW-v8",
+      "featured": false
+    }
+  ]
+}

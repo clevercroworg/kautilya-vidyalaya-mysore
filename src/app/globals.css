@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #001744;
+  --color-primary-light: #002b7a;
+  --color-primary-dark: #000c24;
+  --color-accent: #FFD907;
+  --color-accent-hover: #e5c300;
+  --color-brand-blue: #0284c7;
+  --color-brand-gold: #f59e0b;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #001744;
+  --primary-light: #002b7a;
+  --primary-dark: #000c24;
+  --accent: #FFD907;
+  --accent-hover: #e5c300;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: #1e293b;
+  background-color: #ffffff;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Custom marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Subtle background pattern */
+.bg-pattern {
+  background-image: radial-gradient(rgba(0, 23, 68, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-pattern-dark {
+  background-image: radial-gradient(rgba(255, 217, 7, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-panel-dark {
+  background: rgba(0, 23, 68, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }

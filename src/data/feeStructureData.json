@@ -1,0 +1,140 @@
+{
+  "academicYear": "2026-27",
+  "title": "Fee Structure for the Academic Year 2026-27",
+  "currency": "INR",
+  "onlinePaymentUrl": "https://kautilya.schoolelement.in/onlinefees",
+  "admissionHelplines": ["+91 9900038358", "+91 7090671299"],
+  "gradeFees": [
+    {
+      "slNo": 1,
+      "grade": "Pre-KG (PKG)",
+      "band": "Pre-Primary",
+      "tuitionFee": 70000,
+      "academicFee": 0,
+      "totalFee": 70000,
+      "features": ["Play-way learning", "Mother Teacher nurture", "Sensory development", "Activity supplies"]
+    },
+    {
+      "slNo": 2,
+      "grade": "LKG",
+      "band": "Pre-Primary",
+      "tuitionFee": 79860,
+      "academicFee": 600,
+      "totalFee": 80460,
+      "features": ["Phonics & early literacy", "Numeracy activities", "Language foundations", "Creative crafts"]
+    },
+    {
+      "slNo": 3,
+      "grade": "UKG",
+      "band": "Pre-Primary",
+      "tuitionFee": 79860,
+      "academicFee": 600,
+      "totalFee": 80460,
+      "features": ["Primary transition prep", "Reading readiness", "Math logic & puzzles", "Public speaking basics"]
+    },
+    {
+      "slNo": 4,
+      "grade": "Standard I",
+      "band": "Primary",
+      "tuitionFee": 87850,
+      "academicFee": 1350,
+      "totalFee": 89200,
+      "features": ["Formal CBSE syllabus", "Computer fundamentals", "Daily sports coaching", "Library access"]
+    },
+    {
+      "slNo": 5,
+      "grade": "Standard II",
+      "band": "Primary",
+      "tuitionFee": 87850,
+      "academicFee": 2050,
+      "totalFee": 89900,
+      "features": ["Bilingual proficiency", "Math laboratory kits", "Environmental studies", "Art & craft studio"]
+    },
+    {
+      "slNo": 6,
+      "grade": "Standard III",
+      "band": "Primary",
+      "tuitionFee": 87850,
+      "academicFee": 2200,
+      "totalFee": 90050,
+      "features": ["Science inquiry projects", "Inter-house competitions", "Oratory & recitation", "Music & yoga"]
+    },
+    {
+      "slNo": 7,
+      "grade": "Standard IV",
+      "band": "Primary",
+      "tuitionFee": 87850,
+      "academicFee": 2200,
+      "totalFee": 90050,
+      "features": ["Third language introduction", "Robotics exposure", "Literary club activities", "Field excursions"]
+    },
+    {
+      "slNo": 8,
+      "grade": "Standard V",
+      "band": "Primary",
+      "tuitionFee": 87850,
+      "academicFee": 2350,
+      "totalFee": 90200,
+      "features": ["Middle school prep", "Analytical mathematics", "Science Olympiad prep", "Team sports coaching"]
+    },
+    {
+      "slNo": 9,
+      "grade": "Standard VI",
+      "band": "Middle School",
+      "tuitionFee": 87850,
+      "academicFee": 2350,
+      "totalFee": 90200,
+      "features": ["Atal Tinkering Lab STEM", "Composite science labs", "Formal debating leagues", "Social outreach SUPW"]
+    },
+    {
+      "slNo": 10,
+      "grade": "Standard VII",
+      "band": "Middle School",
+      "tuitionFee": 87850,
+      "academicFee": 2500,
+      "totalFee": 90350,
+      "features": ["Specialized Physics/Chem/Bio labs", "Coding & Python logic", "Inter-school tournament entry", "Leadership council"]
+    },
+    {
+      "slNo": 11,
+      "grade": "Standard VIII",
+      "band": "Middle School",
+      "tuitionFee": 87850,
+      "academicFee": 2900,
+      "totalFee": 90750,
+      "features": ["Third language mastery", "Advanced geometry & algebra", "Career orientation seminars", "Scientific research papers"]
+    },
+    {
+      "slNo": 12,
+      "grade": "Standard IX",
+      "band": "Secondary",
+      "tuitionFee": 87850,
+      "academicFee": 2900,
+      "totalFee": 90750,
+      "features": ["CBSE Board orientation", "Extensive mock testing", "NTSE & competitive foundation", "Individual faculty mentoring"]
+    },
+    {
+      "slNo": 13,
+      "grade": "Standard X",
+      "band": "Secondary",
+      "tuitionFee": 87850,
+      "academicFee": 2900,
+      "totalFee": 90750,
+      "features": ["Class X Board exam blueprint", "Diagnostic revision clinics", "Laboratory practical mastery", "100% pass track record"]
+    }
+  ],
+  "paymentGuidelines": [
+    "Fee may be paid online via the SchoolElement portal, or through Demand Draft / Cheque favoring 'Kautilya Vidyalaya' payable at Mysuru.",
+    "The fee structure displayed is strictly for Academic Year 2026-27 approved by the School Management Committee.",
+    "Academic fees cover designated annual assessments, digital portal licensing, and scholastic activity resources.",
+    "School bus transportation is an optional service with separate zoning fee schedules depending on pick-up distance (up to 15 km).",
+    "All fees paid are non-refundable and non-transferable under any circumstances once admission is finalized."
+  ],
+  "bankDetails": {
+    "accountName": "Kautilya Vidyalaya",
+    "bankName": "Canara Bank / State Bank of India",
+    "branch": "Dattagalli Branch, Mysuru",
+    "accountType": "Current Account",
+    "paymentModes": ["Net Banking", "UPI", "Credit/Debit Card", "Demand Draft", "Cheque"]
+  }
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "id": "faq-1",
+    "category": "General & Campus",
+    "question": "Where is Kautilya Vidyalaya located?",
+    "answer": "No 9/1, 13th Main, J Block, Kanakadasa Nagar, Dattagalli 3rd Stage, Mysuru, Karnataka 570033. Our serene campus is situated in a tranquil residential neighborhood with ample space for academic, athletic, and exploratory learning.",
+    "tags": ["location", "address", "campus", "mysuru"]
+  },
+  {
+    "id": "faq-2",
+    "category": "Admissions",
+    "question": "At what time of the year does the school accept new admissions?",
+    "answer": "Admission is open throughout the year, subject to the availability of seats in the requested grade band. We encourage parents to initiate enquiries early for the upcoming Academic Year 2026-27.",
+    "tags": ["admissions", "timing", "session", "calendar"]
+  },
+  {
+    "id": "faq-3",
+    "category": "Admissions",
+    "question": "What is the age criteria for admission?",
+    "answer": "The child should have completed 2 years and 6 months as of 30th May for the respective academic year for entry into Pre-Kindergarten (Pre-KG). Age requirements scale progressively for LKG, UKG, and Grade 1.",
+    "tags": ["age", "eligibility", "kindergarten", "pre-kg"]
+  },
+  {
+    "id": "faq-4",
+    "category": "Admissions",
+    "question": "What are the criteria for admission to the School?",
+    "answer": "Kautilya Vidyalaya is an inclusive institution that provides equal opportunity to students of all backgrounds, genders, and regions. Admission decisions are based strictly on age eligibility, interactive assessment, and seat availability.",
+    "tags": ["criteria", "inclusive", "eligibility", "selection"]
+  },
+  {
+    "id": "faq-5",
+    "category": "Admissions",
+    "question": "What is the step-by-step Admission Procedure?",
+    "answer": "1. Enquiry & Seat Check: Submit enquiry online or visit the admin office. 2. Campus Visit & Registration: Parents visit the school with the child. 3. Interaction / Diagnostic Assessment: An informal observation for KG to Grade 2, and a diagnostic concept assessment for Grades 3 to 9. 4. Seat Confirmation: Remit the applicable fee, complete the admission form, and submit the required documentation.",
+    "tags": ["procedure", "steps", "interaction", "registration"]
+  },
+  {
+    "id": "faq-6",
+    "category": "Admissions",
+    "question": "What documents are required during admission?",
+    "answer": "Original & attested copy of Birth Certificate (Pre-KG to Class 1); Original & attested Transfer Certificate (TC for Classes 2 to 10); Previous academic year's Marks Card; 6 recent passport-size color photographs of the student; 2 passport-size photographs of parents/guardians; Address proof (Aadhaar/Utility Bill); Caste certificate (if applicable); Copy of passport for NRI/overseas applicants.",
+    "tags": ["documents", "birth certificate", "tc", "photos"]
+  },
+  {
+    "id": "faq-7",
+    "category": "Admissions",
+    "question": "What is the procedure for admission or withdrawal in the middle of the academic year?",
+    "answer": "Mid-term admissions follow the standard diagnostic assessment and document verification process, provided a vacancy exists. For mid-year withdrawal, parents must submit a formal TC application citing reasons; the Transfer Certificate is generated within 3 working days.",
+    "tags": ["mid-term", "transfer certificate", "withdrawal"]
+  },
+  {
+    "id": "faq-8",
+    "category": "Admissions",
+    "question": "Does Kautilya Vidyalaya admit students from overseas and NRI families?",
+    "answer": "Yes, Kautilya Vidyalaya warmly welcomes international students and children of Non-Resident Indians (NRIs). Our diverse, inclusive environment helps students transition smoothly into the CBSE academic framework.",
+    "tags": ["overseas", "nri", "international", "global"]
+  },
+  {
+    "id": "faq-9",
+    "category": "Academics & Curriculum",
+    "question": "What is the Language Policy at Kautilya Vidyalaya?",
+    "answer": "English is the first language of instruction from kindergarten through Class X. Kannada and Hindi are offered as Second Languages starting from LKG through Class X (Kannada is compulsory as II language till Class II under state regulations). For the Third Language (Classes IV to VIII), students choose among Hindi, Kannada, Sanskrit, and French. As per CBSE norms, Hindi is studied compulsorily during schooling.",
+    "tags": ["language", "kannada", "hindi", "sanskrit", "french", "cbse"]
+  },
+  {
+    "id": "faq-10",
+    "category": "Academics & Curriculum",
+    "question": "What is the student strength and teacher-taught ratio in each class?",
+    "answer": "In Kindergarten, class sizes are capped at 25 children with a personalized teacher-taught ratio of 1:12. In Classes I through X, classroom strength is maintained at a maximum of 30 students to ensure individual mentorship and active participation.",
+    "tags": ["class size", "ratio", "strength", "attention"]
+  },
+  {
+    "id": "faq-11",
+    "category": "Academics & Curriculum",
+    "question": "What is the assessment pattern at Kautilya Vidyalaya?",
+    "answer": "Pre-primary focuses on motor, verbal, and creative skill observation. Primary (Grades 1-5) uses Continuous Comprehensive Evaluation (CCE) through project work, class interactions, and diagnostic tests. Middle School (Grades 6-8) blends continuous classroom evaluations with term-end summative assessments. Secondary (Grades 9-10) follows rigorous CBSE board blueprints with periodic mock tests, lab practicals, and scholastic diagnostics.",
+    "tags": ["assessment", "exams", "evaluation", "cbse"]
+  },
+  {
+    "id": "faq-12",
+    "category": "Academics & Curriculum",
+    "question": "How does Kautilya Vidyalaya differ from other schools?",
+    "answer": "Our approach blends deep traditional values with cutting-edge 21st-century infrastructure. We feature an approved Atal Tinkering Lab for STEM and robotics, experiential environmental education (honored by Wipro Earthian), comprehensive daily sports coaching, 100% CBSE board pass consistency over 20+ years, and an education free of rote memorization.",
+    "tags": ["philosophy", "difference", "uniqueness", "excellence"]
+  },
+  {
+    "id": "faq-13",
+    "category": "Campus & Student Welfare",
+    "question": "How is student discipline facilitated?",
+    "answer": "We believe discipline is self-management rather than external compulsion. Corporal punishment and harsh reproof are strictly prohibited. Self-discipline is fostered through value-based education, empathetic educator mentorship, and positive reinforcement in small-sized classes.",
+    "tags": ["discipline", "values", "positive reinforcement", "pastoral care"]
+  },
+  {
+    "id": "faq-14",
+    "category": "Campus & Student Welfare",
+    "question": "How does the school address teenage issues and student well-being?",
+    "answer": "We maintain a dedicated, full-time qualified child counselor on campus. Counseling sessions and empathetic communication are part of student life. Faculty members are trained to identify learning differences and adolescent stress without judgment, maintaining strict confidentiality.",
+    "tags": ["counseling", "mental health", "well-being", "adolescence"]
+  },
+  {
+    "id": "faq-15",
+    "category": "Campus & Student Welfare",
+    "question": "What medical facilities are available on campus?",
+    "answer": "The school houses an on-campus 4-bed infirmary attended by a full-time qualified nurse for first aid and acute health monitoring. Annual oral, vision, and general health checkups are conducted for all students by leading pediatric specialists. Emergency hospital protocols are in place with nearby medical centers.",
+    "tags": ["medical", "infirmary", "health", "nurse", "checkup"]
+  },
+  {
+    "id": "faq-16",
+    "category": "Facilities & Transport",
+    "question": "Is school bus transport available? What radius does it cover?",
+    "answer": "Yes, optional school transportation is provided covering all major residential corridors in Mysuru within a 15 km radius. Every school bus is equipped with GPS vehicle tracking, CCTV surveillance, speed governors, and trained lady attendants.",
+    "tags": ["transport", "bus", "gps", "safety", "routes"]
+  },
+  {
+    "id": "faq-17",
+    "category": "Parent Communication",
+    "question": "How and when can parents contact class teachers?",
+    "answer": "Parents can consult with class teachers and subject educators every Friday between 3:30 PM and 4:30 PM. For acute or urgent matters, parents can request a prior appointment on any weekday through the school administrative desk.",
+    "tags": ["teachers", "interaction", "ptm", "meetings"]
+  },
+  {
+    "id": "faq-18",
+    "category": "Safety & Emergencies",
+    "question": "In case of emergency, what is the procedure to collect a child from school early?",
+    "answer": "Parents must present the official Parent ID Card at the administrative desk, state the reason, and receive written authorization from the Principal/Coordinator. If an authorized guardian is collecting the child, they must carry a signed authorization letter from the parent along with the Parent ID Card.",
+    "tags": ["emergency", "pickup", "gate pass", "security"]
+  },
+  {
+    "id": "faq-19",
+    "category": "Fee & Payments",
+    "question": "Is the fee refundable or transferable?",
+    "answer": "No, fee once paid is non-refundable and non-transferable under any circumstances, as per institutional guidelines and annual seat commitments.",
+    "tags": ["fee", "refund", "terms", "policy"]
+  },
+  {
+    "id": "faq-20",
+    "category": "Fee & Payments",
+    "question": "What payment modes are supported for fee remittance?",
+    "answer": "Parents can remit fees online securely through the official SchoolElement portal using Net Banking, UPI, Credit/Debit Cards, or via Demand Draft / Cheque drawn in favor of 'Kautilya Vidyalaya' payable at Mysuru.",
+    "tags": ["payment", "online", "upi", "netbanking", "cheque"]
+  }
+]
