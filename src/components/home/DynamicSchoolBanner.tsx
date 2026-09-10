@@ -27,9 +27,7 @@ export default function DynamicSchoolBanner() {
         </div>
 
         <Link
-          href="https://kautilyavidyalaya.edu.in/the-dynamic-school/"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/the-dynamic-school"
           className="inline-flex items-center gap-2 bg-[#001744] hover:bg-slate-900 text-white font-extrabold px-6 py-3 rounded-full text-sm shrink-0 shadow-xl transition-all"
         >
           <span>Learn More</span>

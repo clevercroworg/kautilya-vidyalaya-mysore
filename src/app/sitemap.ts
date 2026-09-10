@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/brochure-download", changeFrequency: "monthly" as const, priority: 0.85 },
     { path: "/podcast", changeFrequency: "weekly" as const, priority: 0.85 },
     { path: "/contact-us", changeFrequency: "weekly" as const, priority: 0.95 },
+    { path: "/the-dynamic-school", changeFrequency: "weekly" as const, priority: 0.95 },
   ];
 
   const eventRoutes = eventsDetailData.map((event) => ({

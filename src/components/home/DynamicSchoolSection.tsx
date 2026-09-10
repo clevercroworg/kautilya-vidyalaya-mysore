@@ -34,9 +34,7 @@ export default function DynamicSchoolSection() {
             <FadeUp delay={0.3}>
               <div>
                 <Link
-                  href="https://kautilyavidyalaya.edu.in/the-dynamic-school/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/the-dynamic-school"
                   className="inline-flex items-center gap-2 bg-[#001744] hover:bg-[#002b7a] text-white font-bold px-7 py-3.5 rounded-full text-sm shadow-md hover:shadow-xl transition-all group"
                 >
                   <span>Learn More</span>
