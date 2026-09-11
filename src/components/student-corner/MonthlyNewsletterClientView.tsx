@@ -37,6 +37,24 @@ interface NewsletterEdition {
 
 const EDITIONS: NewsletterEdition[] = [
   {
+    id: "june-2026",
+    month: "June",
+    year: "2026",
+    title: "June 2026 Newsletter",
+    volume: "Vol. 2026 • Issue 01",
+    coverImage: "/images/student-corner/kautilya-newsletter-cover-june-2026.png",
+    pdfUrl: "/documents/newsletters/Newsletter-June-2026.pdf",
+    fileSize: "5.2 MB",
+    highlights: [
+      "Academic Session Reopening & Welcoming Assemblies",
+      "World Environment Day Tree Planting Drives",
+      "International Yoga Day Demonstrations",
+      "Creative Art & Story-Writing Highlights",
+    ],
+    description:
+      "Welcoming students back for the new academic session, featuring environmental initiatives, yoga celebrations, and first-term creative writings.",
+  },
+  {
     id: "july-2026",
     month: "July",
     year: "2026",
@@ -54,24 +72,6 @@ const EDITIONS: NewsletterEdition[] = [
     ],
     description:
       "Packed with student essays, original poetry, reports from the investiture ceremony, and reflections on leadership and scholastic excellence.",
-  },
-  {
-    id: "june-2026",
-    month: "June",
-    year: "2026",
-    title: "June 2026 Newsletter",
-    volume: "Vol. 2026 • Issue 01",
-    coverImage: "/images/student-corner/kautilya-newsletter-cover-june-2026.png",
-    pdfUrl: "/documents/newsletters/Newsletter-June-2026.pdf",
-    fileSize: "5.2 MB",
-    highlights: [
-      "Academic Session Reopening & Welcoming Assemblies",
-      "World Environment Day Tree Planting Drives",
-      "International Yoga Day Demonstrations",
-      "Creative Art & Story-Writing Highlights",
-    ],
-    description:
-      "Welcoming students back for the new academic session, featuring environmental initiatives, yoga celebrations, and first-term creative writings.",
   },
 ];
 
