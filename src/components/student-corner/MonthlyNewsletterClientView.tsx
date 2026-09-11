@@ -2,15 +2,13 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppWidget from "@/components/ui/WhatsAppWidget";
 import AdmissionModal from "@/components/ui/AdmissionModal";
 import InnerPageHero from "@/components/ui/InnerPageHero";
 import {
-  ChevronRight,
   Download,
   FileText,
   Calendar,
@@ -19,7 +17,6 @@ import {
   X,
   BookOpen,
   PenTool,
-  CheckCircle2,
   ArrowUpRight,
   ExternalLink,
 } from "lucide-react";
@@ -143,131 +140,93 @@ export default function MonthlyNewsletterClientView() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+          <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {EDITIONS.map((edition, idx) => (
               <motion.div
                 key={edition.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
               >
-                <div className="space-y-6">
-                  {/* Top Header: Badge & Date */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                      <span className="text-xs font-black uppercase tracking-wider text-slate-700">
-                        {edition.volume}
-                      </span>
-                    </div>
+                <div>
+                  {/* Month Badge */}
+                  <div className="flex items-center justify-between mb-4">
                     <span className="text-xs font-bold text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-100 flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5" />
+                      <Calendar className="w-3.5 h-3.5 text-blue-600" />
                       <span>
                         {edition.month} {edition.year}
                       </span>
                     </span>
                   </div>
 
-                  {/* Main Display: Cover Image & Description */}
-                  <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
-                    {/* Cover Preview */}
-                    <div
-                      className="sm:col-span-5 relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-slate-100 shadow-md cursor-pointer group border border-slate-200"
-                      onClick={() => {
-                        if (edition.flipbookUrl) {
-                          window.open(edition.flipbookUrl, "_blank", "noopener,noreferrer");
-                        } else {
-                          setLightboxImage({
-                            src: edition.coverImage,
-                            title: edition.title,
-                            month: `${edition.month} ${edition.year}`,
-                          });
-                        }
-                      }}
-                    >
-                      <Image
-                        src={edition.coverImage}
-                        alt={`${edition.title} Cover`}
-                        fill
-                        sizes="(max-width: 640px) 100vw, 30vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span className="bg-white/95 text-[#001744] text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow">
-                          {edition.flipbookUrl ? (
-                            <>
-                              <ExternalLink className="w-3.5 h-3.5 text-blue-600" />
-                              <span>Open Flipbook</span>
-                            </>
-                          ) : (
-                            <>
-                              <Maximize2 className="w-3.5 h-3.5" />
-                              <span>Inspect Cover</span>
-                            </>
-                          )}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content & Key Highlights */}
-                    <div className="sm:col-span-7 space-y-4">
-                      <h3 className="text-xl sm:text-2xl font-black text-[#001744] tracking-tight">
-                        {edition.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        {edition.description}
-                      </p>
-
-                      <div className="space-y-2 pt-1">
-                        <p className="text-xs font-black uppercase tracking-wider text-slate-500">
-                          Inside this edition:
-                        </p>
-                        <ul className="space-y-1.5">
-                          {edition.highlights.map((h, hIdx) => (
-                            <li
-                              key={hIdx}
-                              className="text-xs text-slate-700 flex items-start gap-2"
-                            >
-                              <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
-                              <span>{h}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                  {/* Thumbnail Preview */}
+                  <div
+                    className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-slate-100 shadow-sm cursor-pointer border border-slate-200 group-hover:border-blue-300 transition-all"
+                    onClick={() => {
+                      if (edition.flipbookUrl) {
+                        window.open(edition.flipbookUrl, "_blank", "noopener,noreferrer");
+                      } else {
+                        setLightboxImage({
+                          src: edition.coverImage,
+                          title: edition.title,
+                          month: `${edition.month} ${edition.year}`,
+                        });
+                      }
+                    }}
+                  >
+                    <Image
+                      src={edition.coverImage}
+                      alt={`${edition.title} Cover`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 380px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="bg-white/95 text-[#001744] text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow">
+                        {edition.flipbookUrl ? (
+                          <>
+                            <ExternalLink className="w-3.5 h-3.5 text-blue-600" />
+                            <span>Open Flipbook</span>
+                          </>
+                        ) : (
+                          <>
+                            <Maximize2 className="w-3.5 h-3.5 text-blue-600" />
+                            <span>Inspect Cover</span>
+                          </>
+                        )}
+                      </span>
                     </div>
                   </div>
+
+                  {/* Title */}
+                  <h3 className="text-lg sm:text-xl font-black text-[#001744] tracking-tight mt-4">
+                    {edition.title}
+                  </h3>
                 </div>
 
-                {/* Actions Footer */}
-                <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <span className="text-xs font-mono font-medium text-slate-500 whitespace-nowrap">
-                    PDF Document • {edition.fileSize}
-                  </span>
-                  <div className="flex items-center gap-2.5 w-full sm:w-auto">
-                    {/* Read Button */}
-                    <a
-                      href={edition.flipbookUrl || edition.pdfUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white border border-blue-200 hover:border-blue-600 font-bold text-xs px-4 py-2.5 rounded-xl transition-all shadow-sm"
-                    >
-                      <BookOpen className="w-3.5 h-3.5" />
-                      <span>{edition.flipbookUrl ? "View Flipbook" : "View Online"}</span>
-                      {edition.flipbookUrl && <ExternalLink className="w-3 h-3 opacity-70" />}
-                    </a>
+                {/* 2 Action Links */}
+                <div className="mt-5 pt-4 border-t border-slate-100 grid grid-cols-2 gap-2.5">
+                  <a
+                    href={edition.flipbookUrl || edition.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white border border-blue-200 hover:border-blue-600 font-bold text-xs px-3 py-2.5 rounded-xl transition-all shadow-sm"
+                  >
+                    <BookOpen className="w-3.5 h-3.5" />
+                    <span>{edition.flipbookUrl ? "View Flipbook" : "View Online"}</span>
+                    {edition.flipbookUrl && <ExternalLink className="w-3 h-3 opacity-70" />}
+                  </a>
 
-                    {/* Download PDF Button */}
-                    <a
-                      href={edition.pdfUrl}
-                      download={`${edition.title.replace(/\s+/g, "-")}.pdf`}
-                      className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-black text-xs px-5 py-2.5 rounded-xl transition-all shadow-sm"
-                    >
-                      <Download className="w-3.5 h-3.5" />
-                      <span>Download PDF</span>
-                    </a>
-                  </div>
+                  <a
+                    href={edition.pdfUrl}
+                    download={`${edition.title.replace(/\s+/g, "-")}.pdf`}
+                    className="inline-flex items-center justify-center gap-1.5 bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-black text-xs px-3 py-2.5 rounded-xl transition-all shadow-sm"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>Download PDF</span>
+                  </a>
                 </div>
               </motion.div>
             ))}
