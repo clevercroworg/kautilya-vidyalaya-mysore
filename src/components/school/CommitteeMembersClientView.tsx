@@ -59,25 +59,30 @@ export default function CommitteeMembersClientView() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">
             {/* Mr. T. Babu */}
-            <div className="bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100 hover:shadow-lg transition-all relative overflow-hidden flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md shrink-0 bg-slate-100">
+                <div className="flex items-center gap-5 sm:gap-6">
+                  <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md shrink-0 bg-slate-100">
                     <Image
                       src="/images/committee/t-babu.jpg"
                       alt="Mr. T. Babu - Chairman"
                       fill
+                      sizes="(max-width: 640px) 112px, 128px"
                       className="object-cover object-top"
+                      priority
                     />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-extrabold text-[#001744]">Mr. T. Babu</h3>
-                    <p className="text-sm font-bold text-blue-600">Chairman</p>
+                  <div className="space-y-1">
+                    <span className="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-md">
+                      Leadership
+                    </span>
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[#001744]">Mr. T. Babu</h3>
+                    <p className="text-base font-bold text-blue-600">Chairman</p>
                   </div>
                 </div>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed pt-2">
                   Visionary founder providing strategic leadership, ensuring our educational mission remains grounded in service, ethical stewardship, and academic excellence.
                 </p>
               </div>
@@ -88,23 +93,28 @@ export default function CommitteeMembersClientView() {
             </div>
 
             {/* Ms. Neethu Babu */}
-            <div className="bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100 hover:shadow-lg transition-all relative overflow-hidden flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md shrink-0 bg-slate-100">
+                <div className="flex items-center gap-5 sm:gap-6">
+                  <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md shrink-0 bg-slate-100">
                     <Image
                       src="/images/committee/neethu-babu.jpg"
                       alt="Ms. Neethu Babu - Trustee"
                       fill
+                      sizes="(max-width: 640px) 112px, 128px"
                       className="object-cover object-top"
+                      priority
                     />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-extrabold text-[#001744]">Ms. Neethu Babu</h3>
-                    <p className="text-sm font-bold text-amber-700">Trustee</p>
+                  <div className="space-y-1">
+                    <span className="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-md">
+                      Governance
+                    </span>
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[#001744]">Ms. Neethu Babu</h3>
+                    <p className="text-base font-bold text-amber-700">Trustee</p>
                   </div>
                 </div>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed pt-2">
                   Steering institutional development, curriculum enrichment, and student welfare initiatives to foster an inclusive, supportive learning atmosphere.
                 </p>
               </div>
@@ -133,18 +143,19 @@ export default function CommitteeMembersClientView() {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Dr. Prakash M S */}
-              <div className="bg-slate-50/70 rounded-2xl p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div className="bg-slate-50/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all">
                 <div className="space-y-4">
-                  <div className="flex items-start justify-between">
-                    <div className="relative w-20 h-24 rounded-xl overflow-hidden border-2 border-slate-200 shadow-sm shrink-0 bg-slate-100">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md shrink-0 bg-slate-100">
                       <Image
                         src="/images/committee/prakash-ms.jpg"
                         alt="Dr. Prakash M S"
                         fill
+                        sizes="(max-width: 640px) 112px, 128px"
                         className="object-cover object-top"
                       />
                     </div>
-                    <span className="bg-blue-100/80 text-blue-800 text-[11px] font-extrabold px-2.5 py-1 rounded-full">
+                    <span className="bg-blue-100/80 text-blue-800 text-[11px] font-extrabold px-3 py-1 rounded-full shrink-0">
                       50+ Yrs Exp
                     </span>
                   </div>
@@ -178,18 +189,19 @@ export default function CommitteeMembersClientView() {
               </div>
 
               {/* Dr. K N Subramanya */}
-              <div className="bg-slate-50/70 rounded-2xl p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div className="bg-slate-50/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all">
                 <div className="space-y-4">
-                  <div className="flex items-start justify-between">
-                    <div className="relative w-20 h-24 rounded-xl overflow-hidden border-2 border-slate-200 shadow-sm shrink-0 bg-slate-100">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md shrink-0 bg-slate-100">
                       <Image
                         src="/images/committee/kn-subramanya.png"
                         alt="Dr. K. N. Subramanya"
                         fill
+                        sizes="(max-width: 640px) 112px, 128px"
                         className="object-cover object-top"
                       />
                     </div>
-                    <span className="bg-purple-100/80 text-purple-800 text-[11px] font-extrabold px-2.5 py-1 rounded-full">
+                    <span className="bg-purple-100/80 text-purple-800 text-[11px] font-extrabold px-3 py-1 rounded-full shrink-0">
                       Engineering & Research
                     </span>
                   </div>
@@ -222,18 +234,19 @@ export default function CommitteeMembersClientView() {
               </div>
 
               {/* Dr. Naveen S */}
-              <div className="bg-slate-50/70 rounded-2xl p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div className="bg-slate-50/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all">
                 <div className="space-y-4">
-                  <div className="flex items-start justify-between">
-                    <div className="relative w-20 h-24 rounded-xl overflow-hidden border-2 border-slate-200 shadow-sm shrink-0 bg-slate-100">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md shrink-0 bg-slate-100">
                       <Image
                         src="/images/committee/naveen-s.jpg"
                         alt="Dr. Naveen S"
                         fill
+                        sizes="(max-width: 640px) 112px, 128px"
                         className="object-cover object-top"
                       />
                     </div>
-                    <span className="bg-emerald-100/80 text-emerald-800 text-[11px] font-extrabold px-2.5 py-1 rounded-full">
+                    <span className="bg-emerald-100/80 text-emerald-800 text-[11px] font-extrabold px-3 py-1 rounded-full shrink-0">
                       Medical Leadership
                     </span>
                   </div>

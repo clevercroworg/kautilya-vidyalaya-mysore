@@ -448,15 +448,10 @@ export default function CoCurricularClientView() {
                         <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 text-white p-1.5 rounded-lg backdrop-blur-sm">
                           <Maximize2 className="w-3.5 h-3.5 text-[#FFD907]" />
                         </div>
-
-                        {/* Floating Icon in bottom corner of image */}
-                        <div className="absolute -bottom-4 right-4 z-10 w-10 h-10 rounded-xl bg-[#001744] text-[#FFD907] flex items-center justify-center shadow-lg border-2 border-white group-hover:scale-110 transition-transform">
-                          <Icon className="w-5 h-5" />
-                        </div>
                       </div>
 
                       {/* Content Section */}
-                      <div className="p-5 pt-6 flex-1 flex flex-col justify-between relative z-10">
+                      <div className="p-5 flex-1 flex flex-col justify-between relative z-10">
                         <div>
                           <h3 className="text-base sm:text-lg font-bold text-[#001744] group-hover:text-blue-900 transition-colors">
                             {item.name}
