@@ -451,25 +451,12 @@ export default function CoCurricularClientView() {
                       </div>
 
                       {/* Content Section */}
-                      <div className="p-5 flex-1 flex flex-col justify-between relative z-10">
-                        <div>
-                          <h3 className="text-base sm:text-lg font-bold text-[#001744] group-hover:text-blue-900 transition-colors">
-                            {item.name}
-                          </h3>
-                          <p className="text-xs text-slate-600 leading-relaxed mt-2 line-clamp-3">
-                            {item.description}
-                          </p>
-                        </div>
-
-                        <div className="pt-4 mt-4 border-t border-slate-100 flex flex-wrap gap-1.5">
-                          {item.tags.map((tag, tIdx) => (
-                            <span
-                              key={tIdx}
-                              className="text-[10px] font-medium bg-slate-50 text-slate-600 px-2 py-0.5 rounded border border-slate-200/60"
-                            >
-                              {tag}
-                            </span>
-                          ))}
+                      <div className="p-4 sm:p-5 flex items-center justify-between relative z-10 bg-white">
+                        <h3 className="text-base sm:text-lg font-bold text-[#001744] group-hover:text-blue-900 transition-colors">
+                          {item.name}
+                        </h3>
+                        <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-[#001744] group-hover:text-[#FFD907] transition-all shrink-0 ml-3">
+                          <Maximize2 className="w-4 h-4" />
                         </div>
                       </div>
                     </motion.div>
