@@ -29,7 +29,7 @@ export default function AdmissionOpenBanner({
         <FadeUp delay={0.1}>
           <div className="inline-flex items-center gap-2 bg-[#FFD907] text-[#001744] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-5 shadow-lg">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Academic Year 2026-27</span>
+            <span>Academic Year 2027-28</span>
           </div>
         </FadeUp>
 
@@ -43,7 +43,7 @@ export default function AdmissionOpenBanner({
 
         <FadeUp delay={0.3}>
           <p className="text-xl sm:text-2xl text-slate-200 font-medium mb-8">
-            Open Registration for 2026-27
+            Open Registration for 2027-28
           </p>
         </FadeUp>
 

@@ -40,10 +40,6 @@ const CLASS_OPTIONS = [
   "Grade 8",
   "Grade 9",
   "Grade 10",
-  "I PUC Science",
-  "II PUC Science",
-  "I PUC Commerce",
-  "II PUC Commerce",
 ];
 
 export default function ContactUsClientView() {
@@ -230,11 +226,11 @@ export default function ContactUsClientView() {
                 <div className="mt-3 space-y-1.5 text-xs sm:text-sm">
                   <div>
                     <span className="font-bold text-slate-800">Mon – Fri:</span>{" "}
-                    <span className="text-slate-600">8:30 AM – 4:00 PM</span>
+                    <span className="text-slate-600">09:30 AM – 04:30 PM</span>
                   </div>
                   <div>
                     <span className="font-bold text-slate-800">Saturday:</span>{" "}
-                    <span className="text-slate-600">8:30 AM – 1:00 PM</span>
+                    <span className="text-slate-600">09:30 AM – 03:00 PM</span>
                   </div>
                   <div>
                     <span className="font-bold text-rose-600">Sunday:</span>{" "}
@@ -267,7 +263,7 @@ export default function ContactUsClientView() {
                 Send Us a Message
               </h2>
               <p className="text-slate-600 text-sm mt-1 mb-8">
-                Submit your inquiry regarding admissions for 2026-27 or general campus information.
+                Submit your inquiry regarding admissions for 2027-28 or general campus information.
               </p>
 
               {formStatus === "success" ? (

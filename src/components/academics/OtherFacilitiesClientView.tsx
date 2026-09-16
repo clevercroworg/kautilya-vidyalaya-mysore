@@ -233,7 +233,7 @@ export default function OtherFacilitiesClientView() {
               Experience Our Safe, Caring Campus In Person
             </h3>
             <p className="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
-              Admissions open for Academic Year 2026-27 across Pre-KG to Class X &amp; PUC. Schedule a guided tour to inspect our infirmary, daycare, and bus routes.
+              Admissions open for Academic Year 2027-28 across Pre-KG to Grade 10. Schedule a guided tour to inspect our infirmary, daycare, and bus routes.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <a

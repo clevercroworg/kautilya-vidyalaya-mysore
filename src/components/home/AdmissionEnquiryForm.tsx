@@ -64,7 +64,7 @@ export default function AdmissionEnquiryForm() {
           <div className="lg:col-span-5">
             <div className="inline-flex items-center gap-2 bg-[#001744]/5 text-[#001744] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Admissions Open 2026-27</span>
+              <span>Admissions Open 2027-28</span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-black text-[#001744] tracking-tight leading-tight">
@@ -72,7 +72,7 @@ export default function AdmissionEnquiryForm() {
             </h2>
 
             <p className="mt-4 text-slate-600 text-base leading-relaxed">
-              We welcome applications for the academic year 2026-27 from Nursery through Grade 10. Fill out the enquiry form, and our admissions counsellor will reach out to schedule an interactive campus visit.
+              We welcome applications for the academic year 2027-28 from Nursery through Grade 10. Fill out the enquiry form, and our admissions counsellor will reach out to schedule an interactive campus visit.
             </p>
 
             {/* Quick Contact Cards */}

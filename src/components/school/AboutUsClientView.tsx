@@ -63,7 +63,7 @@ export default function AboutUsClientView() {
               className="shrink-0 bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-extrabold px-6 py-3 rounded-xl shadow transition-all hover:shadow-lg text-sm flex items-center gap-2"
             >
               <GraduationCap className="w-4 h-4" />
-              <span>Admissions 2026-27</span>
+              <span>Admissions 2027-28</span>
             </button>
           </div>
         </section>
@@ -255,14 +255,14 @@ export default function AboutUsClientView() {
                 Begin Your Child’s Journey at Kautilya
               </h2>
               <p className="text-slate-300 text-sm sm:text-base">
-                Registrations for Academic Year 2026-27 are now open from Pre-KG to Grade 10 and PUC. We invite you to experience our vibrant campus.
+                Registrations for Academic Year 2027-28 are now open from Pre-KG to Grade 10. We invite you to experience our vibrant campus.
               </p>
               <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
                 <button
                   onClick={() => setIsAdmissionModalOpen(true)}
                   className="bg-[#FFD907] hover:bg-yellow-400 text-[#001744] font-black px-7 py-3 rounded-xl shadow-lg transition-all text-sm"
                 >
-                  Apply for Admission 2026-27
+                  Apply for Admission 2027-28
                 </button>
                 <a
                   href="tel:9900038358"

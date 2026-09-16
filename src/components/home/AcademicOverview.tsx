@@ -52,7 +52,7 @@ export default function AcademicOverview() {
             colorClass="text-[#001744]"
           />
           <ScrollRevealText
-            text="Academic year 2026-27"
+            text="Academic year 2027-28"
             as="h4"
             className="text-xl sm:text-2xl font-bold"
             colorClass="text-slate-700"

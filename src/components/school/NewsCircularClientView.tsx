@@ -123,16 +123,16 @@ const CIRCULARS: CircularItem[] = [
   {
     id: "circ-06",
     refNo: "KV/CIR/2026/001",
-    title: "Admissions Open for Academic Year 2026-27 (Nursery to PUC)",
+    title: "Admissions Open for Academic Year 2027-28 (Nursery to Grade 10)",
     category: "academic",
     categoryLabel: "Admissions Circular",
     date: "January 2026 - Ongoing",
     audience: "Prospective & Existing Parents",
     summary:
-      "Notification of registrations open for Nursery, LKG, UKG, Grades 1 to 10, and I & II PUC (Science and Commerce streams).",
+      "Notification of registrations open for Nursery, LKG, UKG, and Grades 1 to 10.",
     fullDetails: [
-      "Admissions for the upcoming Academic Year 2026-27 are now officially open across all grade bands.",
-      "Parents can submit admission enquiries online or visit the school administrative office between 9:00 AM and 4:30 PM on all working days.",
+      "Admissions for the upcoming Academic Year 2027-28 are now officially open across all grade bands.",
+      "Parents can submit admission enquiries online or visit the school administrative office between 09:30 AM and 04:30 PM (Mon–Fri) and 09:30 AM to 03:00 PM (Sat).",
       "Campus tours, interaction with academic coordinators, and laboratory demonstrations are arranged upon prior registration.",
       "Direct enquiry helpline: +91 9900038358 / +91 7090671299.",
     ],

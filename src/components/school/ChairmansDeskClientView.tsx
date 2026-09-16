@@ -85,7 +85,7 @@ export default function ChairmansDeskClientView() {
                     onClick={() => setIsAdmissionModalOpen(true)}
                     className="w-full bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-bold py-2.5 px-4 rounded-xl text-xs transition-colors shadow"
                   >
-                    Admission Enquiries 2026-27
+                    Admission Enquiries 2027-28
                   </button>
                 </div>
               </div>

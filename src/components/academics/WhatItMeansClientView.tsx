@@ -62,9 +62,9 @@ const STAGES = [
   },
   {
     id: "secondary",
-    label: "Secondary & PUC (Grades 9, 10 & PUC)",
+    label: "Secondary (Grades 9 & 10)",
     title: "Academic Rigor & Future Readiness",
-    desc: "Rigorous CBSE Board preparation paired with career mentoring, competitive exam foundation, and specialized Science & Commerce streams for PUC.",
+    desc: "Rigorous CBSE Board preparation paired with career mentoring, competitive exam foundation, and comprehensive academic excellence.",
     points: [
       "100% CBSE pass track record with consistent school toppers",
       "Advanced laboratory mastery and conceptual problem-solving",
@@ -120,7 +120,7 @@ export default function WhatItMeansClientView() {
               className="shrink-0 bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-black px-6 py-3 rounded-xl shadow transition-all text-sm flex items-center gap-2"
             >
               <GraduationCap className="w-4 h-4" />
-              <span>Enroll for 2026-27</span>
+              <span>Enroll for 2027-28</span>
             </button>
           </motion.div>
         </section>
@@ -364,13 +364,13 @@ export default function WhatItMeansClientView() {
               Discover the Kautilya Advantage
             </h3>
             <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
-              Admissions open for Academic Year 2026-27 from Nursery to Grade 10 and PUC. Give your child the foundation for lifelong success.
+              Admissions open for Academic Year 2027-28 from Nursery to Grade 10. Give your child the foundation for lifelong success.
             </p>
             <button
               onClick={() => setIsAdmissionModalOpen(true)}
               className="bg-[#FFD907] hover:bg-yellow-400 text-[#001744] font-black px-7 py-3 rounded-xl text-sm transition-all shadow-lg"
             >
-              Apply for Admission 2026-27
+              Apply for Admission 2027-28
             </button>
           </div>
         </section>

@@ -32,7 +32,6 @@ interface FacultyMember {
 
 const DEPARTMENTS = [
   { id: "all", label: "All Faculty", count: facultyData.length },
-  { id: "leadership", label: "Leadership" },
   { id: "sciences", label: "Sciences & Math" },
   { id: "languages", label: "Languages" },
   { id: "tech", label: "Computer Science" },
@@ -61,9 +60,6 @@ export default function TeachingFacultyClientView() {
       if (!matchesSearch) return false;
 
       if (selectedDept === "all") return true;
-      if (selectedDept === "leadership") {
-        return faculty.subject.toLowerCase().includes("principal");
-      }
       if (selectedDept === "sciences") {
         return (
           faculty.subject.toLowerCase().includes("math") ||
@@ -152,35 +148,9 @@ export default function TeachingFacultyClientView() {
             icon: Users2,
           }}
           title="Experienced Minds Inspiring Young Hearts"
-          subtitle="Meet our 50+ CBSE-certified educators, subject matter specialists, and nurturing mentors committed to unlocking the fullest potential in every student."
+          subtitle="Meet our dedicated CBSE-certified educators, subject matter specialists, and nurturing mentors committed to unlocking the fullest potential in every student."
           waveFillColor="#f8fafc"
         />
-
-        {/* VICE PRINCIPAL SPOTLIGHT */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-20">
-          <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border-l-8 border-blue-600 border-y border-r border-slate-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#001744] to-blue-700 text-[#FFD907] flex items-center justify-center font-black text-xl shadow">
-                RU
-              </div>
-              <div>
-                <span className="text-xs uppercase font-extrabold tracking-wider text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full">
-                  Academic Leadership
-                </span>
-                <h3 className="text-xl sm:text-2xl font-black text-[#001744] mt-1">
-                  Dr. Ramya Urs S K
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-500 font-semibold">
-                  Vice Principal • <span className="text-slate-700 font-bold">M.Sc., Ph.D, B.Ed</span>
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 text-xs font-semibold text-slate-600 bg-slate-50 px-4 py-2.5 rounded-xl border border-slate-100">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              <span>Academic Supervision & Pedagogical Excellence</span>
-            </div>
-          </div>
-        </section>
 
         {/* CONTROLS: SEARCH, FILTER TABS & VIEW TOGGLE */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">

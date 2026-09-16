@@ -1,306 +1,276 @@
 [
   {
     "sl": "1",
-    "name": "Ramya Urs S K",
-    "qualification": "M.Sc., Ph.D, B.Ed",
-    "subject": "Vice Principal"
-  },
-  {
-    "sl": "2",
     "name": "Asha Chaturvedi B S",
     "qualification": "M.Phil",
     "subject": "Social Studies"
   },
   {
-    "sl": "3",
+    "sl": "2",
     "name": "B S Vani",
     "qualification": "BCA",
     "subject": "French"
   },
   {
-    "sl": "4",
+    "sl": "3",
     "name": "Bhagya Lakshmi C K",
     "qualification": "M.Sc",
     "subject": "Math, General Knowledge  & Value Education"
   },
   {
-    "sl": "5",
+    "sl": "4",
     "name": "Chandrakala N S",
     "qualification": "M.Sc",
     "subject": "Math, General Knowledge"
   },
   {
-    "sl": "6",
+    "sl": "5",
     "name": "Deepika Chinnappa N",
     "qualification": "B.Com",
     "subject": "UKG - Mother Teacher"
   },
   {
-    "sl": "7",
+    "sl": "6",
     "name": "Drakshayani D.",
     "qualification": "MA",
     "subject": "Social Studies, FMM"
   },
   {
-    "sl": "8",
+    "sl": "7",
     "name": "Geetha M A",
     "qualification": "M.Com",
     "subject": "Math"
   },
   {
-    "sl": "9",
+    "sl": "8",
     "name": "Harshitha C",
     "qualification": "M.Sc, B.Ed",
     "subject": "Science"
   },
   {
-    "sl": "10",
+    "sl": "9",
     "name": "Hemamalini R",
     "qualification": "MA",
     "subject": "English, Social"
   },
   {
-    "sl": "11",
+    "sl": "10",
     "name": "J Manikarnika",
     "qualification": "MUSIC",
     "subject": "Music Teacher"
   },
   {
-    "sl": "12",
+    "sl": "11",
     "name": "Jayalakshmi G V",
     "qualification": "B.Sc, B.Ed",
     "subject": "Math"
   },
   {
-    "sl": "13",
+    "sl": "12",
     "name": "Jayaprakash N",
     "qualification": "MA",
     "subject": "Hindi"
   },
   {
-    "sl": "14",
-    "name": "K Ganga Bhavani",
-    "qualification": "BCA, B.Ed",
-    "subject": "English, Computer"
-  },
-  {
-    "sl": "15",
+    "sl": "13",
     "name": "K Sunitha Bai",
     "qualification": "MA, B.Ed",
     "subject": "Hindi"
   },
   {
-    "sl": "16",
+    "sl": "14",
     "name": "Kavya Y N",
     "qualification": "Diploma (E&C), NTC",
     "subject": "Pre KG - Mother Teacher"
   },
   {
-    "sl": "17",
+    "sl": "15",
     "name": "Kiruthiga S",
     "qualification": "M.Sc",
     "subject": "LKG - Mother Techer"
   },
   {
-    "sl": "18",
+    "sl": "16",
     "name": "Krishnaveni T",
     "qualification": "M.Sc ,B.Ed",
     "subject": "Science"
   },
   {
-    "sl": "19",
+    "sl": "17",
     "name": "M G Nagakannika",
     "qualification": "M.Sc",
     "subject": "Math, Value Education"
   },
   {
-    "sl": "20",
+    "sl": "18",
     "name": "Madhushri H",
     "qualification": "MBA",
     "subject": "Computer Science"
   },
   {
-    "sl": "21",
+    "sl": "19",
     "name": "Mahadeva",
     "qualification": "M.P.Ed",
     "subject": "PE Teacher"
   },
   {
-    "sl": "22",
+    "sl": "20",
     "name": "Mallika H C",
     "qualification": "MFA",
     "subject": "ART Teacher"
   },
   {
-    "sl": "23",
-    "name": "Manasa Ajeya Rao",
-    "qualification": "B.Com",
-    "subject": "English, Social & General Knowledge"
-  },
-  {
-    "sl": "24",
+    "sl": "21",
     "name": "Manjula G",
     "qualification": "M.Sc",
     "subject": "Physics"
   },
   {
-    "sl": "25",
+    "sl": "22",
     "name": "Manjushree S",
     "qualification": "M.Sc",
     "subject": "Biology & Chemistry"
   },
   {
-    "sl": "26",
-    "name": "Megha Setty",
-    "qualification": "BE",
-    "subject": "English, Value Education"
-  },
-  {
-    "sl": "27",
+    "sl": "23",
     "name": "Mohamed Ghouse H.D",
     "qualification": "MA, B.Ed",
     "subject": "Kannada"
   },
   {
-    "sl": "28",
+    "sl": "24",
     "name": "Nibedita Chakraborty",
     "qualification": "MA, B.Ed",
     "subject": "English"
   },
   {
-    "sl": "29",
+    "sl": "25",
     "name": "Nina Sabu Teresa",
     "qualification": "M.Sc",
     "subject": "Science"
   },
   {
-    "sl": "30",
-    "name": "Parvathi Shenoy",
-    "qualification": "MCA",
-    "subject": "Computer Science"
-  },
-  {
-    "sl": "31",
+    "sl": "26",
     "name": "Pooja S",
     "qualification": "BVA",
     "subject": "ART Teacher"
   },
   {
-    "sl": "32",
+    "sl": "27",
     "name": "Prashantha Kumara H L",
     "qualification": "BA, B.P.Ed",
     "subject": "PE Teacher"
   },
   {
-    "sl": "33",
+    "sl": "28",
     "name": "Priyanka Shekar",
     "qualification": "M.Sc",
     "subject": "Science"
   },
   {
-    "sl": "34",
+    "sl": "29",
     "name": "Pruthvi Sindhe R",
     "qualification": "B.Sc",
     "subject": "Computer Science"
   },
   {
-    "sl": "35",
+    "sl": "30",
     "name": "Pushpa M.P",
     "qualification": "BA",
     "subject": "Social Studies"
   },
   {
-    "sl": "36",
+    "sl": "31",
     "name": "Rashmi V R",
     "qualification": "BBM, B.P.Ed, M.P.Ed",
     "subject": "PE Teacher"
   },
   {
-    "sl": "37",
+    "sl": "32",
     "name": "Renu",
     "qualification": "MBA",
     "subject": "English, Computer Science"
   },
   {
-    "sl": "38",
+    "sl": "33",
     "name": "Sangeetha K V",
     "qualification": "BA",
     "subject": "UKG - Mother Techer"
   },
   {
-    "sl": "39",
+    "sl": "34",
     "name": "Savitha Kumari D N",
     "qualification": "PUC, YTT",
     "subject": "Yoga Teacher"
   },
   {
-    "sl": "40",
+    "sl": "35",
     "name": "Savitha Raghotham",
     "qualification": "B.Sc, B.Ed",
     "subject": "English"
   },
   {
-    "sl": "41",
+    "sl": "36",
     "name": "Shalini  V",
     "qualification": "MA",
     "subject": "Sanskrit"
   },
   {
-    "sl": "42",
+    "sl": "37",
     "name": "Shifa M",
     "qualification": "MA",
     "subject": "English"
   },
   {
-    "sl": "43",
+    "sl": "38",
     "name": "Shilpa K R",
     "qualification": "B.Com",
     "subject": "LKG - Mother Techer"
   },
   {
-    "sl": "44",
+    "sl": "39",
     "name": "Shobha .B",
     "qualification": "MA, B.Ed",
     "subject": "Kannada"
   },
   {
-    "sl": "45",
+    "sl": "40",
     "name": "Smitha Yogesh",
     "qualification": "M.Com",
     "subject": "English"
   },
   {
-    "sl": "46",
+    "sl": "41",
     "name": "Sushma Varanasi",
     "qualification": "MCA",
     "subject": "Math, General Knowledge"
   },
   {
-    "sl": "47",
+    "sl": "42",
     "name": "Tanuja C S",
     "qualification": "B.Sc, B.Ed",
     "subject": "Math"
   },
   {
-    "sl": "48",
+    "sl": "43",
     "name": "Tungabhadra",
     "qualification": "BA",
     "subject": "Kannada"
   },
   {
-    "sl": "49",
+    "sl": "44",
     "name": "Umesh Kumar S.S",
     "qualification": "M.Sc, B.Ed",
     "subject": "Math"
   },
   {
-    "sl": "50",
+    "sl": "45",
     "name": "Varuni Mohan",
     "qualification": "BA",
     "subject": "Hindi, Sanskrit, Kannada"
   },
   {
-    "sl": "51",
+    "sl": "46",
     "name": "Vinutha C",
     "qualification": "MA",
     "subject": "Kannada"

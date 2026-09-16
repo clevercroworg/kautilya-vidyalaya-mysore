@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -62,12 +63,19 @@ export default function CommitteeMembersClientView() {
             {/* Mr. T. Babu */}
             <div className="bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#001744] flex items-center justify-center font-bold">
-                  <Building className="w-7 h-7 text-[#001744]" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-extrabold text-[#001744]">Mr. T. Babu</h3>
-                  <p className="text-sm font-bold text-blue-600">Chairman</p>
+                <div className="flex items-center gap-4">
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md shrink-0 bg-slate-100">
+                    <Image
+                      src="/images/committee/t-babu.jpg"
+                      alt="Mr. T. Babu - Chairman"
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-extrabold text-[#001744]">Mr. T. Babu</h3>
+                    <p className="text-sm font-bold text-blue-600">Chairman</p>
+                  </div>
                 </div>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   Visionary founder providing strategic leadership, ensuring our educational mission remains grounded in service, ethical stewardship, and academic excellence.
@@ -82,12 +90,19 @@ export default function CommitteeMembersClientView() {
             {/* Ms. Neethu Babu */}
             <div className="bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
-                  <GraduationCap className="w-7 h-7 text-amber-700" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-extrabold text-[#001744]">Ms. Neethu Babu</h3>
-                  <p className="text-sm font-bold text-amber-700">Trustee</p>
+                <div className="flex items-center gap-4">
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md shrink-0 bg-slate-100">
+                    <Image
+                      src="/images/committee/neethu-babu.jpg"
+                      alt="Ms. Neethu Babu - Trustee"
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-extrabold text-[#001744]">Ms. Neethu Babu</h3>
+                    <p className="text-sm font-bold text-amber-700">Trustee</p>
+                  </div>
                 </div>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   Steering institutional development, curriculum enrichment, and student welfare initiatives to foster an inclusive, supportive learning atmosphere.
@@ -121,8 +136,13 @@ export default function CommitteeMembersClientView() {
               <div className="bg-slate-50/70 rounded-2xl p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                 <div className="space-y-4">
                   <div className="flex items-start justify-between">
-                    <div className="w-12 h-12 rounded-xl bg-blue-100 text-[#001744] flex items-center justify-center">
-                      <Stethoscope className="w-6 h-6 text-blue-700" />
+                    <div className="relative w-20 h-24 rounded-xl overflow-hidden border-2 border-slate-200 shadow-sm shrink-0 bg-slate-100">
+                      <Image
+                        src="/images/committee/prakash-ms.jpg"
+                        alt="Dr. Prakash M S"
+                        fill
+                        className="object-cover object-top"
+                      />
                     </div>
                     <span className="bg-blue-100/80 text-blue-800 text-[11px] font-extrabold px-2.5 py-1 rounded-full">
                       50+ Yrs Exp
@@ -161,8 +181,13 @@ export default function CommitteeMembersClientView() {
               <div className="bg-slate-50/70 rounded-2xl p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                 <div className="space-y-4">
                   <div className="flex items-start justify-between">
-                    <div className="w-12 h-12 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center">
-                      <Cpu className="w-6 h-6 text-purple-700" />
+                    <div className="relative w-20 h-24 rounded-xl overflow-hidden border-2 border-slate-200 shadow-sm shrink-0 bg-slate-100">
+                      <Image
+                        src="/images/committee/kn-subramanya.png"
+                        alt="Dr. K. N. Subramanya"
+                        fill
+                        className="object-cover object-top"
+                      />
                     </div>
                     <span className="bg-purple-100/80 text-purple-800 text-[11px] font-extrabold px-2.5 py-1 rounded-full">
                       Engineering & Research
@@ -200,8 +225,13 @@ export default function CommitteeMembersClientView() {
               <div className="bg-slate-50/70 rounded-2xl p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                 <div className="space-y-4">
                   <div className="flex items-start justify-between">
-                    <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
-                      <GraduationCap className="w-6 h-6 text-emerald-700" />
+                    <div className="relative w-20 h-24 rounded-xl overflow-hidden border-2 border-slate-200 shadow-sm shrink-0 bg-slate-100">
+                      <Image
+                        src="/images/committee/naveen-s.jpg"
+                        alt="Dr. Naveen S"
+                        fill
+                        className="object-cover object-top"
+                      />
                     </div>
                     <span className="bg-emerald-100/80 text-emerald-800 text-[11px] font-extrabold px-2.5 py-1 rounded-full">
                       Medical Leadership
@@ -248,7 +278,7 @@ export default function CommitteeMembersClientView() {
               onClick={() => setIsAdmissionModalOpen(true)}
               className="bg-[#FFD907] hover:bg-yellow-400 text-[#001744] font-black px-6 py-3 rounded-xl text-sm transition-colors whitespace-nowrap shadow"
             >
-              Enquire for 2026-27
+              Enquire for 2027-28
             </button>
           </div>
         </section>

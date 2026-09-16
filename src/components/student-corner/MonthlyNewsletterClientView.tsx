@@ -283,7 +283,7 @@ export default function MonthlyNewsletterClientView() {
               Nurture Your Child’s Creative Voice
             </h3>
             <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
-              Admissions open for 2026-27. Empower your child with holistic education, public speaking, and published writing opportunities.
+              Admissions open for 2027-28. Empower your child with holistic education, public speaking, and published writing opportunities.
             </p>
             <button
               onClick={() => setIsAdmissionModalOpen(true)}

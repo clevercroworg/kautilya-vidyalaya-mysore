@@ -88,7 +88,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="border-b border-slate-100 pb-3">
               <span className="text-xs font-bold uppercase tracking-wider text-yellow-600">
-                Academic Year 2026-27
+                Academic Year 2027-28
               </span>
               <h3 className="text-2xl font-black text-[#001744] mt-0.5">
                 Enquiry form for Admission

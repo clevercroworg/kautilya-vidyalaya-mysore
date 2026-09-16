@@ -15,7 +15,7 @@ export const navigationData: {
   topbar: {
     phones: ["9900038358", "+917090671299"],
     admissionLink: {
-      label: "Admission Open 2026-27",
+      label: "Admission Open 2027-28",
       href: "https://kautilya.schoolelement.in/enquiries",
     },
     paymentLink: {
@@ -75,18 +75,18 @@ export const navigationData: {
 };
 
 export const marqueeText =
-  "Admissions for academic year 2026-27 are now open!! Contact us +919900038358, +917090671299 • Empowering young minds with value-based education • CBSE Affiliated • State-of-the-Art Science & Atal Tinkering Labs";
+  "Admissions for academic year 2027-28 are now open!! Contact us +919900038358, +917090671299 • Empowering young minds with value-based education • CBSE Affiliated • State-of-the-Art Science & Atal Tinkering Labs";
 
 export const corePillars = [
   {
-    title: "Academic year 2026-27",
+    title: "Academic year 2027-28",
     subtitle: "Admission Open",
     description:
       "Right education should help the student, not only to develop his capacities, but to understand his own highest interest.",
     image: "/images/kautilya-academic-pillars.jpg",
     cta: "Apply for Admission",
     href: "#admission-enquiry",
-    badge: "Admissions 2026-27",
+    badge: "Admissions 2027-28",
   },
   {
     title: "Balanced Schooling",

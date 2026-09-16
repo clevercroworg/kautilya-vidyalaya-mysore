@@ -17,11 +17,11 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL("https://kautilyavidyalaya.edu.in"),
   title: {
-    default: "Kautilya Vidyalaya | Best CBSE School in Mysore | Admissions 2026-27",
+    default: "Kautilya Vidyalaya | Best CBSE School in Mysore | Admissions 2027-28",
     template: "%s | Kautilya Vidyalaya Mysore",
   },
   description:
-    "Kautilya Vidyalaya is a premier CBSE-affiliated school in Mysore (Dattagalli, Kanakadasa Nagar), offering holistic education from Kindergarten to Grade 10 and PUC. Featuring Atal Tinkering Labs, sports excellence, and 100% CBSE board track record. Admissions open for 2026–27.",
+    "Kautilya Vidyalaya is a premier CBSE-affiliated school in Mysore (Dattagalli, Kanakadasa Nagar), offering holistic education from Kindergarten to Grade 10. Featuring Atal Tinkering Labs, sports excellence, and 100% CBSE board track record. Admissions open for 2027–28.",
   keywords: [
     // Primary School & Region Keywords
     "Best CBSE School in Mysore",
@@ -34,15 +34,14 @@ export const metadata: Metadata = {
     "Best School in Vijayanagar Mysore",
     "CBSE School Ramakrishnanagar Mysuru",
     // Admissions & Academic Search Keywords
-    "School Admissions 2026-27 Mysore",
+    "School Admissions 2027-28 Mysore",
     "CBSE School Admissions Mysore",
     "Best Kindergarten and Pre-Primary Mysore",
     "Best Primary School in Mysore",
     "Top High Schools in Mysore",
-    "PUC Science and Commerce College Mysore",
     "CBSE Affiliation 830193 Karnataka",
     "Schools with Atal Tinkering Lab in Mysore",
-    "Kautilya Vidyalaya Fee Structure 2026-27",
+    "Kautilya Vidyalaya Fee Structure 2027-28",
     "Kautilya Vidyalaya Reviews and Ratings",
   ],
   authors: [{ name: "Kautilya Vidyalaya", url: "https://kautilyavidyalaya.edu.in" }],
@@ -67,9 +66,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Kautilya Vidyalaya | Best CBSE School in Mysore | Admissions 2026-27",
+    title: "Kautilya Vidyalaya | Best CBSE School in Mysore | Admissions 2027-28",
     description:
-      "Experience balanced, value-based schooling in Mysuru. Pre-Primary to Grade 10 & PUC with world-class science labs, Atal Tinkering Lab, and co-curricular excellence.",
+      "Experience balanced, value-based schooling in Mysuru. Pre-Primary to Grade 10 with world-class science labs, Atal Tinkering Lab, and co-curricular excellence.",
     url: "https://kautilyavidyalaya.edu.in",
     siteName: "Kautilya Vidyalaya Mysore",
     images: [
@@ -87,7 +86,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kautilya Vidyalaya | Best CBSE School in Mysore",
     description:
-      "Admissions open for 2026-27. Nurturing future-ready students in Mysuru with holistic CBSE education and state-of-the-art facilities.",
+      "Admissions open for 2027-28. Nurturing future-ready students in Mysuru with holistic CBSE education and state-of-the-art facilities.",
     images: ["/images/kautilya-campus-reception.jpg"],
   },
   robots: {
@@ -116,7 +115,7 @@ const jsonLd = {
       "logo": "https://kautilyavidyalaya.edu.in/images/kautilya-vidyalaya-logo.webp",
       "image": "https://kautilyavidyalaya.edu.in/images/kautilya-campus-reception.jpg",
       "description":
-        "Kautilya Vidyalaya is a premier CBSE affiliated institution in Mysuru, Karnataka, providing value-based education from Kindergarten to Grade 10 and PUC.",
+        "Kautilya Vidyalaya is a premier CBSE affiliated institution in Mysuru, Karnataka, providing value-based education from Kindergarten to Grade 10.",
       "telephone": ["+91-9900038358", "+91-7090671299", "0821-2460266"],
       "email": "admissions@kautilyavidyalaya.edu.in",
       "address": {

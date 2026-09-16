@@ -273,7 +273,7 @@ export default function ResultGraphClientView() {
                     className="bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-bold px-5 py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
                   >
                     <GraduationCap className="w-4 h-4" />
-                    <span>Apply for 2026-27</span>
+                    <span>Apply for 2027-28</span>
                   </button>
                 </div>
               </div>

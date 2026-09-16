@@ -105,39 +105,39 @@ export default function PodcastClientView() {
           waveFillColor="#f8fafc"
         />
 
-        {/* PODCAST QUICK STATS STRIP */}
+        {/* PODCAST PILLARS STRIP */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-            <div className="bg-white p-5 rounded-2xl shadow-lg border border-slate-100 text-center">
-              <p className="text-2xl sm:text-3xl font-black text-[#001744]">
-                {seriesData.totalEpisodes}
-              </p>
-              <p className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider mt-1">
-                Released Episodes
-              </p>
-            </div>
-            <div className="bg-white p-5 rounded-2xl shadow-lg border border-slate-100 text-center">
-              <p className="text-2xl sm:text-3xl font-black text-[#001744]">
-                HD Video
-              </p>
-              <p className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider mt-1">
-                Full Conversations
+            <div className="bg-white p-5 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center text-center group hover:border-[#001744]/20 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-2.5">
+                <Sparkles className="w-5 h-5" />
+              </div>
+              <p className="text-base sm:text-lg font-bold text-[#001744] leading-snug">
+                Stories That Inspire
               </p>
             </div>
-            <div className="bg-white p-5 rounded-2xl shadow-lg border border-slate-100 text-center">
-              <p className="text-2xl sm:text-3xl font-black text-[#001744]">
-                Pedagogy & Health
-              </p>
-              <p className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider mt-1">
-                Expert Focus
+            <div className="bg-white p-5 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center text-center group hover:border-[#001744]/20 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-2.5">
+                <Mic className="w-5 h-5" />
+              </div>
+              <p className="text-base sm:text-lg font-bold text-[#001744] leading-snug">
+                Conversations That Matter
               </p>
             </div>
-            <div className="bg-white p-5 rounded-2xl shadow-lg border border-slate-100 text-center">
-              <p className="text-2xl sm:text-3xl font-black text-[#001744]">
-                100% Free
+            <div className="bg-white p-5 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center text-center group hover:border-[#001744]/20 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-2.5">
+                <Users className="w-5 h-5" />
+              </div>
+              <p className="text-base sm:text-lg font-bold text-[#001744] leading-snug">
+                Insights From Experts
               </p>
-              <p className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider mt-1">
-                On Official YouTube
+            </div>
+            <div className="bg-white p-5 rounded-2xl shadow-lg border border-slate-100 flex flex-col items-center justify-center text-center group hover:border-[#001744]/20 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2.5">
+                <Play className="w-5 h-5" />
+              </div>
+              <p className="text-base sm:text-lg font-bold text-[#001744] leading-snug">
+                Free Access, Anytime
               </p>
             </div>
           </div>

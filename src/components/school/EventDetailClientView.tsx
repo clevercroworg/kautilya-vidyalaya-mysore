@@ -337,7 +337,7 @@ export default function EventDetailClientView({ event }: EventDetailClientViewPr
                     className="w-full flex items-center justify-center gap-2 bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-extrabold py-3 rounded-xl text-xs sm:text-sm shadow-md transition-all active:scale-[0.99]"
                   >
                     <GraduationCap className="w-4 h-4" />
-                    <span>Apply for Admissions 2026-27</span>
+                    <span>Apply for Admissions 2027-28</span>
                   </button>
                 </div>
               </div>

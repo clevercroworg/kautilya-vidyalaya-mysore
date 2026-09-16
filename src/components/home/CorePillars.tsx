@@ -22,7 +22,7 @@ export default function CorePillars() {
             <span>Our Foundation</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#001744] tracking-tight">
-            Academic Year 2026-27
+            Academic Year 2027-28
           </h2>
           <p className="mt-3 text-slate-600 text-base sm:text-lg">
             Empowering students with knowledge, moral values, and 21st-century competence in a nurturing environment.

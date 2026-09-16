@@ -289,7 +289,7 @@ export default function AwardsAchievementsClientView() {
               Every Child Is A Future Champion
             </h3>
             <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
-              Admissions open for 2026-27. Enroll your child in an institution dedicated to academic brilliance, athletic mastery, and character formation.
+              Admissions open for 2027-28. Enroll your child in an institution dedicated to academic brilliance, athletic mastery, and character formation.
             </p>
             <button
               onClick={() => setIsAdmissionModalOpen(true)}

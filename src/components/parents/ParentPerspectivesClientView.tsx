@@ -190,7 +190,7 @@ export default function ParentPerspectivesClientView() {
               Join Our Proud Kautilya Family
             </h3>
             <p className="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
-              Admissions open for 2026-27 across Pre-KG to Class X &amp; PUC. Schedule a personalized campus walkthrough and experience the Kautilya difference firsthand.
+              Admissions open for 2027-28 across Pre-KG to Grade 10. Schedule a personalized campus walkthrough and experience the Kautilya difference firsthand.
             </p>
             <div className="pt-2">
               <button

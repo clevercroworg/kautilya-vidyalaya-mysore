@@ -442,7 +442,7 @@ export default function AlumniForumClientView() {
               Join a Legacy of Lifelong Excellence
             </h3>
             <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
-              Admissions open for 2026-27. Enroll your child in a community that stays with them throughout their life.
+              Admissions open for 2027-28. Enroll your child in a community that stays with them throughout their life.
             </p>
             <button
               onClick={() => setIsAdmissionModalOpen(true)}

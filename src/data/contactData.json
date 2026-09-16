@@ -60,13 +60,13 @@
   "officeHours": [
     {
       "days": "Monday – Friday",
-      "timing": "8:30 AM – 4:00 PM",
+      "timing": "09:30 AM – 04:30 PM",
       "note": "Administrative & Admissions open for visits"
     },
     {
       "days": "Saturday",
-      "timing": "8:30 AM – 1:00 PM",
-      "note": "Office open (Half Day)"
+      "timing": "09:30 AM – 03:00 PM",
+      "note": "Office open"
     },
     {
       "days": "Sunday & Public Holidays",

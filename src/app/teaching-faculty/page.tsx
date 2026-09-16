@@ -4,18 +4,17 @@ import TeachingFacultyClientView from "@/components/school/TeachingFacultyClient
 export const metadata: Metadata = {
   title: "Teaching Faculty | Dedicated Educators - Kautilya Vidyalaya Mysuru",
   description:
-    "Explore the qualified and experienced teaching faculty at Kautilya Vidyalaya, Mysuru. Meet our Vice Principal Dr. Ramya Urs S K and our passionate educators across sciences, humanities, arts, and languages.",
+    "Explore the qualified and experienced teaching faculty at Kautilya Vidyalaya, Mysuru. Meet our passionate educators inspiring excellence across sciences, humanities, arts, and languages.",
   keywords: [
     "Teaching Faculty Kautilya Vidyalaya",
     "School Teachers Mysore",
-    "Vice Principal Ramya Urs",
     "CBSE Qualified Faculty Mysuru",
     "Faculty List Kautilya Vidyalaya",
   ],
   openGraph: {
     title: "Teaching Faculty | Kautilya Vidyalaya, Mysuru",
     description:
-      "Meet our team of 50+ dedicated, CBSE-qualified educators inspiring young minds at Kautilya Vidyalaya.",
+      "Meet our dedicated, CBSE-qualified educators inspiring young minds at Kautilya Vidyalaya.",
     url: "https://kautilyavidyalaya.edu.in/teaching-faculty",
     siteName: "Kautilya Vidyalaya",
     locale: "en_IN",

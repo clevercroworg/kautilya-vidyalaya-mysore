@@ -119,7 +119,7 @@ export default function LifeSkillsClientView() {
               className="shrink-0 bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-black px-6 py-3 rounded-xl shadow transition-all text-sm flex items-center gap-2"
             >
               <GraduationCap className="w-4 h-4" />
-              <span>Admissions 2026-27</span>
+              <span>Admissions 2027-28</span>
             </button>
           </motion.div>
         </section>
@@ -195,13 +195,13 @@ export default function LifeSkillsClientView() {
               Cultivate Confidence & Life Skills Early
             </h3>
             <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
-              Admissions open for Academic Year 2026-27. Join an educational ecosystem that prizes character, integrity, and capability above all.
+              Admissions open for Academic Year 2027-28. Join an educational ecosystem that prizes character, integrity, and capability above all.
             </p>
             <button
               onClick={() => setIsAdmissionModalOpen(true)}
               className="bg-[#FFD907] hover:bg-yellow-400 text-[#001744] font-black px-7 py-3 rounded-xl text-sm transition-all shadow-lg"
             >
-              Enquire for Admission 2026-27
+              Enquire for Admission 2027-28
             </button>
           </div>
         </section>

@@ -127,7 +127,7 @@ export default function Navbar({ onOpenAdmissionModal }: NavbarProps) {
             ))}
           </div>
 
-          {/* Center Column: Open Book + Admission Open 2026-27 (Flex-1 Dead-Center Aligned) */}
+          {/* Center Column: Open Book + Admission Open 2027-28 (Flex-1 Dead-Center Aligned) */}
           <div className="hidden md:flex flex-1 items-center justify-center">
             <Link
               href="https://kautilya.schoolelement.in/enquiries"
@@ -136,7 +136,7 @@ export default function Navbar({ onOpenAdmissionModal }: NavbarProps) {
               className="group inline-flex items-center gap-2 font-bold text-white hover:text-[#FFD907] transition-colors whitespace-nowrap text-xs sm:text-[13px]"
             >
               <BookOpen className="w-4 h-4 text-white/90 group-hover:text-[#FFD907] transition-colors" />
-              <span>Admission Open 2026-27</span>
+              <span>Admission Open 2027-28</span>
             </Link>
           </div>
 
@@ -543,7 +543,7 @@ export default function Navbar({ onOpenAdmissionModal }: NavbarProps) {
                     onClick={() => setMobileMenuOpen(false)}
                     className="w-full flex items-center justify-center gap-2 bg-[#FFD907] text-[#001744] font-black py-2.5 rounded-xl shadow-sm hover:bg-[#ffe338] transition-colors text-xs"
                   >
-                    <span>Online Registration 2026-27</span>
+                    <span>Online Registration 2027-28</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </Link>
                 </motion.div>
