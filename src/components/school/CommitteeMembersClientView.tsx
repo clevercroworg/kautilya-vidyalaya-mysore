@@ -19,6 +19,7 @@ import {
   Building,
   CheckCircle2,
   Sparkles,
+  User,
 } from "lucide-react";
 
 export default function CommitteeMembersClientView() {
@@ -96,15 +97,8 @@ export default function CommitteeMembersClientView() {
             <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100 hover:shadow-lg transition-all relative overflow-hidden flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="flex items-center gap-5 sm:gap-6">
-                  <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md shrink-0 bg-slate-100">
-                    <Image
-                      src="/images/committee/neethu-babu.jpg"
-                      alt="Ms. Neethu Babu - Trustee"
-                      fill
-                      sizes="(max-width: 640px) 112px, 128px"
-                      className="object-cover object-top"
-                      priority
-                    />
+                  <div className="w-28 h-36 sm:w-32 sm:h-40 rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 shadow-inner shrink-0 flex flex-col items-center justify-center text-slate-300">
+                    <User className="w-10 h-10 stroke-[1.5]" />
                   </div>
                   <div className="space-y-1">
                     <span className="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-md">

@@ -64,19 +64,19 @@ const AWARDS_DATA: AwardItem[] = [
     image: "/images/student-corner/kautilya-award-badminton.webp",
     badgeColor: "from-blue-600 to-indigo-700",
     description:
-      "Shuttlers from Kautilya Vidyalaya fought through intense multi-district singles and doubles brackets to bring home championship trophies at the CBSE tournament.",
-    highlights: "Regional CBSE Trophies & Semi-Finalist Laurels",
+      "Congratulations to Ronit Girish (Grade 9) for winning 2nd Prize in the Under-15 category and 3rd Prize in the Under-17 category at the CBSE Inter School Badminton Championship.",
+    highlights: "Ronit Girish — 2nd (U-15) & 3rd (U-17) CBSE Badminton",
   },
   {
     id: "open-karate",
-    title: "Open Karate Championship 2024",
+    title: "South India Open Karate Championship 2024",
     category: "sports",
-    level: "State Martial Arts Meet",
+    level: "South India Martial Arts Meet",
     image: "/images/student-corner/kautilya-award-karate.webp",
     badgeColor: "from-red-600 to-amber-700",
     description:
-      "Disciplined kata precision, defensive kumite sparring, and relentless focus resulting in a medal sweep and advanced belt gradings for Kautilya martial artists.",
-    highlights: "Gold & Silver Medals across Weight Classes",
+      "Cheers to Nishanth M S (Grade 3) for winning First Place in Kumite and Second Place in Kata, Under-9 category, at the South India Open Karate Championship!",
+    highlights: "Nishanth M S — 1st Kumite & 2nd Kata (U-9)",
   },
   {
     id: "cbse-swimming",
@@ -86,8 +86,8 @@ const AWARDS_DATA: AwardItem[] = [
     image: "/images/student-corner/kautilya-award-swimming.webp",
     badgeColor: "from-cyan-600 to-blue-700",
     description:
-      "Mohammed Arman Sameer of Grade 5 represented Kautilya Vidyalaya at the prestigious CBSE South Zone II Aquatics Meet, clocking exceptional lap times against premier swimmers.",
-    highlights: "Mohammed Arman Sameer (Grade 5) Representative",
+      "Mohammed Arman Sameer of Grade 5 won Gold Medal in Under-II category 50m Breaststroke with a timing of 41:46 seconds at PSSEMR School, Davanagere. Arman qualified for CBSE National Swimming Championship 2023.",
+    highlights: "Gold Medal 50m Breaststroke — Qualified CBSE Nationals",
   },
   {
     id: "roller-skating",
@@ -97,8 +97,8 @@ const AWARDS_DATA: AwardItem[] = [
     image: "/images/student-corner/kautilya-award-skating.webp",
     badgeColor: "from-violet-600 to-purple-700",
     description:
-      "Dominating the rink with lightning agility and technical balance, our speed skaters claimed top podium honors across multiple age brackets in Mysuru.",
-    highlights: "District Speed Skating Champions & Medallists",
+      "Congratulations to Nyjasiri on winning the Silver medal and Pratham for Bronze at the Mysuru District Roller Skating Championship. Their hard work and dedication have paid off!",
+    highlights: "Nyjasiri (Silver) & Pratham (Bronze) — District Skating",
   },
   {
     id: "dynamic-school-award",
@@ -116,7 +116,7 @@ const AWARDS_DATA: AwardItem[] = [
     title: "Wipro Earthian School Award for Sustainability",
     category: "institutional",
     level: "National Environmental Recognition",
-    image: "/images/kautilya-sports-excellence.jpg",
+    image: "/images/kautilya-campus-building.jpg",
     badgeColor: "from-emerald-600 to-teal-800",
     description:
       "National recognition for student-led environmental conservation, campus rainwater harvesting systems, waste management, and biodiversity documentation.",

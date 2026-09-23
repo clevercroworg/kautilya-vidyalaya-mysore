@@ -7,6 +7,7 @@ import { ScrollRevealText, FadeUp } from "@/components/ui/MotionPrimitives";
 export default function GetInTouchSection() {
   const [formData, setFormData] = useState({
     name: "",
+    phone: "",
     email: "",
     message: "",
   });
@@ -47,12 +48,12 @@ export default function GetInTouchSection() {
                   <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
                   <h4 className="text-lg font-bold text-emerald-900">Message Received</h4>
                   <p className="text-xs text-emerald-700">
-                    Thank you! Our office staff will respond to your email shortly.
+                    Thank you! Our office staff will respond to your inquiry shortly.
                   </p>
                   <button
                     onClick={() => {
                       setSubmitted(false);
-                      setFormData({ name: "", email: "", message: "" });
+                      setFormData({ name: "", phone: "", email: "", message: "" });
                     }}
                     className="text-xs font-bold text-emerald-800 underline"
                   >
@@ -65,7 +66,7 @@ export default function GetInTouchSection() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                          Full name
+                          Full Name <span className="text-rose-500">*</span>
                         </label>
                         <input
                           type="text"
@@ -80,16 +81,16 @@ export default function GetInTouchSection() {
                       </div>
                       <div>
                         <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                          Email address*
+                          Contact Number <span className="text-rose-500">*</span>
                         </label>
                         <input
-                          type="email"
+                          type="tel"
                           required
-                          value={formData.email}
+                          value={formData.phone}
                           onChange={(e) =>
-                            setFormData({ ...formData, email: e.target.value })
+                            setFormData({ ...formData, phone: e.target.value })
                           }
-                          placeholder="Your email address"
+                          placeholder="+91 99000 XXXXX"
                           className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#001744] text-sm bg-slate-50/50"
                         />
                       </div>
@@ -97,7 +98,23 @@ export default function GetInTouchSection() {
 
                     <div>
                       <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                        Write your message below
+                        Email Address <span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
+                        placeholder="Your email address"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#001744] text-sm bg-slate-50/50"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                        Write Your Message Below <span className="text-rose-500">*</span>
                       </label>
                       <textarea
                         rows={4}

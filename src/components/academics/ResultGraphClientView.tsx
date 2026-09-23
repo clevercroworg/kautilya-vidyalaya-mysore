@@ -34,36 +34,62 @@ interface ResultYear {
 
 const RESULT_YEARS: ResultYear[] = [
   {
-    id: "2024",
-    yearLabel: "2024 - 2025",
-    academicSession: "CBSE Class X & Board Examinations 2024-25",
-    image: "/images/results/kautilya-cbse-result-2024.png",
-    title: "CBSE Class X Outstanding Performance 2024-25",
+    id: "2025-26",
+    yearLabel: "2025 - 2026",
+    academicSession: "CBSE Class X Board Examinations 2025-26",
+    image: "/images/results/kautilya-cbse-result-2025-26.png",
+    title: "CBSE Class X Outstanding Performance 2025-26",
     highlights: [
       "100% Pass Percentage maintained across all candidates",
-      "Outstanding distinctions with top scores exceeding 97%",
-      "Subject centums in Mathematics, Social Science & Languages",
+      "School Topper Yashvi Thakur securing 96.8% aggregate",
+      "Top distinctions: Shashank Keshav Rao (96%), Mannashwini GB (96%), Apoorva M (96.2%)",
+      "Subject centums and high distinction rates across all academic divisions",
+    ],
+  },
+  {
+    id: "2024-25",
+    yearLabel: "2024 - 2025",
+    academicSession: "CBSE Class X Board Examinations 2024-25",
+    image: "/images/results/kautilya-cbse-result-2024-25.jpeg",
+    title: "CBSE Class X Outstanding Performance 2024-25",
+    highlights: [
+      "100% Pass Percentage with stellar district distinctions",
+      "School Topper Advaith Subramanian securing 98.0% aggregate",
+      "Tanvi Chetan Patel securing 96.2% and Lakshmi Ravi securing 95.6%",
       "Over 75% of students securing First Class with Distinction",
     ],
   },
   {
-    id: "2023",
+    id: "2023-24",
     yearLabel: "2023 - 2024",
     academicSession: "CBSE Class X Annual Board Results 2023-24",
-    image: "/images/results/kautilya-cbse-result-2023.jpeg",
+    image: "/images/results/kautilya-cbse-result-2023-24.jpeg",
     title: "CBSE Class X Merit & Distinction Roster 2023-24",
     highlights: [
-      "Flawless 100% result record unbroken",
-      "School toppers felicitated with institutional academic scholarships",
-      "Exceptional aggregate performance in Science and Mathematics",
+      "Flawless 100% result record unbroken across all batches",
+      "School Topper Prachet Jaishankar securing 96.40%",
+      "Tadikonda Usha Shraddha securing 96.20% and Shreyas G Vashis securing 95.60%",
       "Zero failures or compartments in CBSE assessments",
     ],
   },
   {
-    id: "2021",
+    id: "2022-23",
+    yearLabel: "2022 - 2023",
+    academicSession: "CBSE Class X Board Examinations 2022-23",
+    image: "/images/results/kautilya-cbse-result-2022-23.jpeg",
+    title: "CBSE Class X Merit & Distinction Roster 2022-23",
+    highlights: [
+      "100% Result in CBSE Class X Board Examinations",
+      "School Toppers: Siri Bhimarao Patil (96.80%) & Samrudhi M S (96.00%)",
+      "Top scorers: Aishwarya S (95.40%), Pavan Jayaprakash Bharadwaj (94.40%)",
+      "High distinction aggregates across all core subjects",
+    ],
+  },
+  {
+    id: "2021-22",
     yearLabel: "2021 - 2022",
     academicSession: "CBSE Class X Board Results 2021-22",
-    image: "/images/results/kautilya-cbse-result-2021.webp",
+    image: "/images/results/kautilya-cbse-result-2021-22.webp",
     title: "CBSE Class X Board Examination Roster 2021-22",
     highlights: [
       "100% success rate under revised CBSE evaluation scheme",
@@ -72,10 +98,10 @@ const RESULT_YEARS: ResultYear[] = [
     ],
   },
   {
-    id: "2020",
+    id: "2020-21",
     yearLabel: "2020 - 2021",
     academicSession: "CBSE Class X Board Results 2020-21",
-    image: "/images/results/kautilya-cbse-result-2020.webp",
+    image: "/images/results/kautilya-cbse-result-2020-21.webp",
     title: "CBSE Class X Examination Graph 2020-21",
     highlights: [
       "Consistent academic resilience during remote & blended learning",
@@ -83,10 +109,10 @@ const RESULT_YEARS: ResultYear[] = [
     ],
   },
   {
-    id: "2019",
+    id: "2019-20",
     yearLabel: "2019 - 2020",
     academicSession: "CBSE Class X Board Results 2019-20",
-    image: "/images/results/kautilya-cbse-result-2019.webp",
+    image: "/images/results/kautilya-cbse-result-2019-20.webp",
     title: "CBSE Class X Examination Graph 2019-20",
     highlights: [
       "Continued tradition of 100% pass percentages in Mysuru district",
@@ -97,7 +123,7 @@ const RESULT_YEARS: ResultYear[] = [
 
 export default function ResultGraphClientView() {
   const [isAdmissionModalOpen, setIsAdmissionModalOpen] = useState(false);
-  const [selectedYearId, setSelectedYearId] = useState("2024");
+  const [selectedYearId, setSelectedYearId] = useState("2025-26");
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   const activeYear = RESULT_YEARS.find((y) => y.id === selectedYearId) || RESULT_YEARS[0];
@@ -118,8 +144,8 @@ export default function ResultGraphClientView() {
             text: "Academic Record & Board Distinctions",
             icon: BarChart3,
           }}
-          title="Consistent 100% CBSE Board Examination Results"
-          subtitle="Year after year, Kautilya Vidyalaya maintains a stellar track record of 100% pass percentages, top state percentiles, and subject centums in CBSE Class X assessments."
+          title="100% Results from 21 Years"
+          subtitle="Year after year, Kautilya Vidyalaya maintains a stellar track record of unbroken 100% pass percentages, top state percentiles, and subject centums in CBSE Class X assessments for over 21 consecutive years."
           waveFillColor="#f8fafc"
         />
 
@@ -134,7 +160,7 @@ export default function ResultGraphClientView() {
             >
               <span className="text-3xl sm:text-4xl font-black text-[#001744]">100%</span>
               <p className="text-xs sm:text-sm font-bold text-slate-500 mt-1">Pass Percentage</p>
-              <p className="text-[11px] text-emerald-600 font-semibold mt-0.5">Consecutive Years</p>
+              <p className="text-[11px] text-emerald-600 font-semibold mt-0.5">21 Consecutive Years</p>
             </motion.div>
 
             <motion.div

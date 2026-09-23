@@ -3,36 +3,42 @@
     "id": "perspective-1",
     "parentName": "Arundhathi",
     "relation": "Mother of Charvie Sathish (Grade 9) & Lahari Sathish (LKG)",
-    "youtubeId": "998Wv4kMBzs"
+    "youtubeId": "998Wv4kMBzs",
+    "thumbnail": "/images/parents/arundhathi.png"
   },
   {
     "id": "perspective-2",
     "parentName": "Sushma Sharath",
     "relation": "Mother of Saanvi H.S. Iyengar (Grade 4)",
-    "youtubeId": "4WGl9OJebrU"
+    "youtubeId": "4WGl9OJebrU",
+    "thumbnail": "/images/parents/sushma-sharath.png"
   },
   {
     "id": "perspective-3",
     "parentName": "Dr. Bharath Garla & Dr. Prathibha",
     "relation": "Parents of Darsh Garla (Grade 7)",
-    "youtubeId": "L313O-6wYAs"
+    "youtubeId": "L313O-6wYAs",
+    "thumbnail": "/images/parents/dr-bharath-garla.png"
   },
   {
     "id": "perspective-4",
     "parentName": "RJ Avinash (92.7 Big FM)",
     "relation": "Father of Nischal Bharadwaj (Grade 6)",
-    "youtubeId": "TfAZvpejvkw"
+    "youtubeId": "TfAZvpejvkw",
+    "thumbnail": "/images/parents/rj-avinash.png"
   },
   {
     "id": "perspective-5",
     "parentName": "Yogitha Vikas",
     "relation": "Proud Parent of Nirmita & Vihan Vikas",
-    "youtubeId": "JvbQ6Wy0QdA"
+    "youtubeId": "JvbQ6Wy0QdA",
+    "thumbnail": "/images/parents/yogitha-vikas.png"
   },
   {
     "id": "perspective-6",
     "parentName": "Mr. Sharath Narasimhan & Chaitra R. Soni",
     "relation": "Proud Parents of Kruthvik Sharath (Grade 3) & Krishvi Sharath",
-    "youtubeId": "hAyBwUDYtHE"
+    "youtubeId": "hAyBwUDYtHE",
+    "thumbnail": "/images/parents/sharath-narasimhan-chaitra.jpeg"
   }
 ]
