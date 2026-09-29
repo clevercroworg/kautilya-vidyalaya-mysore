@@ -24,12 +24,13 @@ export default function VirtualTour() {
 
         {/* 360 Iframe Viewer with smooth fade-up */}
         <FadeUp delay={0.35}>
-          <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-200 aspect-[16/10] sm:aspect-[16/9] bg-slate-950">
+          <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-200 aspect-[16/10] sm:aspect-[16/9] bg-slate-950 relative">
             <iframe
               loading="lazy"
-              src="/360/"
+              src="https://www.turiya.co/360/Kautilya/"
               title="Kautilya Vidyalaya Virtual Tour"
               className="w-full h-full border-0"
+              allow="accelerometer; magnetometer; gyroscope; fullscreen; xr-spatial-tracking"
               allowFullScreen
             />
           </div>
