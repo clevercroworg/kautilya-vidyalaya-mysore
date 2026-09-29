@@ -15,6 +15,22 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/360",
+        destination: "https://www.turiya.co/360/Kautilya/",
+      },
+      {
+        source: "/360/",
+        destination: "https://www.turiya.co/360/Kautilya/",
+      },
+      {
+        source: "/360/:path*",
+        destination: "https://www.turiya.co/360/Kautilya/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

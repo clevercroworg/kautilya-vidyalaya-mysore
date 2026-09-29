@@ -27,7 +27,7 @@ export default function VirtualTour() {
           <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-200 aspect-[16/10] sm:aspect-[16/9] bg-slate-950">
             <iframe
               loading="lazy"
-              src="https://kautilyavidyalaya.edu.in/360/"
+              src="/360/"
               title="Kautilya Vidyalaya Virtual Tour"
               className="w-full h-full border-0"
               allowFullScreen
