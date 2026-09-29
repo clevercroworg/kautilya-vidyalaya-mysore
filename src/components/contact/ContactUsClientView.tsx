@@ -55,7 +55,7 @@ export default function ContactUsClientView() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.parentName || !formData.phone || !formData.email) {
       alert("Please fill in required fields (Parent Name, Phone, and Email).");
@@ -64,10 +64,25 @@ export default function ContactUsClientView() {
 
     setFormStatus("submitting");
 
-    // Simulate reliable dispatch
-    setTimeout(() => {
-      setFormStatus("success");
-    }, 800);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          source: "Contact Us Page",
+        }),
+      });
+
+      if (res.ok) {
+        setFormStatus("success");
+      } else {
+        setFormStatus("error");
+      }
+    } catch (err) {
+      console.error("Form submission error:", err);
+      setFormStatus("error");
+    }
   };
 
   const handleReset = () => {

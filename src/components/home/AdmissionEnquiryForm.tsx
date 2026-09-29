@@ -43,14 +43,25 @@ export default function AdmissionEnquiryForm() {
     "Grade 10",
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate submission
-    setTimeout(() => {
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          source: "Homepage Admission Enquiry",
+        }),
+      });
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 1000);
+    } catch (err) {
+      console.error("Submission failed:", err);
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   return (

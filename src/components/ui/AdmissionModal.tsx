@@ -40,13 +40,25 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
     "Grade 10",
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          source: "Enquire Now Popup Modal",
+        }),
+      });
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 800);
+    } catch (err) {
+      console.error("Submission failed:", err);
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   return (
