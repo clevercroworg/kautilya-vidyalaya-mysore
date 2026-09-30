@@ -81,6 +81,10 @@ export default function TeachingFacultyClientView() {
       if (selectedDept === "tech") {
         return (
           faculty.subject.toLowerCase().includes("computer") ||
+          faculty.subject.toLowerCase().includes("ict") ||
+          faculty.subject.toLowerCase().includes("ai") ||
+          faculty.subject.toLowerCase().includes("robotics") ||
+          faculty.subject.toLowerCase().includes("it") ||
           faculty.qualification.toLowerCase().includes("mca") ||
           faculty.qualification.toLowerCase().includes("bca")
         );
@@ -89,7 +93,8 @@ export default function TeachingFacultyClientView() {
         return (
           faculty.subject.toLowerCase().includes("social") ||
           faculty.subject.toLowerCase().includes("fmm") ||
-          faculty.subject.toLowerCase().includes("commerce")
+          faculty.subject.toLowerCase().includes("commerce") ||
+          faculty.subject.toLowerCase().includes("library")
         );
       }
       if (selectedDept === "arts") {
@@ -102,11 +107,19 @@ export default function TeachingFacultyClientView() {
       if (selectedDept === "pe") {
         return (
           faculty.subject.toLowerCase().includes("pe") ||
-          faculty.qualification.toLowerCase().includes("p.ed")
+          faculty.subject.toLowerCase().includes("physical") ||
+          faculty.qualification.toLowerCase().includes("p.ed") ||
+          faculty.qualification.toLowerCase().includes("ped")
         );
       }
       if (selectedDept === "kg") {
-        return faculty.subject.toLowerCase().includes("mother teacher") || faculty.subject.toLowerCase().includes("techer");
+        return (
+          faculty.subject.toLowerCase().includes("mother teacher") ||
+          faculty.subject.toLowerCase().includes("kg") ||
+          faculty.subject.toLowerCase().includes("pre kg") ||
+          faculty.subject.toLowerCase().includes("lkg") ||
+          faculty.subject.toLowerCase().includes("ukg")
+        );
       }
       return true;
     });

@@ -44,6 +44,8 @@ const EDITIONS: NewsletterEdition[] = [
     volume: "Vol. 2026 • Issue 01",
     coverImage: "/images/student-corner/kautilya-newsletter-cover-june-2026.png",
     pdfUrl: "/documents/newsletters/Newsletter-June-2026.pdf",
+    flipbookUrl:
+      "https://www.pdf-flip.com/viewers/161252/7gf8yn.html?color3DCover=%23d8d3b3&pfPageMedia=1&pfEditor=1&v=1790315468233&page=24#pf_4e049eaeaa00/24/",
     fileSize: "5.2 MB",
     highlights: [
       "Academic Session Reopening & Welcoming Assemblies",
@@ -62,7 +64,8 @@ const EDITIONS: NewsletterEdition[] = [
     volume: "Vol. 2026 • Issue 02",
     coverImage: "/images/student-corner/kautilya-newsletter-cover-july-2026.png",
     pdfUrl: "/documents/newsletters/Newsletter-July-Revised.pdf",
-    flipbookUrl: "https://flipbook.so/flip/dDQ94vxpod2T4v2xLiUJ",
+    flipbookUrl:
+      "https://www.pdf-flip.com/viewers/161252/ji8gt2.html?color3DCover=%23d8d3b3&pfPageMedia=1&pfEditor=1&v=1790315396720&page=6#pf_4ba92dfddc18/6/",
     fileSize: "51.9 MB",
     highlights: [
       "Student Council Investiture Ceremony",
@@ -72,6 +75,27 @@ const EDITIONS: NewsletterEdition[] = [
     ],
     description:
       "Packed with student essays, original poetry, reports from the investiture ceremony, and reflections on leadership and scholastic excellence.",
+  },
+  {
+    id: "august-2026",
+    month: "August",
+    year: "2026",
+    title: "August 2026 Newsletter",
+    volume: "Vol. 2026 • Issue 03",
+    coverImage: "/images/student-corner/kautilya-newsletter-cover-august-2026.jpg",
+    pdfUrl:
+      "https://www.pdf-flip.com/viewers/840392/ayy28u.html?page=2&pfPageMedia=1&pfEditor=1&v=1789834958638#pf_d0f27bdd058b/2/",
+    flipbookUrl:
+      "https://www.pdf-flip.com/viewers/840392/ayy28u.html?page=2&pfPageMedia=1&pfEditor=1&v=1789834958638#pf_d0f27bdd058b/2/",
+    fileSize: "Interactive 3D",
+    highlights: [
+      "Independence Day Celebrations & Patriotic Assemblies",
+      "Foundation Stage Little Steps Milestones",
+      "Creative Cultural & Literary Presentations",
+      "Student Art Exhibitions & Discoveries",
+    ],
+    description:
+      "Showcasing patriotic spirit, kindergarten milestones, literary essays, and creative student discoveries for August 2026.",
   },
 ];
 
@@ -140,7 +164,7 @@ export default function MonthlyNewsletterClientView() {
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {EDITIONS.map((edition, idx) => (
               <motion.div
                 key={edition.id}
@@ -206,27 +230,42 @@ export default function MonthlyNewsletterClientView() {
                   </h3>
                 </div>
 
-                {/* 2 Action Links */}
-                <div className="mt-5 pt-4 border-t border-slate-100 grid grid-cols-2 gap-2.5">
-                  <a
-                    href={edition.flipbookUrl || edition.pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white border border-blue-200 hover:border-blue-600 font-bold text-xs px-3 py-2.5 rounded-xl transition-all shadow-sm"
-                  >
-                    <BookOpen className="w-3.5 h-3.5" />
-                    <span>{edition.flipbookUrl ? "View Flipbook" : "View Online"}</span>
-                    {edition.flipbookUrl && <ExternalLink className="w-3 h-3 opacity-70" />}
-                  </a>
+                {/* Action Links */}
+                <div className="mt-5 pt-4 border-t border-slate-100">
+                  {edition.pdfUrl && edition.pdfUrl.endsWith(".pdf") ? (
+                    <div className="grid grid-cols-2 gap-2.5">
+                      <a
+                        href={edition.flipbookUrl || edition.pdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-1.5 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white border border-blue-200 hover:border-blue-600 font-bold text-xs px-3 py-2.5 rounded-xl transition-all shadow-sm"
+                      >
+                        <BookOpen className="w-3.5 h-3.5" />
+                        <span>Flipbook</span>
+                        <ExternalLink className="w-3 h-3 opacity-70" />
+                      </a>
 
-                  <a
-                    href={edition.pdfUrl}
-                    download={`${edition.title.replace(/\s+/g, "-")}.pdf`}
-                    className="inline-flex items-center justify-center gap-1.5 bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-black text-xs px-3 py-2.5 rounded-xl transition-all shadow-sm"
-                  >
-                    <Download className="w-3.5 h-3.5" />
-                    <span>Download PDF</span>
-                  </a>
+                      <a
+                        href={edition.pdfUrl}
+                        download={`${edition.title.replace(/\s+/g, "-")}.pdf`}
+                        className="inline-flex items-center justify-center gap-1.5 bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-black text-xs px-3 py-2.5 rounded-xl transition-all shadow-sm"
+                      >
+                        <Download className="w-3.5 h-3.5" />
+                        <span>Download</span>
+                      </a>
+                    </div>
+                  ) : (
+                    <a
+                      href={edition.flipbookUrl || edition.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-black text-xs px-4 py-2.5 rounded-xl transition-all shadow-sm hover:shadow-md"
+                    >
+                      <BookOpen className="w-3.5 h-3.5 text-[#FFD907]" />
+                      <span>Read Online (3D Flipbook)</span>
+                      <ExternalLink className="w-3.5 h-3.5 text-[#FFD907]/80" />
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}
