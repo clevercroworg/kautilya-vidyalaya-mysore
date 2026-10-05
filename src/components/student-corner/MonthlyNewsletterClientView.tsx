@@ -49,8 +49,7 @@ const KINDERGARTEN_EDITIONS: NewsletterEdition[] = [
     gradeBadge: "Pre-KG • LKG • UKG",
     volume: "KG Edition • Issue 01",
     coverImage: "/images/student-corner/kautilya-kg-newsletter-cover-june-2026.jpg",
-    flipbookUrl:
-      "https://www.pdf-flip.com/viewers/161252/7gf8yn.html?color3DCover=%23d8d3b3&pfPageMedia=1&pfEditor=1&v=1790315468233&page=24#pf_4e049eaeaa00/24/",
+    flipbookUrl: "https://www.pdf-flip.com/viewers/203918/4zf4ln.html",
     fileSize: "Interactive 3D",
     highlights: [
       "Welcome Week & Fun Sensory Activities",
@@ -70,8 +69,7 @@ const KINDERGARTEN_EDITIONS: NewsletterEdition[] = [
     gradeBadge: "Pre-KG • LKG • UKG",
     volume: "KG Edition • Issue 02",
     coverImage: "/images/student-corner/kautilya-kg-newsletter-cover-july-2026.jpg",
-    flipbookUrl:
-      "https://www.pdf-flip.com/viewers/161252/ji8gt2.html?color3DCover=%23d8d3b3&pfPageMedia=1&pfEditor=1&v=1790315396720&page=6#pf_4ba92dfddc18/6/",
+    flipbookUrl: "https://www.pdf-flip.com/viewers/203918/xonu9p.html",
     fileSize: "Interactive 3D",
     highlights: [
       "Monsoon Magic & Nature Craft Activities",
