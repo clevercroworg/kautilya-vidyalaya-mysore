@@ -21,6 +21,7 @@ import {
   CheckCircle2,
   BarChart3,
   Calendar,
+  Download,
 } from "lucide-react";
 
 interface ResultYear {
@@ -28,6 +29,7 @@ interface ResultYear {
   yearLabel: string;
   academicSession: string;
   image: string;
+  pdfUrl?: string;
   title: string;
   highlights: string[];
 }
@@ -38,12 +40,13 @@ const RESULT_YEARS: ResultYear[] = [
     yearLabel: "2025 - 2026",
     academicSession: "CBSE Class X Board Examinations 2025-26",
     image: "/images/results/kautilya-cbse-result-2025-26.png",
+    pdfUrl: "/documents/results/kautilya-cbse-10th-toppers-2025-26.pdf",
     title: "CBSE Class X Outstanding Performance 2025-26",
     highlights: [
-      "100% Pass Percentage maintained across all candidates",
-      "School Topper Yashvi Thakur securing 96.8% aggregate",
-      "Top distinctions: Shashank Keshav Rao (96%), Mannashwini GB (96%), Apoorva M (96.2%)",
-      "Subject centums and high distinction rates across all academic divisions",
+      "100% Pass Percentage maintained unbroken for 21 consecutive years",
+      "School Topper Namyata SM Setty securing 97.2% aggregate",
+      "Star scorers: Yashvi Thakur (96.8%), Ruthvikha P (96.8%), Apoorva M (96.2%), Sameeksha Raghavan (96.2%)",
+      "36+ Students securing outstanding First Class with Distinction (84% to 97.2%)",
     ],
   },
   {
@@ -242,19 +245,19 @@ export default function ResultGraphClientView() {
             >
               {/* Left Col: Result Image Poster with Lightbox Trigger */}
               <div
-                className="lg:col-span-7 relative h-[360px] sm:h-[480px] bg-slate-900 rounded-2xl overflow-hidden shadow-md cursor-pointer group border-4 border-slate-50"
+                className="lg:col-span-7 relative aspect-[4/3] w-full min-h-[250px] sm:min-h-[360px] md:min-h-[440px] bg-slate-950 rounded-2xl overflow-hidden shadow-lg cursor-pointer group border-2 sm:border-4 border-slate-100"
                 onClick={() => setIsLightboxOpen(true)}
               >
                 <Image
                   src={activeYear.image}
                   alt={activeYear.title}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  className="object-contain group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 55vw"
+                  className="object-contain group-hover:scale-[1.02] transition-transform duration-300"
                   priority
                 />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                  <span className="bg-[#001744]/90 text-[#FFD907] text-xs font-bold px-4 py-2 rounded-full flex items-center gap-2 backdrop-blur-sm shadow-lg">
+                <div className="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition-colors flex items-center justify-center p-3">
+                  <span className="bg-[#001744]/95 text-[#FFD907] text-xs font-bold px-4 py-2 rounded-full flex items-center gap-2 backdrop-blur-sm shadow-xl">
                     <Maximize2 className="w-4 h-4" />
                     <span>Click to Inspect Result Full Size</span>
                   </span>
@@ -276,7 +279,7 @@ export default function ResultGraphClientView() {
 
                 <div className="space-y-3 pt-4 border-t border-slate-100">
                   <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                    Session Highlights & Milestones:
+                    Session Highlights &amp; Milestones:
                   </h4>
                   {activeYear.highlights.map((h, i) => (
                     <div key={i} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700">
@@ -286,17 +289,27 @@ export default function ResultGraphClientView() {
                   ))}
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
+                <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-2.5">
                   <button
                     onClick={() => setIsLightboxOpen(true)}
-                    className="bg-slate-100 hover:bg-slate-200 text-[#001744] font-bold px-5 py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
+                    className="bg-blue-50 hover:bg-blue-100 text-[#001744] font-bold px-4 py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-2 border border-blue-200"
                   >
-                    <Maximize2 className="w-4 h-4" />
-                    <span>View Official Merit Poster</span>
+                    <Maximize2 className="w-4 h-4 text-blue-600" />
+                    <span>View Full Poster</span>
                   </button>
+                  {activeYear.pdfUrl && (
+                    <a
+                      href={activeYear.pdfUrl}
+                      download="Kautilya-CBSE-Class-10-Toppers-2025-26.pdf"
+                      className="bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-4 py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
+                    >
+                      <Download className="w-4 h-4 text-slate-600" />
+                      <span>Download PDF</span>
+                    </a>
+                  )}
                   <button
                     onClick={() => setIsAdmissionModalOpen(true)}
-                    className="bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-bold px-5 py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
+                    className="bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-black px-4 py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
                   >
                     <GraduationCap className="w-4 h-4" />
                     <span>Apply for 2027-28</span>
@@ -311,33 +324,48 @@ export default function ResultGraphClientView() {
       {/* FULL RESULT POSTER LIGHTBOX MODAL */}
       {isLightboxOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-2 sm:p-6 animate-in fade-in duration-200"
           onClick={() => setIsLightboxOpen(false)}
         >
           <div
-            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl relative border border-white/20 flex flex-col animate-in zoom-in-95 duration-200"
+            className="bg-white rounded-2xl max-w-5xl w-full h-[92vh] sm:h-[88vh] overflow-hidden shadow-2xl relative border border-white/20 flex flex-col animate-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-[#001744] text-white p-4 flex items-center justify-between">
-              <div>
-                <h4 className="text-sm font-bold text-white">{activeYear.title}</h4>
-                <p className="text-xs text-slate-400">{activeYear.academicSession}</p>
+            <div className="bg-[#001744] text-white p-3.5 sm:p-4 flex items-center justify-between gap-3 shrink-0">
+              <div className="min-w-0">
+                <h4 className="text-xs sm:text-sm font-bold text-white truncate">{activeYear.title}</h4>
+                <p className="text-[11px] sm:text-xs text-slate-300 truncate">{activeYear.academicSession}</p>
               </div>
-              <button
-                onClick={() => setIsLightboxOpen(false)}
-                className="text-slate-400 hover:text-white p-1 rounded-full hover:bg-white/10 transition-colors"
-                aria-label="Close modal"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <div className="flex items-center gap-2 shrink-0">
+                {activeYear.pdfUrl && (
+                  <a
+                    href={activeYear.pdfUrl}
+                    download="Kautilya-CBSE-Class-10-Toppers-2025-26.pdf"
+                    className="bg-white/10 hover:bg-white/20 text-[#FFD907] px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">Download PDF</span>
+                  </a>
+                )}
+                <button
+                  onClick={() => setIsLightboxOpen(false)}
+                  className="text-slate-300 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+                  aria-label="Close modal"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
-            <div className="relative flex-1 min-h-[450px] bg-slate-950 p-2">
-              <Image
-                src={activeYear.image}
-                alt={activeYear.title}
-                fill
-                className="object-contain"
-              />
+            <div className="relative flex-1 w-full bg-slate-950 p-2 overflow-auto flex items-center justify-center">
+              <div className="relative w-full h-full min-h-[300px]">
+                <Image
+                  src={activeYear.image}
+                  alt={activeYear.title}
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
