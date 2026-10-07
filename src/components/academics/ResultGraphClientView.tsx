@@ -22,6 +22,11 @@ import {
   BarChart3,
   Calendar,
   Download,
+  ZoomIn,
+  ZoomOut,
+  ExternalLink,
+  RotateCcw,
+  Move,
 } from "lucide-react";
 
 interface ResultYear {
@@ -128,8 +133,96 @@ export default function ResultGraphClientView() {
   const [isAdmissionModalOpen, setIsAdmissionModalOpen] = useState(false);
   const [selectedYearId, setSelectedYearId] = useState("2025-26");
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(1);
+
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+  const touchStartDistanceRef = React.useRef<number | null>(null);
+  const initialZoomRef = React.useRef<number>(1);
+  const lastTapTimeRef = React.useRef<number>(0);
+  const isDraggingRef = React.useRef(false);
+  const startDragPosRef = React.useRef({ x: 0, y: 0, scrollLeft: 0, scrollTop: 0 });
 
   const activeYear = RESULT_YEARS.find((y) => y.id === selectedYearId) || RESULT_YEARS[0];
+
+  const openLightbox = () => {
+    setZoomLevel(1);
+    setIsLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setZoomLevel(1);
+    setIsLightboxOpen(false);
+  };
+
+  const handleZoomIn = () => setZoomLevel((prev) => Math.min(Number((prev + 0.5).toFixed(1)), 3));
+  const handleZoomOut = () => setZoomLevel((prev) => Math.max(Number((prev - 0.5).toFixed(1)), 1));
+  const handleResetZoom = () => setZoomLevel(1);
+
+  // Mobile pinch-to-zoom
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (e.touches.length === 2) {
+      const dist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      touchStartDistanceRef.current = dist;
+      initialZoomRef.current = zoomLevel;
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (e.touches.length === 2 && touchStartDistanceRef.current !== null) {
+      const dist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      const scale = dist / touchStartDistanceRef.current;
+      const targetZoom = Math.min(Math.max(initialZoomRef.current * scale, 1), 3);
+      setZoomLevel(Number(targetZoom.toFixed(2)));
+    }
+  };
+
+  const handleTouchEnd = () => {
+    touchStartDistanceRef.current = null;
+  };
+
+  // Double-tap or click zoom toggle
+  const handleImageDoubleTapOrClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const now = Date.now();
+    const timeSinceLastTap = now - lastTapTimeRef.current;
+    if (timeSinceLastTap < 320 && timeSinceLastTap > 0) {
+      e.preventDefault();
+      setZoomLevel((prev) => (prev > 1.2 ? 1 : 2));
+      lastTapTimeRef.current = 0;
+    } else {
+      lastTapTimeRef.current = now;
+    }
+  };
+
+  // Desktop mouse dragging when zoomed
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (zoomLevel <= 1 || !scrollContainerRef.current) return;
+    isDraggingRef.current = true;
+    startDragPosRef.current = {
+      x: e.clientX,
+      y: e.clientY,
+      scrollLeft: scrollContainerRef.current.scrollLeft,
+      scrollTop: scrollContainerRef.current.scrollTop,
+    };
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const dx = e.clientX - startDragPosRef.current.x;
+    const dy = e.clientY - startDragPosRef.current.y;
+    scrollContainerRef.current.scrollLeft = startDragPosRef.current.scrollLeft - dx;
+    scrollContainerRef.current.scrollTop = startDragPosRef.current.scrollTop - dy;
+  };
+
+  const handleMouseUp = () => {
+    isDraggingRef.current = false;
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans text-slate-800 selection:bg-[#FFD907] selection:text-[#001744]">
@@ -218,7 +311,10 @@ export default function ResultGraphClientView() {
               {RESULT_YEARS.map((y) => (
                 <button
                   key={y.id}
-                  onClick={() => setSelectedYearId(y.id)}
+                  onClick={() => {
+                    setSelectedYearId(y.id);
+                    setZoomLevel(1);
+                  }}
                   className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
                     selectedYearId === y.id
                       ? "bg-[#001744] text-[#FFD907] shadow-md scale-105"
@@ -244,24 +340,39 @@ export default function ResultGraphClientView() {
               className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center"
             >
               {/* Left Col: Result Image Poster with Lightbox Trigger */}
-              <div
-                className="lg:col-span-7 relative aspect-[4/3] w-full min-h-[250px] sm:min-h-[360px] md:min-h-[440px] bg-slate-950 rounded-2xl overflow-hidden shadow-lg cursor-pointer group border-2 sm:border-4 border-slate-100"
-                onClick={() => setIsLightboxOpen(true)}
-              >
-                <Image
-                  src={activeYear.image}
-                  alt={activeYear.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 55vw"
-                  className="object-contain group-hover:scale-[1.02] transition-transform duration-300"
-                  priority
-                />
-                <div className="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition-colors flex items-center justify-center p-3">
-                  <span className="bg-[#001744]/95 text-[#FFD907] text-xs font-bold px-4 py-2 rounded-full flex items-center gap-2 backdrop-blur-sm shadow-xl">
-                    <Maximize2 className="w-4 h-4" />
-                    <span>Click to Inspect Result Full Size</span>
-                  </span>
+              <div className="lg:col-span-7 space-y-2.5">
+                <div
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Open full size poster for ${activeYear.title}`}
+                  className="relative aspect-[4/3] w-full min-h-[240px] sm:min-h-[360px] md:min-h-[440px] bg-slate-950 rounded-2xl overflow-hidden shadow-lg cursor-pointer group border-2 sm:border-4 border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-500 active:scale-[0.99] transition-transform"
+                  onClick={openLightbox}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      openLightbox();
+                    }
+                  }}
+                >
+                  <Image
+                    src={activeYear.image}
+                    alt={activeYear.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 55vw"
+                    className="object-contain group-hover:scale-[1.02] transition-transform duration-300"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition-colors flex items-center justify-center p-3">
+                    <span className="bg-[#001744]/95 text-[#FFD907] text-xs font-bold px-4 py-2.5 rounded-full flex items-center gap-2 backdrop-blur-sm shadow-xl border border-white/10 group-hover:scale-105 transition-transform">
+                      <Maximize2 className="w-4 h-4 text-[#FFD907]" />
+                      <span>Tap to Inspect Result Full Size</span>
+                    </span>
+                  </div>
                 </div>
+                <p className="text-[11px] sm:text-xs text-slate-500 font-medium text-center flex items-center justify-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Tap poster to open full-screen zoom &amp; pan viewer</span>
+                </p>
               </div>
 
               {/* Right Col: Details & Achievements */}
@@ -291,7 +402,7 @@ export default function ResultGraphClientView() {
 
                 <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-2.5">
                   <button
-                    onClick={() => setIsLightboxOpen(true)}
+                    onClick={openLightbox}
                     className="bg-blue-50 hover:bg-blue-100 text-[#001744] font-bold px-4 py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-2 border border-blue-200"
                   >
                     <Maximize2 className="w-4 h-4 text-blue-600" />
@@ -321,50 +432,202 @@ export default function ResultGraphClientView() {
         </section>
       </main>
 
-      {/* FULL RESULT POSTER LIGHTBOX MODAL */}
+      {/* FULL RESULT POSTER LIGHTBOX MODAL WITH ZOOM & PAN */}
       {isLightboxOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-2 sm:p-6 animate-in fade-in duration-200"
-          onClick={() => setIsLightboxOpen(false)}
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-0 sm:p-4 md:p-6 h-[100dvh] animate-in fade-in duration-200"
+          onClick={closeLightbox}
         >
           <div
-            className="bg-white rounded-2xl max-w-5xl w-full h-[92vh] sm:h-[88vh] overflow-hidden shadow-2xl relative border border-white/20 flex flex-col animate-in zoom-in-95 duration-200"
+            className="bg-slate-900 w-full h-full sm:h-[92vh] sm:rounded-2xl max-w-6xl overflow-hidden shadow-2xl relative border border-white/20 flex flex-col animate-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-[#001744] text-white p-3.5 sm:p-4 flex items-center justify-between gap-3 shrink-0">
-              <div className="min-w-0">
-                <h4 className="text-xs sm:text-sm font-bold text-white truncate">{activeYear.title}</h4>
-                <p className="text-[11px] sm:text-xs text-slate-300 truncate">{activeYear.academicSession}</p>
+            {/* Modal Header */}
+            <div className="bg-[#001744] text-white px-3 py-2.5 sm:px-5 sm:py-3.5 flex items-center justify-between gap-2 shrink-0 border-b border-white/10">
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[10px] sm:text-xs font-bold text-[#FFD907] bg-white/10 px-2 py-0.5 rounded-full shrink-0">
+                    {activeYear.yearLabel}
+                  </span>
+                  <h4 className="text-xs sm:text-sm font-bold text-white truncate">
+                    {activeYear.title}
+                  </h4>
+                </div>
+                <p className="text-[10px] sm:text-xs text-slate-300 truncate mt-0.5 hidden sm:block">
+                  {activeYear.academicSession}
+                </p>
               </div>
-              <div className="flex items-center gap-2 shrink-0">
+
+              {/* Action Buttons */}
+              <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+                {/* Desktop Zoom +/- Controls */}
+                <div className="hidden sm:flex items-center bg-white/10 rounded-lg p-0.5 border border-white/10">
+                  <button
+                    onClick={handleZoomOut}
+                    disabled={zoomLevel <= 1}
+                    className="p-1.5 text-slate-200 hover:text-white disabled:opacity-30 transition-colors"
+                    title="Zoom Out"
+                    aria-label="Zoom Out"
+                  >
+                    <ZoomOut className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={handleResetZoom}
+                    className="px-2 py-0.5 text-[11px] font-bold text-[#FFD907] hover:bg-white/10 rounded"
+                    title="Reset Zoom to 100%"
+                  >
+                    {Math.round(zoomLevel * 100)}%
+                  </button>
+                  <button
+                    onClick={handleZoomIn}
+                    disabled={zoomLevel >= 3}
+                    className="p-1.5 text-slate-200 hover:text-white disabled:opacity-30 transition-colors"
+                    title="Zoom In"
+                    aria-label="Zoom In"
+                  >
+                    <ZoomIn className="w-4 h-4" />
+                  </button>
+                </div>
+
+                {/* Open Full Image in New Tab */}
+                <a
+                  href={activeYear.image}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/10 hover:bg-white/20 active:bg-white/30 text-white p-2 sm:px-2.5 sm:py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1"
+                  title="Open Full Image in New Tab"
+                  aria-label="Open Full Image"
+                >
+                  <ExternalLink className="w-4 h-4 text-slate-200" />
+                  <span className="hidden md:inline">Full Image</span>
+                </a>
+
+                {/* Download PDF (if available) */}
                 {activeYear.pdfUrl && (
                   <a
                     href={activeYear.pdfUrl}
                     download="Kautilya-CBSE-Class-10-Toppers-2025-26.pdf"
-                    className="bg-white/10 hover:bg-white/20 text-[#FFD907] px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5"
+                    className="bg-[#FFD907] hover:bg-yellow-400 active:bg-yellow-500 text-[#001744] p-2 sm:px-2.5 sm:py-1.5 rounded-lg text-xs font-black transition-colors flex items-center gap-1 shadow-sm"
+                    title="Download Official PDF"
+                    aria-label="Download Official PDF"
                   >
-                    <Download className="w-3.5 h-3.5" />
-                    <span className="hidden sm:inline">Download PDF</span>
+                    <Download className="w-4 h-4" />
+                    <span className="hidden sm:inline">PDF</span>
                   </a>
                 )}
+
+                {/* Close Button */}
                 <button
-                  onClick={() => setIsLightboxOpen(false)}
-                  className="text-slate-300 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+                  onClick={closeLightbox}
+                  className="text-slate-300 hover:text-white active:bg-white/20 p-1.5 sm:p-2 rounded-lg hover:bg-white/10 transition-colors"
                   aria-label="Close modal"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
               </div>
             </div>
-            <div className="relative flex-1 w-full bg-slate-950 p-2 overflow-auto flex items-center justify-center">
-              <div className="relative w-full h-full min-h-[300px]">
+
+            {/* Poster Scrollable / Zoomable Viewport */}
+            <div
+              ref={scrollContainerRef}
+              className={`relative flex-1 w-full bg-slate-950 overflow-auto touch-pan-x touch-pan-y overscroll-contain flex p-2 sm:p-4 select-none ${
+                zoomLevel > 1 ? "cursor-grab active:cursor-grabbing" : "cursor-zoom-in"
+              }`}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div
+                style={{
+                  width: `${zoomLevel * 100}%`,
+                  minWidth: zoomLevel > 1 ? `${zoomLevel * 100}%` : "100%",
+                  aspectRatio: "4/3",
+                  transition: touchStartDistanceRef.current ? "none" : "width 0.2s ease",
+                }}
+                className="m-auto relative shrink-0"
+                onClick={handleImageDoubleTapOrClick}
+              >
                 <Image
                   src={activeYear.image}
                   alt={activeYear.title}
                   fill
-                  className="object-contain"
+                  sizes="100vw"
+                  unoptimized
+                  className="object-contain pointer-events-none select-none"
                   priority
                 />
+              </div>
+            </div>
+
+            {/* Bottom Mobile-Friendly Control Toolbar */}
+            <div className="bg-[#001744]/95 backdrop-blur-md text-white px-3 py-2 sm:px-4 sm:py-2.5 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 shrink-0">
+              {/* Mobile Quick Zoom Preset Pills */}
+              <div className="flex items-center justify-between w-full sm:w-auto gap-2">
+                <div className="flex items-center gap-1 bg-white/10 rounded-xl p-1 border border-white/10">
+                  <span className="text-[10px] font-bold text-slate-300 px-1.5 hidden xs:inline">Zoom:</span>
+                  {[
+                    { label: "Fit", value: 1 },
+                    { label: "1.5x", value: 1.5 },
+                    { label: "2x", value: 2 },
+                    { label: "3x", value: 3 },
+                  ].map((preset) => (
+                    <button
+                      key={preset.label}
+                      onClick={() => setZoomLevel(preset.value)}
+                      className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                        Math.abs(zoomLevel - preset.value) < 0.1
+                          ? "bg-[#FFD907] text-[#001744] shadow-sm font-black"
+                          : "text-slate-200 hover:text-white hover:bg-white/10"
+                      }`}
+                    >
+                      {preset.label}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Mobile Stepper +/- */}
+                <div className="flex items-center gap-1 bg-white/10 rounded-xl p-1 sm:hidden border border-white/10">
+                  <button
+                    onClick={handleZoomOut}
+                    disabled={zoomLevel <= 1}
+                    className="p-1 text-slate-200 hover:text-white disabled:opacity-30"
+                    aria-label="Zoom out"
+                  >
+                    <ZoomOut className="w-4 h-4" />
+                  </button>
+                  <span className="text-[11px] font-black text-[#FFD907] px-1">
+                    {Math.round(zoomLevel * 100)}%
+                  </span>
+                  <button
+                    onClick={handleZoomIn}
+                    disabled={zoomLevel >= 3}
+                    className="p-1 text-slate-200 hover:text-white disabled:opacity-30"
+                    aria-label="Zoom in"
+                  >
+                    <ZoomIn className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Guidance / Quick Action */}
+              <div className="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-3 text-[11px] text-slate-300">
+                <span className="flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-[#FFD907] shrink-0" />
+                  <span>Double-tap or pinch to inspect each student</span>
+                </span>
+                {zoomLevel > 1 && (
+                  <button
+                    onClick={handleResetZoom}
+                    className="text-[#FFD907] font-bold underline flex items-center gap-1 hover:text-yellow-300"
+                  >
+                    <RotateCcw className="w-3 h-3" />
+                    <span>Reset</span>
+                  </button>
+                )}
               </div>
             </div>
           </div>
