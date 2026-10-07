@@ -24,6 +24,7 @@ import {
   Mail,
   Phone,
   UserPlus,
+  Loader2,
 } from "lucide-react";
 
 interface AlumniProfile {
@@ -82,6 +83,8 @@ const ALUMNI_PILLARS = [
 export default function AlumniForumClientView() {
   const [isAdmissionModalOpen, setIsAdmissionModalOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Form State
   const [formData, setFormData] = useState({
@@ -105,9 +108,36 @@ export default function AlumniForumClientView() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          name: formData.fullName,
+          message: formData.memories,
+          source: "Alumni Registration Form",
+        }),
+      });
+
+      if (res.ok) {
+        setIsSubmitted(true);
+      } else {
+        const data = await res.json().catch(() => null);
+        setErrorMessage(
+          data?.error || "Failed to submit registration. Please try again."
+        );
+      }
+    } catch {
+      setErrorMessage("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -386,14 +416,31 @@ export default function AlumniForumClientView() {
                   </div>
                 </div>
 
+                {/* Error Banner */}
+                {errorMessage && (
+                  <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 text-xs rounded-xl font-semibold">
+                    {errorMessage}
+                  </div>
+                )}
+
                 {/* Submit Button */}
-                <div className="pt-4">
+                <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-black text-sm uppercase tracking-wider py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 group"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#001744] hover:bg-[#002b7a] disabled:bg-slate-400 text-[#FFD907] font-black text-sm uppercase tracking-wider py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 group cursor-pointer disabled:cursor-not-allowed"
                   >
-                    <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    <span>Submit Alumni Registration</span>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin text-[#FFD907]" />
+                        <span>Submitting Profile...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <span>Submit Alumni Registration</span>
+                      </>
+                    )}
                   </button>
                   <p className="text-[11px] text-slate-400 text-center mt-2">
                     Your contact details will only be used by the official Kautilya Alumni Association.
