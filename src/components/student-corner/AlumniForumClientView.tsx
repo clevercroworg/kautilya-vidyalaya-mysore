@@ -31,34 +31,38 @@ interface AlumniProfile {
   name: string;
   role: string;
   batch: string;
+  badge?: string;
   image: string;
   quote: string;
 }
 
 const NOTABLE_ALUMNI: AlumniProfile[] = [
   {
-    name: "Dr. Manish V",
-    role: "MBBS, Medical Practitioner",
-    batch: "Alumnus (Grade 3–7)",
-    image: "/images/alumni/alumni-ananya-sharma.jpeg",
+    name: "Dr. Rohan M V",
+    role: "MBBS (MIMS Mandya) • MD Radiology",
+    batch: "5 Years at Kautilya Vidyalaya",
+    badge: "Doctor / MD Radiology",
+    image: "/images/alumni/dr-rohan-m-v-headshot.jpeg",
     quote:
-      "From third to seventh grade, I had the privilege of studying at Kautilya Vidyalaya, and those years remain some of the most unforgettable of my life. The nurturing environment and dedicated teachers profoundly shaped my character and education.",
+      "My five years at Kautilya Vidyalaya were truly amazing and filled with valuable learning experiences. The school helped me become independent, creative, confident, and good at sports, shaping me into a well-rounded individual. The skills and values I learned at Kautilya played an important role in helping me secure a government seat for MBBS. Today, I am proud to be a doctor, serving people and making a difference in their lives. I will always be grateful to Kautilya Vidyalaya for giving me the strong foundation that helped shape my journey.",
   },
   {
-    name: "Tanushree R",
-    role: "3rd year Computer Science, SJCE Mysuru",
-    batch: "High School Alumna",
-    image: "/images/alumni/alumni-rohan-kulkarni.jpeg",
+    name: "Dr. Rohit M V",
+    role: "MBBS (CIMS Chamarajanagar) • MD Radiology, Vydehi IMS",
+    batch: "5 Years at Kautilya Vidyalaya",
+    badge: "Doctor / MD Radiology",
+    image: "/images/alumni/dr-rohit-m-v-headshot.jpeg",
     quote:
-      "I am currently in my 3rd year of Engineering in Computer Science at SJCE, Mysuru. I am forever grateful for the teachers and environment at Kautilya that encouraged technical inquiry, curiosity, and leadership.",
+      "My five years at Kautilya Vidyalaya were truly amazing and filled with valuable learning experiences. The school helped me become independent, creative, confident, and good at sports, shaping me into a well-rounded individual. The skills and values I learned at Kautilya played an important role in helping me secure a government seat for MBBS. Today, I am proud to be a doctor, serving people and making a difference in their lives. I will always be grateful to Kautilya Vidyalaya for giving me the strong foundation that helped shape my journey.",
   },
   {
-    name: "Dr. Spoorthi Rao",
-    role: "Doctor & Medical Professional",
-    batch: "2015 Batch",
-    image: "/images/alumni/alumni-sneha-hegde.jpeg",
+    name: "Siri Bhim Rao Patil",
+    role: "MBBS at AIMS, Bellur • CBSE Class X School Topper",
+    batch: "Grade 9 & 10 Alumna (2022-23 Batch)",
+    badge: "MBBS Scholar & CBSE Topper",
+    image: "/images/alumni/siri-bhim-rao-patil.jpeg",
     quote:
-      "As a 2015 pass-out student who joined Kautilya Vidyalaya in the 8th standard, I look back on my school years as the cornerstone of my academic journey. The values and discipline instilled here continue to guide my professional medical career.",
+      "I studied at Kautilya Vidyalaya for my ninth and tenth grades, and those two years were truly memorable and enriching. The school not only focused on strengthening our academic foundation but also provided numerous opportunities to explore our interests, discover our strengths, and showcase our talents through a wide range of co-curricular activities. What made my experience even more special was the constant support and encouragement from the teachers. I am currently pursuing my MBBS at AIMS, Bellur, and I look back at my time at Kautilya with immense gratitude.",
   },
 ];
 
@@ -187,23 +191,29 @@ export default function AlumniForumClientView() {
               >
                 <div className="space-y-4">
                   {/* Photo & Identity Header */}
-                  <div className="flex items-center gap-4">
-                    <div className="relative w-16 h-16 rounded-2xl overflow-hidden bg-slate-100 border-2 border-[#FFD907] shrink-0 shadow">
+                  <div className="flex items-start gap-4">
+                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-slate-100 border-2 border-[#FFD907] shrink-0 shadow-md">
                       <Image
                         src={alumnus.image}
                         alt={alumnus.name}
                         fill
-                        className="object-cover"
+                        sizes="96px"
+                        className="object-cover object-top"
                       />
                     </div>
-                    <div>
-                      <h3 className="text-base font-black text-[#001744]">
+                    <div className="min-w-0 flex-1">
+                      {alumnus.badge && (
+                        <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100 mb-1">
+                          {alumnus.badge}
+                        </span>
+                      )}
+                      <h3 className="text-base sm:text-lg font-black text-[#001744] leading-snug">
                         {alumnus.name}
                       </h3>
-                      <p className="text-xs font-bold text-blue-700 mt-0.5">
+                      <p className="text-xs font-bold text-blue-700 mt-0.5 leading-tight">
                         {alumnus.role}
                       </p>
-                      <span className="text-[11px] font-medium text-slate-400">
+                      <span className="text-[11px] font-medium text-slate-400 block mt-1">
                         {alumnus.batch}
                       </span>
                     </div>

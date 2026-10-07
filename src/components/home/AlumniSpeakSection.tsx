@@ -99,7 +99,7 @@ export default function AlumniSpeakSection() {
                       alt={item.name}
                       fill
                       sizes="120px"
-                      className="object-cover"
+                      className="object-cover object-top"
                     />
                   </div>
 
