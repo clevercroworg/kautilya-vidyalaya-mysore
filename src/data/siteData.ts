@@ -230,6 +230,24 @@ export const alumniTestimonials = [
     image: "/images/alumni/siri-bhim-rao-patil.jpeg",
     text: "I studied at Kautilya Vidyalaya for my ninth and tenth grades, and those two years were truly memorable and enriching. The school not only focused on strengthening our academic foundation but also provided numerous opportunities to explore our interests and discover our strengths. What made my experience even more special was the constant support and encouragement from the teachers. I look back at my time at Kautilya with immense gratitude.",
   },
+  {
+    name: "Dr. Manish V",
+    role: "MBBS, Medical Practitioner",
+    image: "/images/alumni/alumni-ananya-sharma.jpeg",
+    text: "From third to seventh grade, I had the privilege of studying at Kautilya Vidyalaya, and those years remain some of the most unforgettable of my life. The nurturing environment and dedicated teachers profoundly shaped my character and education. The excitement of annual sports days and the deep sense of belonging played a pivotal role in shaping who I am today.",
+  },
+  {
+    name: "Tanushree R",
+    role: "3rd year Computer Science, SJCE Mysuru",
+    image: "/images/alumni/alumni-rohan-kulkarni.jpeg",
+    text: "I am Tanushree R, currently in my 3rd year of Engineering in Computer Science at SJCE, Mysuru. I am forever grateful for the teachers and environment at Kautilya that encouraged technical inquiry, curiosity, and leadership.",
+  },
+  {
+    name: "Dr. Spoorthi Rao",
+    role: "Doctor & Alumna (2015 Batch)",
+    image: "/images/alumni/alumni-sneha-hegde.jpeg",
+    text: "As a 2015 pass-out student who joined Kautilya Vidyalaya in the 8th standard, I look back on my school years as the cornerstone of my academic journey. The values and discipline instilled here continue to guide my professional medical career.",
+  },
 ];
 
 export const guestTestimonials = [

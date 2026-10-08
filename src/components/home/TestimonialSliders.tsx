@@ -118,7 +118,7 @@ export default function TestimonialSliders() {
                 alt={currentItem.name}
                 fill
                 sizes="150px"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
 

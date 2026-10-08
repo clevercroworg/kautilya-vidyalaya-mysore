@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,6 +10,7 @@ import WhatsAppWidget from "@/components/ui/WhatsAppWidget";
 import AdmissionModal from "@/components/ui/AdmissionModal";
 import InnerPageHero from "@/components/ui/InnerPageHero";
 import {
+  ChevronLeft,
   ChevronRight,
   GraduationCap,
   Users2,
@@ -25,6 +26,7 @@ import {
   Phone,
   UserPlus,
   Loader2,
+  Star,
 } from "lucide-react";
 
 interface AlumniProfile {
@@ -64,7 +66,94 @@ const NOTABLE_ALUMNI: AlumniProfile[] = [
     quote:
       "I studied at Kautilya Vidyalaya for my ninth and tenth grades, and those two years were truly memorable and enriching. The school not only focused on strengthening our academic foundation but also provided numerous opportunities to explore our interests, discover our strengths, and showcase our talents through a wide range of co-curricular activities. What made my experience even more special was the constant support and encouragement from the teachers. I am currently pursuing my MBBS at AIMS, Bellur, and I look back at my time at Kautilya with immense gratitude.",
   },
+  {
+    name: "Dr. Manish V",
+    role: "MBBS, Medical Practitioner",
+    batch: "Grade 3 to 7 Alumnus",
+    badge: "Doctor / Healthcare",
+    image: "/images/alumni/alumni-ananya-sharma.jpeg",
+    quote:
+      "From third to seventh grade, I had the privilege of studying at Kautilya Vidyalaya, and those years remain some of the most unforgettable of my life. The nurturing environment and dedicated teachers profoundly shaped my character and education. The excitement of annual sports days and the deep sense of belonging played a pivotal role in shaping who I am today.",
+  },
+  {
+    name: "Tanushree R",
+    role: "3rd Year Computer Science, SJCE Mysuru",
+    batch: "Engineering Scholar",
+    badge: "Tech & Engineering",
+    image: "/images/alumni/alumni-rohan-kulkarni.jpeg",
+    quote:
+      "I am Tanushree R, currently in my 3rd year of Engineering in Computer Science at SJCE, Mysuru. I am forever grateful for the teachers and environment at Kautilya that encouraged technical inquiry, curiosity, and leadership throughout my formative years.",
+  },
+  {
+    name: "Dr. Spoorthi Rao",
+    role: "Doctor & Medical Professional",
+    batch: "2015 Passed Out Batch (Joined 8th Std)",
+    badge: "Doctor / Healthcare",
+    image: "/images/alumni/alumni-sneha-hegde.jpeg",
+    quote:
+      "As a 2015 pass-out student who joined Kautilya Vidyalaya in the 8th standard, I look back on my school years as the cornerstone of my academic journey. The values, work ethic, and discipline instilled here continue to guide my professional medical career.",
+  },
 ];
+
+function AlumniSpotlightCard({ alumnus }: { alumnus: AlumniProfile }) {
+  return (
+    <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full">
+      <div className="space-y-4">
+        {/* Photo & Identity Header */}
+        <div className="flex items-start gap-4">
+          <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-slate-100 border-2 border-[#FFD907] shrink-0 shadow-md">
+            <Image
+              src={alumnus.image}
+              alt={alumnus.name}
+              fill
+              sizes="96px"
+              className="object-cover object-top"
+            />
+          </div>
+          <div className="min-w-0 flex-1">
+            {alumnus.badge && (
+              <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100 mb-1">
+                {alumnus.badge}
+              </span>
+            )}
+            <h3 className="text-base sm:text-lg font-black text-[#001744] leading-snug">
+              {alumnus.name}
+            </h3>
+            <p className="text-xs font-bold text-blue-700 mt-0.5 leading-tight">
+              {alumnus.role}
+            </p>
+            <span className="text-[11px] font-medium text-slate-400 block mt-1">
+              {alumnus.batch}
+            </span>
+            <div className="flex items-center gap-0.5 text-amber-400 mt-2">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-3.5 h-3.5 fill-current" />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Quote */}
+        <div className="relative pt-2">
+          <Quote className="w-6 h-6 text-slate-200 absolute -top-1 -left-1 pointer-events-none" />
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed italic relative z-10 pl-2">
+            “{alumnus.quote}”
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-emerald-700">
+        <div className="flex items-center gap-1.5">
+          <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+          <span>Verified Kautilya Alumnus</span>
+        </div>
+        <span className="text-[11px] text-slate-400 font-normal">
+          Alumni Voice
+        </span>
+      </div>
+    </div>
+  );
+}
 
 const ALUMNI_PILLARS = [
   {
@@ -89,6 +178,53 @@ export default function AlumniForumClientView() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  // Carousel State
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [carouselDirection, setCarouselDirection] = useState(1);
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
+  const touchStartXRef = React.useRef<number | null>(null);
+
+  const prevAlumni = () => {
+    setCarouselDirection(-1);
+    setCarouselIndex((c) => (c === 0 ? NOTABLE_ALUMNI.length - 1 : c - 1));
+  };
+
+  const nextAlumni = () => {
+    setCarouselDirection(1);
+    setCarouselIndex((c) => (c === NOTABLE_ALUMNI.length - 1 ? 0 : c + 1));
+  };
+
+  const goToAlumni = (idx: number) => {
+    setCarouselDirection(idx > carouselIndex ? 1 : -1);
+    setCarouselIndex(idx);
+  };
+
+  // Smooth auto-scroll every 4.5 seconds
+  useEffect(() => {
+    if (isCarouselPaused) return;
+    const interval = setInterval(() => {
+      setCarouselDirection(1);
+      setCarouselIndex((c) => (c === NOTABLE_ALUMNI.length - 1 ? 0 : c + 1));
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isCarouselPaused]);
+
+  // Touch Swipe Handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartXRef.current === null) return;
+    const diff = touchStartXRef.current - e.changedTouches[0].clientX;
+    if (diff > 45) {
+      nextAlumni();
+    } else if (diff < -45) {
+      prevAlumni();
+    }
+    touchStartXRef.current = null;
+  };
 
   // Form State
   const [formData, setFormData] = useState({
@@ -144,6 +280,10 @@ export default function AlumniForumClientView() {
     }
   };
 
+  const primaryAlumnus = NOTABLE_ALUMNI[carouselIndex];
+  const secondaryAlumnus =
+    NOTABLE_ALUMNI[(carouselIndex + 1) % NOTABLE_ALUMNI.length];
+
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans text-slate-800 selection:bg-[#FFD907] selection:text-[#001744]">
       <Navbar onOpenAdmissionModal={() => setIsAdmissionModalOpen(true)} />
@@ -165,75 +305,111 @@ export default function AlumniForumClientView() {
           waveFillColor="#f8fafc"
         />
 
-        {/* NOTABLE ALUMNI SPOTLIGHTS */}
+        {/* NOTABLE ALUMNI SPOTLIGHTS WITH SMOOTH CAROUSEL */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-3.5 py-1 rounded-full border border-blue-100">
-              Alumni Spotlights
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#001744] tracking-tight mt-3">
-              Voices of Accomplished Kautilyans
-            </h2>
-            <p className="text-slate-500 text-sm mt-2">
-              From healthcare and computer science to higher research, our alumni make a mark across diverse industries worldwide.
-            </p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 sm:mb-12 gap-6">
+            <div className="max-w-2xl">
+              <span className="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-3.5 py-1 rounded-full border border-blue-100">
+                Alumni Spotlights • All 6 Inspiring Journeys
+              </span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#001744] tracking-tight mt-3">
+                Voices of Accomplished Kautilyans
+              </h2>
+              <p className="text-slate-500 text-sm mt-2">
+                From medical practitioners and engineering innovators to academic leaders, our alumni make a mark across diverse industries worldwide.
+              </p>
+            </div>
+
+            {/* Navigation buttons */}
+            <div className="flex items-center gap-3 shrink-0 self-start md:self-end">
+              <button
+                type="button"
+                onClick={prevAlumni}
+                aria-label="Previous alumni story"
+                className="w-11 h-11 rounded-full bg-white hover:bg-[#001744] text-slate-700 hover:text-white border border-slate-200 shadow-sm hover:shadow-md flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <div className="text-xs font-bold text-slate-400 px-1">
+                <span className="text-[#001744]">{carouselIndex + 1}</span> / {NOTABLE_ALUMNI.length}
+              </div>
+              <button
+                type="button"
+                onClick={nextAlumni}
+                aria-label="Next alumni story"
+                className="w-11 h-11 rounded-full bg-white hover:bg-[#001744] text-slate-700 hover:text-white border border-slate-200 shadow-sm hover:shadow-md flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {NOTABLE_ALUMNI.map((alumnus, idx) => (
-              <motion.div
-                key={alumnus.name}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-              >
-                <div className="space-y-4">
-                  {/* Photo & Identity Header */}
-                  <div className="flex items-start gap-4">
-                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-slate-100 border-2 border-[#FFD907] shrink-0 shadow-md">
-                      <Image
-                        src={alumnus.image}
-                        alt={alumnus.name}
-                        fill
-                        sizes="96px"
-                        className="object-cover object-top"
-                      />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      {alumnus.badge && (
-                        <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100 mb-1">
-                          {alumnus.badge}
-                        </span>
-                      )}
-                      <h3 className="text-base sm:text-lg font-black text-[#001744] leading-snug">
-                        {alumnus.name}
-                      </h3>
-                      <p className="text-xs font-bold text-blue-700 mt-0.5 leading-tight">
-                        {alumnus.role}
-                      </p>
-                      <span className="text-[11px] font-medium text-slate-400 block mt-1">
-                        {alumnus.batch}
-                      </span>
-                    </div>
+          {/* Smooth Sliding Carousel */}
+          <div
+            className="relative"
+            onMouseEnter={() => setIsCarouselPaused(true)}
+            onMouseLeave={() => setIsCarouselPaused(false)}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div className="overflow-hidden py-2">
+              <AnimatePresence mode="wait" custom={carouselDirection}>
+                <motion.div
+                  key={carouselIndex}
+                  custom={carouselDirection}
+                  variants={{
+                    enter: (dir: number) => ({
+                      opacity: 0,
+                      x: dir > 0 ? 40 : -40,
+                    }),
+                    center: {
+                      opacity: 1,
+                      x: 0,
+                      transition: {
+                        duration: 0.45,
+                        ease: [0.25, 1, 0.5, 1],
+                      },
+                    },
+                    exit: (dir: number) => ({
+                      opacity: 0,
+                      x: dir > 0 ? -40 : 40,
+                      transition: {
+                        duration: 0.35,
+                        ease: [0.25, 1, 0.5, 1],
+                      },
+                    }),
+                  }}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch"
+                >
+                  <div className="w-full">
+                    <AlumniSpotlightCard alumnus={primaryAlumnus} />
                   </div>
-
-                  {/* Quote */}
-                  <div className="relative pt-2">
-                    <Quote className="w-6 h-6 text-slate-200 absolute -top-1 -left-1 pointer-events-none" />
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed italic relative z-10 pl-2">
-                      “{alumnus.quote}”
-                    </p>
+                  <div className="w-full hidden md:block">
+                    <AlumniSpotlightCard alumnus={secondaryAlumnus} />
                   </div>
-                </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                  <span>Verified Kautilya Alumnus</span>
-                </div>
-              </motion.div>
-            ))}
+            {/* Pagination Indicators */}
+            <div className="flex items-center justify-center gap-2 mt-8">
+              {NOTABLE_ALUMNI.map((alumnus, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => goToAlumni(idx)}
+                  aria-label={`Go to alumni story ${idx + 1}: ${alumnus.name}`}
+                  className={`transition-all duration-300 rounded-full h-2.5 cursor-pointer ${
+                    idx === carouselIndex
+                      ? "w-8 bg-[#001744]"
+                      : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </section>
 
