@@ -222,7 +222,7 @@ export const alumniTestimonials = [
     name: "Dr. Rohit M V",
     role: "MBBS (CIMS Chamarajanagar) • MD Radiology, Vydehi IMS",
     image: "/images/alumni/dr-rohit-m-v-headshot.jpeg",
-    text: "My five years at Kautilya Vidyalaya were truly amazing and filled with valuable learning experiences. The school helped me become independent, creative, confident, and good at sports, shaping me into a well-rounded individual. The skills and values I learned at Kautilya played an important role in helping me secure a government seat for MBBS. Today, I am proud to be a doctor, serving people and making a difference.",
+    text: "My journey at Kautilya Vidyalaya has been one of the most memorable and enriching experiences of my life. The school gave me much more than academics—it helped me discover my strengths, build confidence, think independently, and develop the courage to take on new challenges. The encouragement from my teachers and the opportunities provided by the school helped me grow both personally and academically. Kautilya taught me the importance of discipline, hard work, creativity, and staying true to my goals. I am proud to be a Kautilya alumnus, and I will always cherish the values and experiences that have shaped the person I am today.",
   },
   {
     name: "Siri Bhim Rao Patil",
