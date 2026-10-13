@@ -145,6 +145,27 @@ const HIGHER_GRADES_EDITIONS: NewsletterEdition[] = [
     description:
       "Packed with student essays, original poetry, reports from the investiture ceremony, and reflections on leadership and scholastic excellence.",
   },
+  {
+    id: "school-august-2026",
+    month: "August",
+    year: "2026",
+    title: "August 2026 Newsletter",
+    category: "higher",
+    gradeBadge: "Grades 1 – 10",
+    volume: "Vol. 2026 • Issue 03",
+    coverImage: "/images/student-corner/kautilya-newsletter-cover-august-2026.png",
+    pdfUrl: "/documents/newsletters/Newsletter-August-2026.pdf",
+    flipbookUrl: "https://flipbook.so/flip/ZPjKE4LNM3uHLPx5B4WT",
+    fileSize: "11.8 MB",
+    highlights: [
+      "80th Independence Day Celebration & Flag Hoisting",
+      "Verbattle State-Level Debate & Entrepreneur Hackathon",
+      "Educational Field Trips to GKVK & Club Cabana",
+      "Cambridge English Proficiency & Maker Space Projects",
+    ],
+    description:
+      "KV Today August edition celebrating the 80th Independence Day, Verbattle debate achievements, Entrepreneur Hackathon, Cambridge English workshops, and student creative works.",
+  },
 ];
 
 const EDITORIAL_PILLARS = [
@@ -440,7 +461,7 @@ export default function MonthlyNewsletterClientView() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
               {HIGHER_GRADES_EDITIONS.map((edition, idx) => renderEditionCard(edition, idx))}
             </div>
           </section>
