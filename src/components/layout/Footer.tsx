@@ -142,12 +142,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="mailto:enquiry@kautilyavidyalaya.edu.in?subject=Career%20Enquiry%20-%20Kautilya%20Vidyalaya"
-                  className="hover:text-yellow-400 transition-colors"
-                >
-                  Career
-                </a>
+                <Link href="/careers" className="hover:text-yellow-400 transition-colors">
+                  Careers &amp; Vacancies
+                </Link>
               </li>
               <li>
                 <Link href="/faqs" className="hover:text-yellow-400 transition-colors">
