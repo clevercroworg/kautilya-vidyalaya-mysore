@@ -4,22 +4,22 @@ import CareersClientView from "@/components/careers/CareersClientView";
 export const metadata: Metadata = {
   title: "Careers & Job Openings | Kautilya Vidyalaya Mysuru",
   description:
-    "Explore teaching and staff career opportunities at Kautilya Vidyalaya, Mysuru. Apply online for Kindergarten, PRT, TGT, PGT, and administrative openings with resume upload.",
+    "We are hiring! Join Kautilya Vidyalaya, Dattagalli, Mysuru. Openings for Front Office Associate and Admission Associate. Freshers are welcome! Apply online with resume.",
   keywords: [
     "Kautilya Vidyalaya Careers",
-    "Teaching jobs in Mysore",
-    "CBSE school teacher vacancies Mysore",
-    "PRT TGT PGT jobs Mysuru",
-    "Kindergarten Montessori teacher jobs Mysore",
+    "Front Office Associate jobs Mysore",
+    "Admission Associate vacancies Mysuru",
+    "CBSE school jobs Mysore",
+    "Freshers jobs Mysore",
     "School recruitment Mysore",
   ],
   alternates: {
     canonical: "https://kautilyavidyalaya.edu.in/careers",
   },
   openGraph: {
-    title: "Careers at Kautilya Vidyalaya Mysuru | Join Our Faculty",
+    title: "We Are Hiring! Careers at Kautilya Vidyalaya Mysuru",
     description:
-      "Join our passionate academic community in Mysuru. Apply online for teaching and administrative vacancies.",
+      "Join our growing team in Dattagalli, Mysuru. Openings for Front Office Associate & Admission Associate. Freshers welcome!",
     url: "https://kautilyavidyalaya.edu.in/careers",
     siteName: "Kautilya Vidyalaya Mysore",
     images: [

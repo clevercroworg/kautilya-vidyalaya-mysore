@@ -372,13 +372,13 @@ export default function CareersClientView() {
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
               <div>
                 <span className="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-3.5 py-1 rounded-full border border-blue-100">
-                  All Openings
+                  Current Openings
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#001744] tracking-tight mt-3">
-                  Teaching, Specialist &amp; Staff Roles
+                  Front Office &amp; Admission Associates
                 </h2>
                 <p className="text-slate-500 text-sm mt-1">
-                  Select a category or search by subject to view eligibility criteria and responsibilities.
+                  Freshers are welcome! Review qualifications, experience criteria, and responsibilities below.
                 </p>
               </div>
 
