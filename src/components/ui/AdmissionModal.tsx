@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { X, Send, CheckCircle2 } from "lucide-react";
 
 interface AdmissionModalProps {
@@ -9,6 +10,7 @@ interface AdmissionModalProps {
 }
 
 export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps) {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     parentName: "",
     location: "",
@@ -44,7 +46,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -52,8 +54,20 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
           source: "Enquire Now Popup Modal",
         }),
       });
+
+      if (typeof window !== "undefined" && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+        (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "conversion", {
+          send_to: "AW-11418540333/cGUrCOnowfgYEK2y5MQq",
+        });
+      }
+
       setIsSubmitting(false);
       setSubmitted(true);
+
+      if (res.ok) {
+        onClose();
+        router.push(`/thank-you?name=${encodeURIComponent(formData.parentName)}`);
+      }
     } catch (err) {
       console.error("Submission failed:", err);
       setIsSubmitting(false);

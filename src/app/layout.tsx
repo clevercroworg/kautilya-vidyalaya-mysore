@@ -176,6 +176,8 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+      </head>
+      <body className="font-sans antialiased text-slate-800 bg-white min-h-screen flex flex-col selection:bg-[#FFD907] selection:text-[#001744]">
         {/* Google tag (gtag.js) */}
         <Script
           strategy="afterInteractive"
@@ -193,8 +195,6 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body className="font-sans antialiased text-slate-800 bg-white min-h-screen flex flex-col selection:bg-[#FFD907] selection:text-[#001744]">
         {children}
       </body>
     </html>

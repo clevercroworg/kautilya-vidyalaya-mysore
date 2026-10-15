@@ -13,7 +13,10 @@ import {
 } from "lucide-react";
 import { contactInfo } from "@/data/siteData";
 
+import { useRouter } from "next/navigation";
+
 export default function AdmissionEnquiryForm() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     parentName: "",
     location: "",
@@ -47,7 +50,7 @@ export default function AdmissionEnquiryForm() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -55,8 +58,19 @@ export default function AdmissionEnquiryForm() {
           source: "Homepage Admission Enquiry",
         }),
       });
+
+      if (typeof window !== "undefined" && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+        (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "conversion", {
+          send_to: "AW-11418540333/cGUrCOnowfgYEK2y5MQq",
+        });
+      }
+
       setIsSubmitting(false);
       setSubmitted(true);
+
+      if (res.ok) {
+        router.push(`/thank-you?name=${encodeURIComponent(formData.parentName)}`);
+      }
     } catch (err) {
       console.error("Submission failed:", err);
       setIsSubmitting(false);
