@@ -33,6 +33,8 @@ import {
   Check,
   Loader2,
   Award,
+  Maximize2,
+  ExternalLink,
 } from "lucide-react";
 import {
   JOB_OPENINGS,
@@ -40,7 +42,6 @@ import {
   WHY_WORK_WITH_US,
   HIRING_PROCESS,
   CAREER_FAQS,
-  JobOpening,
 } from "@/data/careersData";
 import { contactInfo } from "@/data/siteData";
 
@@ -49,18 +50,16 @@ export default function CareersClientView() {
   const [selectedDept, setSelectedDept] = useState<string>("All Openings");
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedJobId, setExpandedJobId] = useState<string | null>(null);
+  const [isPosterModalOpen, setIsPosterModalOpen] = useState(false);
 
-  // Form State
+  // Limited & Professional Form State
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
-    position: "Pre-Primary / Kindergarten Teacher (NTT / Montessori)",
+    position: "Front Office Associate",
     qualification: "",
-    experience: "1 – 3 Years",
-    currentOrg: "",
-    noticePeriod: "Immediate",
-    location: "Mysuru",
+    experience: "Fresher / 0–1 Year",
     coverNote: "",
   });
 
@@ -97,20 +96,19 @@ export default function CareersClientView() {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Check size (10 MB max)
+    // 10 MB limit check
     if (file.size > 10 * 1024 * 1024) {
       setFileError("File size exceeds 10 MB. Please upload a smaller document.");
       return;
     }
 
-    // Check format
     const allowed = [
       "application/pdf",
       "application/msword",
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     ];
     if (!allowed.includes(file.type) && !file.name.match(/\.(pdf|doc|docx)$/i)) {
-      setFileError("Invalid format. Please upload your resume in PDF, DOC, or DOCX format.");
+      setFileError("Please upload your resume in PDF, DOC, or DOCX format.");
       return;
     }
 
@@ -138,9 +136,6 @@ export default function CareersClientView() {
       data.append("position", formData.position);
       data.append("qualification", formData.qualification);
       data.append("experience", formData.experience);
-      data.append("currentOrg", formData.currentOrg);
-      data.append("noticePeriod", formData.noticePeriod);
-      data.append("location", formData.location);
       data.append("coverNote", formData.coverNote);
 
       if (resumeFile) {
@@ -161,7 +156,7 @@ export default function CareersClientView() {
         );
       }
     } catch {
-      setErrorMessage("Network error. Please check your internet connection and try again.");
+      setErrorMessage("Network connection error. Please check your internet and try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -172,117 +167,218 @@ export default function CareersClientView() {
       <Navbar onOpenAdmissionModal={() => setIsAdmissionModalOpen(true)} />
 
       <main className="flex-grow">
-        {/* HERO SECTION */}
+        {/* HERO SECTION WITH AUTHENTIC BRANDING */}
         <InnerPageHero
           breadcrumbs={[
             { label: "Home", href: "/" },
             { label: "Careers" },
           ]}
           badge={{
-            text: "Work With Us • Academic Year 2027-28",
+            text: "Recruitment Open • Dattagalli, Mysuru",
             icon: Briefcase,
           }}
           title="Careers at Kautilya"
-          subtitle="Join a forward-thinking academic family dedicated to nurturing young minds with value-grounded CBSE education, modern innovation, and human compassion."
+          subtitle="Join an inspiring community of educators, counselors, and staff dedicated to nurturing young minds with CBSE academic rigor, modern innovation, and human values."
           waveFillColor="#f8fafc"
         />
 
-        {/* 1. KEY METRICS STRIP */}
+        {/* 1. KEY METRICS STRIP (Generous responsive padding) */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
-            <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-md text-center">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow text-center">
               <span className="block text-2xl sm:text-3xl font-black text-[#001744]">
-                25+
+                25+ Years
               </span>
-              <span className="text-xs sm:text-sm font-semibold text-slate-500 mt-0.5 block">
-                Years of Excellence
+              <span className="text-xs sm:text-sm font-semibold text-slate-500 mt-1 block">
+                Educational Legacy
               </span>
             </div>
-            <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-md text-center">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow text-center">
               <span className="block text-2xl sm:text-3xl font-black text-blue-700">
-                100+
+                100+ Staff
               </span>
-              <span className="text-xs sm:text-sm font-semibold text-slate-500 mt-0.5 block">
-                Faculty &amp; Staff Members
+              <span className="text-xs sm:text-sm font-semibold text-slate-500 mt-1 block">
+                Collaborative Community
               </span>
             </div>
-            <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-md text-center">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow text-center">
               <span className="block text-2xl sm:text-3xl font-black text-emerald-700">
-                100%
+                100% Board
               </span>
-              <span className="text-xs sm:text-sm font-semibold text-slate-500 mt-0.5 block">
-                CBSE Board Distinction
+              <span className="text-xs sm:text-sm font-semibold text-slate-500 mt-1 block">
+                CBSE Results Track Record
               </span>
             </div>
-            <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-md text-center">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow text-center">
               <span className="block text-2xl sm:text-3xl font-black text-amber-600">
-                1:20
+                Freshers Welcome
               </span>
-              <span className="text-xs sm:text-sm font-semibold text-slate-500 mt-0.5 block">
-                Teacher-Student Ratio
+              <span className="text-xs sm:text-sm font-semibold text-slate-500 mt-1 block">
+                Comprehensive Mentorship
               </span>
             </div>
           </div>
         </section>
 
-        {/* 2. WHY TEACH AT KAUTILYA VIDYALAYA */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-            <span className="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-3.5 py-1 rounded-full border border-blue-100">
-              Why Join Kautilya
-            </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#001744] tracking-tight mt-3">
-              A Fulfilling Pedagogical Environment
-            </h2>
-            <p className="text-slate-500 text-sm sm:text-base mt-2 leading-relaxed">
-              We empower educators with academic freedom, state-of-the-art facilities, continuous professional development, and a culture of mutual respect.
-            </p>
-          </div>
+        {/* 2. OFFICIAL WE ARE HIRING SPOTLIGHT BANNER */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+          <div className="bg-gradient-to-br from-[#001744] via-[#00246B] to-[#001744] rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl text-white relative overflow-hidden border border-blue-900/60">
+            {/* Background ambient lighting */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {WHY_WORK_WITH_US.map((perk, idx) => (
-              <motion.div
-                key={perk.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-700 mb-5 group-hover:bg-[#001744] group-hover:text-[#FFD907] transition-colors duration-300">
-                    {idx === 0 && <Sparkles className="w-6 h-6" />}
-                    {idx === 1 && <GraduationCap className="w-6 h-6" />}
-                    {idx === 2 && <Building2 className="w-6 h-6" />}
-                    {idx === 3 && <ShieldCheck className="w-6 h-6" />}
-                    {idx === 4 && <HeartHandshake className="w-6 h-6" />}
-                    {idx === 5 && <Users className="w-6 h-6" />}
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left Column: Official Flyer Visual */}
+              <div className="lg:col-span-5 flex flex-col items-center">
+                <div
+                  onClick={() => setIsPosterModalOpen(true)}
+                  className="relative w-full max-w-[320px] aspect-[541/797] rounded-2xl overflow-hidden shadow-2xl border-4 border-[#FFD907] cursor-pointer group transition-transform duration-300 hover:scale-[1.02]"
+                >
+                  <Image
+                    src="/images/careers/kautilya-hiring-poster.webp"
+                    alt="Kautilya Vidyalaya We Are Hiring Poster"
+                    fill
+                    priority
+                    sizes="(max-width: 640px) 280px, 320px"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="bg-white/95 text-[#001744] text-xs font-bold px-3.5 py-2 rounded-full flex items-center gap-1.5 shadow-md">
+                      <Maximize2 className="w-3.5 h-3.5 text-blue-600" />
+                      <span>View Full Flyer</span>
+                    </span>
                   </div>
-                  <h3 className="text-lg font-black text-[#001744] tracking-tight mb-2">
-                    {perk.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    {perk.desc}
+                </div>
+                <span className="text-[11px] text-slate-300 mt-2.5 flex items-center gap-1">
+                  <span>Click poster to expand</span>
+                  <ExternalLink className="w-3 h-3 text-[#FFD907]" />
+                </span>
+              </div>
+
+              {/* Right Column: Active Role Spotlight */}
+              <div className="lg:col-span-7 space-y-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 bg-[#FFD907] text-[#001744] font-black text-xs uppercase tracking-wider px-3.5 py-1 rounded-full mb-3 shadow">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>Official Hiring Campaign</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+                    WE ARE <span className="text-[#FFD907]">HIRING!</span>
+                  </h2>
+                  <p className="text-sm sm:text-base text-yellow-300 font-extrabold mt-1">
+                    Join Our Growing Team • Freshers are welcome! Start your career with us.
+                  </p>
+                  <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                    Kautilya Vidyalaya is welcoming motivated individuals to join our administrative and admissions counseling team in Dattagalli, Mysuru.
                   </p>
                 </div>
-              </motion.div>
-            ))}
+
+                {/* The Two Roles from Poster */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Role 1: Front Office Associate */}
+                  <div className="bg-white/95 backdrop-blur rounded-2xl p-5 text-slate-900 border border-white/20 shadow-lg flex flex-col justify-between">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="w-7 h-7 rounded-full bg-[#001744] text-[#FFD907] font-black text-xs flex items-center justify-center">
+                          1
+                        </span>
+                        <span className="text-[10px] font-extrabold uppercase bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-md">
+                          0–3 Yrs / Freshers
+                        </span>
+                      </div>
+                      <h3 className="text-base sm:text-lg font-black text-[#001744]">
+                        Front Office Associate
+                      </h3>
+                      <div className="space-y-1.5 text-xs text-slate-600">
+                        <p>
+                          <strong className="text-slate-800">Qualification:</strong> Any Graduate
+                        </p>
+                        <p>
+                          <strong className="text-slate-800">Skills:</strong> Good communication &amp; MS Office
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleApplyClick("Front Office Associate")}
+                      className="mt-4 w-full bg-[#001744] hover:bg-blue-900 text-[#FFD907] font-bold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                    >
+                      <span>Apply for this Role</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+
+                  {/* Role 2: Admission Associate */}
+                  <div className="bg-white/95 backdrop-blur rounded-2xl p-5 text-slate-900 border border-white/20 shadow-lg flex flex-col justify-between">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="w-7 h-7 rounded-full bg-[#001744] text-[#FFD907] font-black text-xs flex items-center justify-center">
+                          2
+                        </span>
+                        <span className="text-[10px] font-extrabold uppercase bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-md">
+                          0–4 Yrs / Freshers
+                        </span>
+                      </div>
+                      <h3 className="text-base sm:text-lg font-black text-[#001744]">
+                        Admission Associate
+                      </h3>
+                      <div className="space-y-1.5 text-xs text-slate-600">
+                        <p>
+                          <strong className="text-slate-800">Qualification:</strong> Any Graduate / MBA
+                        </p>
+                        <p>
+                          <strong className="text-slate-800">Skills:</strong> Counselling, parent communication &amp; interpersonal
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleApplyClick("Admission Associate")}
+                      className="mt-4 w-full bg-[#001744] hover:bg-blue-900 text-[#FFD907] font-bold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                    >
+                      <span>Apply for this Role</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Quick Email Note Bar */}
+                <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs bg-white/10 rounded-2xl p-4 border border-white/10">
+                  <div className="flex items-center gap-2">
+                    <Mail className="w-4 h-4 text-[#FFD907] shrink-0" />
+                    <span>
+                      Direct resume email:{" "}
+                      <a
+                        href="mailto:careers@kautilyavidyalaya.edu.in?subject=Application%20for%20Job%20Vacancy%20-%20Kautilya%20Vidyalaya"
+                        className="text-[#FFD907] font-bold hover:underline"
+                      >
+                        careers@kautilyavidyalaya.edu.in
+                      </a>
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-slate-300">
+                    <MapPin className="w-3.5 h-3.5 text-yellow-400 shrink-0" />
+                    <span>Dattagalli, Mysuru</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* 3. CURRENT OPENINGS EXPLORER */}
-        <section id="openings" className="bg-slate-100/70 py-16 sm:py-20 border-y border-slate-200/80">
+        {/* 3. ALL JOB VACANCIES (Teaching & Non-Teaching) */}
+        <section id="openings" className="bg-slate-100/70 py-16 sm:py-24 border-y border-slate-200/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
               <div>
                 <span className="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-3.5 py-1 rounded-full border border-blue-100">
-                  Current Vacancies
+                  All Openings
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#001744] tracking-tight mt-3">
-                  Explore Teaching &amp; Administrative Roles
+                  Teaching, Specialist &amp; Staff Roles
                 </h2>
                 <p className="text-slate-500 text-sm mt-1">
-                  We are actively welcoming passionate educators for the 2027-28 academic session.
+                  Select a category or search by subject to view eligibility criteria and responsibilities.
                 </p>
               </div>
 
@@ -323,7 +419,7 @@ export default function CareersClientView() {
                 <Briefcase className="w-12 h-12 text-slate-300 mx-auto mb-3" />
                 <h4 className="text-lg font-bold text-slate-700">No specific openings found</h4>
                 <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-md mx-auto">
-                  We did not find any vacancies matching your current filter. However, you can still submit a general application below!
+                  We did not find any vacancies matching your search. You can still submit a general application below!
                 </p>
                 <button
                   type="button"
@@ -355,7 +451,7 @@ export default function CareersClientView() {
                               </span>
                             )}
                             <span className="text-[11px] font-bold text-slate-500">
-                              • {job.openingsCount} {job.openingsCount === 1 ? "Vacancy" : "Vacancies"}
+                              • {job.openingsCount} {job.openingsCount === 1 ? "Opening" : "Openings"}
                             </span>
                           </div>
 
@@ -477,22 +573,23 @@ export default function CareersClientView() {
           </div>
         </section>
 
-        {/* 4. ONLINE APPLICATION FORM */}
+        {/* 4. LIMITED & PROFESSIONAL APPLICATION FORM */}
         <section
           ref={formRef}
           id="apply-now"
-          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20"
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24"
         >
           <div className="bg-white rounded-3xl shadow-xl border border-slate-200/90 p-6 sm:p-10 lg:p-12 relative overflow-hidden">
             <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10 space-y-2">
               <span className="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-3.5 py-1 rounded-full border border-blue-100">
-                Online Application
+                Direct Candidate Application
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#001744] tracking-tight">
-                Submit Your Job Application
+                Apply for a Position at Kautilya
               </h2>
               <p className="text-slate-500 text-xs sm:text-sm">
-                Fill in your professional background and attach your CV / Resume. Our recruitment panel reviews applications on a rolling basis.
+                Applications are delivered directly to{" "}
+                <strong className="text-blue-700 font-bold">careers@kautilyavidyalaya.edu.in</strong>. Our HR team reviews profiles on a rolling basis.
               </p>
             </div>
 
@@ -509,8 +606,7 @@ export default function CareersClientView() {
                   Application Submitted Successfully!
                 </h3>
                 <p className="text-xs sm:text-sm text-emerald-800 leading-relaxed">
-                  Thank you for applying for{" "}
-                  <strong>{formData.position}</strong>. Our academic recruitment team will review your profile and resume. If shortlisted, we will contact you via email or phone to schedule a mock classroom demo.
+                  Your application for <strong>{formData.position}</strong> has been transmitted directly to our recruitment desk at <strong>careers@kautilyavidyalaya.edu.in</strong>. If shortlisted, our academic coordinator will contact you to schedule an interaction.
                 </p>
                 <button
                   type="button"
@@ -521,12 +617,9 @@ export default function CareersClientView() {
                       fullName: "",
                       email: "",
                       phone: "",
-                      position: "Pre-Primary / Kindergarten Teacher (NTT / Montessori)",
+                      position: "Front Office Associate",
                       qualification: "",
-                      experience: "1 – 3 Years",
-                      currentOrg: "",
-                      noticePeriod: "Immediate",
-                      location: "Mysuru",
+                      experience: "Fresher / 0–1 Year",
                       coverNote: "",
                     });
                   }}
@@ -544,8 +637,9 @@ export default function CareersClientView() {
                   </div>
                 )}
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {/* Full Name */}
+                {/* Streamlined & Professional 2-Column Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+                  {/* 1. Full Name */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                       Full Name <span className="text-red-500">*</span>
@@ -562,7 +656,7 @@ export default function CareersClientView() {
                     />
                   </div>
 
-                  {/* Email */}
+                  {/* 2. Email Address */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                       Email Address <span className="text-red-500">*</span>
@@ -570,7 +664,7 @@ export default function CareersClientView() {
                     <input
                       type="email"
                       required
-                      placeholder="e.g. ananya.teacher@gmail.com"
+                      placeholder="e.g. ananya@gmail.com"
                       value={formData.email}
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
@@ -579,10 +673,10 @@ export default function CareersClientView() {
                     />
                   </div>
 
-                  {/* Phone Number */}
+                  {/* 3. Phone Number */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                      Phone Number <span className="text-red-500">*</span>
+                      Mobile Number <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="tel"
@@ -596,7 +690,7 @@ export default function CareersClientView() {
                     />
                   </div>
 
-                  {/* Position Applied For */}
+                  {/* 4. Position Applied For */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                       Position Applied For <span className="text-red-500">*</span>
@@ -606,7 +700,7 @@ export default function CareersClientView() {
                       onChange={(e) =>
                         setFormData({ ...formData, position: e.target.value })
                       }
-                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#001744] focus:bg-white transition-all"
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#001744] focus:bg-white transition-all font-medium"
                     >
                       {JOB_OPENINGS.map((job) => (
                         <option key={job.id} value={job.title}>
@@ -619,7 +713,7 @@ export default function CareersClientView() {
                     </select>
                   </div>
 
-                  {/* Highest Qualification */}
+                  {/* 5. Highest Qualification */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                       Highest Qualification <span className="text-red-500">*</span>
@@ -627,7 +721,7 @@ export default function CareersClientView() {
                     <input
                       type="text"
                       required
-                      placeholder="e.g. M.Sc (Maths), B.Ed, CTET"
+                      placeholder="e.g. Any Graduate / B.Ed / MBA / M.Sc"
                       value={formData.qualification}
                       onChange={(e) =>
                         setFormData({ ...formData, qualification: e.target.value })
@@ -636,10 +730,10 @@ export default function CareersClientView() {
                     />
                   </div>
 
-                  {/* Total Experience */}
+                  {/* 6. Total Experience */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                      Total Relevant Experience
+                      Total Experience <span className="text-red-500">*</span>
                     </label>
                     <select
                       value={formData.experience}
@@ -648,68 +742,16 @@ export default function CareersClientView() {
                       }
                       className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#001744] focus:bg-white transition-all"
                     >
-                      <option value="Fresher (0 - 1 Year)">Fresher (0 – 1 Year)</option>
+                      <option value="Fresher / 0–1 Year">Fresher / 0–1 Year (Start your career with us!)</option>
                       <option value="1 – 3 Years">1 – 3 Years</option>
                       <option value="3 – 5 Years">3 – 5 Years</option>
                       <option value="5 – 8 Years">5 – 8 Years</option>
                       <option value="8+ Years">8+ Years</option>
                     </select>
                   </div>
-
-                  {/* Current Organization */}
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                      Current School / Organization
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. DPS / St. Joseph / None"
-                      value={formData.currentOrg}
-                      onChange={(e) =>
-                        setFormData({ ...formData, currentOrg: e.target.value })
-                      }
-                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#001744] focus:bg-white transition-all"
-                    />
-                  </div>
-
-                  {/* Notice Period */}
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                      Notice Period / Availability
-                    </label>
-                    <select
-                      value={formData.noticePeriod}
-                      onChange={(e) =>
-                        setFormData({ ...formData, noticePeriod: e.target.value })
-                      }
-                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#001744] focus:bg-white transition-all"
-                    >
-                      <option value="Immediate">Immediate</option>
-                      <option value="15 Days">15 Days</option>
-                      <option value="1 Month">1 Month</option>
-                      <option value="2 Months">2 Months</option>
-                      <option value="From Next Academic Session">From Next Academic Session</option>
-                    </select>
-                  </div>
                 </div>
 
-                {/* Current Location */}
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Current Location / City
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. Mysuru, Bengaluru, Mandya"
-                    value={formData.location}
-                    onChange={(e) =>
-                      setFormData({ ...formData, location: e.target.value })
-                    }
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#001744] focus:bg-white transition-all"
-                  />
-                </div>
-
-                {/* RESUME UPLOAD DROPZONE */}
+                {/* 7. Resume Upload (Clean dropzone) */}
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                     Upload Resume / CV (PDF, DOC, DOCX up to 10 MB) <span className="text-red-500">*</span>
@@ -725,7 +767,7 @@ export default function CareersClientView() {
                   />
 
                   {resumeFile ? (
-                    <div className="bg-blue-50/80 border-2 border-blue-200 rounded-2xl p-4 flex items-center justify-between gap-4">
+                    <div className="bg-blue-50/90 border-2 border-blue-200 rounded-2xl p-4 flex items-center justify-between gap-4">
                       <div className="flex items-center gap-3 min-w-0">
                         <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0">
                           <FileText className="w-5 h-5" />
@@ -735,14 +777,14 @@ export default function CareersClientView() {
                             {resumeFile.name}
                           </p>
                           <p className="text-xs text-slate-500">
-                            {(resumeFile.size / (1024 * 1024)).toFixed(2)} MB • Ready for review
+                            {(resumeFile.size / (1024 * 1024)).toFixed(2)} MB • Ready to attach
                           </p>
                         </div>
                       </div>
                       <button
                         type="button"
                         onClick={handleRemoveFile}
-                        className="text-slate-400 hover:text-red-600 p-2 rounded-lg hover:bg-red-50 transition-colors"
+                        className="text-slate-400 hover:text-red-600 p-2 rounded-lg hover:bg-red-50 transition-colors cursor-pointer"
                         title="Remove resume"
                       >
                         <X className="w-5 h-5" />
@@ -751,14 +793,14 @@ export default function CareersClientView() {
                   ) : (
                     <div
                       onClick={() => fileInputRef.current?.click()}
-                      className="border-2 border-dashed border-slate-300 hover:border-[#001744] bg-slate-50/80 hover:bg-blue-50/30 rounded-2xl p-6 text-center cursor-pointer transition-all duration-200"
+                      className="border-2 border-dashed border-slate-300 hover:border-[#001744] bg-slate-50/80 hover:bg-blue-50/40 rounded-2xl p-6 text-center cursor-pointer transition-all duration-200"
                     >
                       <Upload className="w-8 h-8 text-blue-600 mx-auto mb-2" />
                       <p className="text-sm font-bold text-slate-700">
-                        Click to select or drag and drop your resume file
+                        Click to upload or drag &amp; drop your resume
                       </p>
                       <p className="text-xs text-slate-500 mt-1">
-                        Supported formats: PDF, DOC, DOCX (Maximum file size: 10 MB)
+                        Accepted: PDF, DOC, DOCX (Max 10 MB)
                       </p>
                     </div>
                   )}
@@ -771,14 +813,14 @@ export default function CareersClientView() {
                   )}
                 </div>
 
-                {/* Brief Cover Note */}
+                {/* 8. Short Note (Optional) */}
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Cover Note / Brief Teaching Philosophy (Optional)
+                    Cover Note / Message for Principal (Optional)
                   </label>
                   <textarea
-                    rows={4}
-                    placeholder="Tell us about your teaching style, why you wish to join Kautilya Vidyalaya, and key achievements..."
+                    rows={3}
+                    placeholder="Briefly describe your interest in Kautilya Vidyalaya or specific achievements..."
                     value={formData.coverNote}
                     onChange={(e) =>
                       setFormData({ ...formData, coverNote: e.target.value })
@@ -787,17 +829,17 @@ export default function CareersClientView() {
                   />
                 </div>
 
-                {/* Submit CTA */}
+                {/* Submit Action */}
                 <div className="pt-2">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-black text-sm sm:text-base py-3.5 px-6 rounded-xl shadow-md hover:shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full bg-[#001744] hover:bg-[#002b7a] text-[#FFD907] font-black text-sm sm:text-base py-3.5 px-6 rounded-xl shadow-md hover:shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed active:scale-[0.99]"
                   >
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-5 h-5 animate-spin text-[#FFD907]" />
-                        <span>Submitting Application &amp; Uploading Resume...</span>
+                        <span>Sending Application to careers@kautilyavidyalaya.edu.in...</span>
                       </>
                     ) : (
                       <>
@@ -807,7 +849,7 @@ export default function CareersClientView() {
                     )}
                   </button>
                   <p className="text-[11px] text-slate-400 text-center mt-3">
-                    Your application data and uploaded resume are treated with strict confidentiality.
+                    Your details and resume are kept strictly confidential and reviewed by school leadership.
                   </p>
                 </div>
               </form>
@@ -815,18 +857,63 @@ export default function CareersClientView() {
           </div>
         </section>
 
-        {/* 5. 4-STEP RECRUITMENT JOURNEY */}
-        <section className="bg-white py-16 sm:py-20 border-t border-slate-200">
+        {/* 5. WHY WORK AT KAUTILYA VIDYALAYA */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-t border-slate-200/80">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <span className="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-3.5 py-1 rounded-full border border-blue-100">
+              Institutional Culture
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#001744] tracking-tight mt-3">
+              Why Join Kautilya Vidyalaya?
+            </h2>
+            <p className="text-slate-500 text-sm sm:text-base mt-2 leading-relaxed">
+              A supportive and collaborative team, professional growth and learning opportunities, and a dynamic school environment.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {WHY_WORK_WITH_US.map((perk, idx) => (
+              <motion.div
+                key={perk.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-700 mb-5 group-hover:bg-[#001744] group-hover:text-[#FFD907] transition-colors duration-300">
+                    {idx === 0 && <Sparkles className="w-6 h-6" />}
+                    {idx === 1 && <GraduationCap className="w-6 h-6" />}
+                    {idx === 2 && <Building2 className="w-6 h-6" />}
+                    {idx === 3 && <ShieldCheck className="w-6 h-6" />}
+                    {idx === 4 && <HeartHandshake className="w-6 h-6" />}
+                    {idx === 5 && <Users className="w-6 h-6" />}
+                  </div>
+                  <h3 className="text-lg font-black text-[#001744] tracking-tight mb-2">
+                    {perk.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {perk.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* 6. TRANSPARENT 4-STEP HIRING PROCESS */}
+        <section className="bg-white py-16 sm:py-24 border-t border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
               <span className="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-3.5 py-1 rounded-full border border-blue-100">
-                Selection Process
+                Transparent Roadmap
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#001744] tracking-tight mt-3">
-                Our 4-Step Hiring Roadmap
+                Our 4-Step Selection Process
               </h2>
               <p className="text-slate-500 text-sm mt-1">
-                A transparent, merit-based selection process focused on pedagogical passion and cultural alignment.
+                We respect your time and provide prompt updates at every stage of the evaluation.
               </p>
             </div>
 
@@ -851,14 +938,14 @@ export default function CareersClientView() {
           </div>
         </section>
 
-        {/* 6. APPLICANT FAQS & HR DESK */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        {/* 7. APPLICANT FAQS & RECRUITMENT DESK CARD */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             {/* Left: FAQs */}
             <div className="lg:col-span-7 space-y-4">
               <div className="mb-6">
                 <span className="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-3.5 py-1 rounded-full border border-blue-100">
-                  Applicant Queries
+                  Applicant Support
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#001744] tracking-tight mt-2">
                   Frequently Asked Questions
@@ -881,9 +968,9 @@ export default function CareersClientView() {
               ))}
             </div>
 
-            {/* Right: HR & Direct Contact Card */}
+            {/* Right: Direct HR Desk Contact Box */}
             <div className="lg:col-span-5">
-              <div className="bg-[#001744] text-white rounded-3xl p-7 sm:p-8 shadow-xl border border-white/10 relative overflow-hidden">
+              <div className="bg-[#001744] text-white rounded-3xl p-7 sm:p-9 shadow-xl border border-white/10 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
 
                 <span className="text-xs font-extrabold tracking-wider uppercase text-[#FFD907] bg-white/10 px-3.5 py-1 rounded-full border border-white/10">
@@ -893,19 +980,19 @@ export default function CareersClientView() {
                   Have Questions Before Applying?
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                  Our HR desk is happy to guide you regarding current openings, eligibility criteria, and campus walkthroughs.
+                  Our HR desk is available during campus hours to answer questions regarding vacancies, eligibility, and campus location.
                 </p>
 
                 <div className="space-y-4 mt-6 pt-6 border-t border-white/10 text-xs sm:text-sm">
                   <div className="flex items-start gap-3">
                     <Mail className="w-4 h-4 text-[#FFD907] shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-slate-400 block text-[11px]">Email HR Desk</span>
+                      <span className="text-slate-400 block text-[11px]">Direct Resume Email</span>
                       <a
-                        href="mailto:enquiry@kautilyavidyalaya.edu.in?subject=Career%20Inquiry%20-%20Kautilya%20Vidyalaya"
+                        href="mailto:careers@kautilyavidyalaya.edu.in?subject=Application%20for%20Job%20Vacancy%20-%20Kautilya%20Vidyalaya"
                         className="text-white hover:text-[#38bdf8] font-bold transition-colors"
                       >
-                        enquiry@kautilyavidyalaya.edu.in
+                        careers@kautilyavidyalaya.edu.in
                       </a>
                     </div>
                   </div>
@@ -913,7 +1000,7 @@ export default function CareersClientView() {
                   <div className="flex items-start gap-3">
                     <Phone className="w-4 h-4 text-[#FFD907] shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-slate-400 block text-[11px]">Direct Line</span>
+                      <span className="text-slate-400 block text-[11px]">Direct Phone Desk</span>
                       <a
                         href="tel:+917090671299"
                         className="text-white hover:text-[#38bdf8] font-bold transition-colors block"
@@ -953,6 +1040,52 @@ export default function CareersClientView() {
             </div>
           </div>
         </section>
+
+        {/* POSTER MODAL LIGHTBOX */}
+        <AnimatePresence>
+          {isPosterModalOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+              onClick={() => setIsPosterModalOpen(false)}
+            >
+              <div
+                className="relative max-w-lg w-full max-h-[90vh] bg-white rounded-3xl overflow-hidden shadow-2xl p-2"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  type="button"
+                  onClick={() => setIsPosterModalOpen(false)}
+                  className="absolute top-4 right-4 z-10 w-9 h-9 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center shadow-lg transition-colors cursor-pointer"
+                  aria-label="Close flyer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+                <div className="relative aspect-[541/797] w-full rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/careers/kautilya-hiring-poster.webp"
+                    alt="Official Hiring Poster - Kautilya Vidyalaya"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 520px"
+                    className="object-contain"
+                  />
+                </div>
+                <div className="p-3 text-center">
+                  <a
+                    href="/images/careers/kautilya-hiring-poster.png"
+                    download="Kautilya-Vidyalaya-Hiring-Flyer.png"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-900"
+                  >
+                    <span>Download High-Resolution Flyer</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
 
       <Footer />

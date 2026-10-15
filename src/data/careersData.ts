@@ -27,6 +27,58 @@ export const CAREER_DEPARTMENTS = [
 
 export const JOB_OPENINGS: JobOpening[] = [
   {
+    id: "front-office-associate",
+    title: "Front Office Associate",
+    department: "Administration & Support",
+    type: "Full Time",
+    location: "Dattagalli, Mysuru",
+    experience: "0–3 Years (Freshers Welcome)",
+    qualification: "Any Graduate",
+    openingsCount: 2,
+    badge: "Urgent • Freshers Welcome",
+    description:
+      "Serve as the welcoming face and voice of Kautilya Vidyalaya, handling visitors, parent inquiries, telephone communications, and day-to-day front office coordination.",
+    keyResponsibilities: [
+      "Welcoming parents, visiting dignitaries, and guests with courtesy and professionalism.",
+      "Handling incoming telephone calls, general school inquiries, and appointment scheduling.",
+      "Maintaining front-desk visitor registers, student movement logs, and official records.",
+      "Coordinating with school administration and faculty for smooth daily front-desk operations.",
+    ],
+    requirements: [
+      "Qualification: Any Graduate from a recognized university.",
+      "Experience: Candidates with 0–3 years of experience / Freshers are welcome.",
+      "Skills: Good communication skills in English and Kannada.",
+      "Proficiency in MS Office (Word, Excel) and basic computer operations.",
+    ],
+    postedDate: "Actively Hiring",
+  },
+  {
+    id: "admission-associate",
+    title: "Admission Associate",
+    department: "Administration & Support",
+    type: "Full Time",
+    location: "Dattagalli, Mysuru",
+    experience: "0–4 Years (Freshers Welcome)",
+    qualification: "Any Graduate / MBA",
+    openingsCount: 2,
+    badge: "Urgent • Freshers Welcome",
+    description:
+      "Engage with prospective parents, provide personalized academic counseling, guide families through campus facilities, and manage the student admission lifecycle.",
+    keyResponsibilities: [
+      "Conduct parent counseling sessions highlighting Kautilya's holistic CBSE education.",
+      "Guide prospective parents through admission formalities, fee structures, and document verification.",
+      "Coordinate campus tour walk-throughs and follow up with prospective admission inquiries.",
+      "Manage student enrollment files and parent orientation communication.",
+    ],
+    requirements: [
+      "Qualification: Any Graduate or MBA (Marketing / HR / Education Management).",
+      "Experience: Candidates with 0–4 years of experience / Freshers are welcome.",
+      "Skills: Counselling, parent communication, and strong interpersonal skills.",
+      "Professional demeanor, active listening, and high empathy for parents and children.",
+    ],
+    postedDate: "Actively Hiring",
+  },
+  {
     id: "kg-montessori-teacher",
     title: "Pre-Primary / Kindergarten Teacher (NTT / Montessori)",
     department: "Kindergarten",
@@ -261,29 +313,6 @@ export const JOB_OPENINGS: JobOpening[] = [
     requirements: [
       "Master's in Psychology or RCI-recognized qualification in Special Education.",
       "Empathy, patience, and strong communication skills with students, teachers, and parents.",
-    ],
-    postedDate: "Academic Year 2027-28",
-  },
-  {
-    id: "front-office-admission-counselor",
-    title: "Front Desk Executive & Admissions Counselor",
-    department: "Administration & Support",
-    type: "Full Time",
-    location: "Mysuru Campus (Dattagalli)",
-    experience: "1 – 4 Years",
-    qualification: "Any Graduate with pleasant personality and excellent communication",
-    openingsCount: 2,
-    badge: "Front Office",
-    description:
-      "The welcoming voice and face of Kautilya Vidyalaya, assisting prospective parents with school admissions, campus walkthroughs, and administrative inquiries.",
-    keyResponsibilities: [
-      "Welcome visiting parents and explain the Kautilya pedagogical ethos, facilities, and admission steps.",
-      "Manage incoming telephone inquiries and maintain visitor rosters.",
-      "Coordinate admission paperwork and communication schedules.",
-    ],
-    requirements: [
-      "Fluency in English and Kannada (Hindi is an advantage).",
-      "Courteous telephone etiquette, problem-solving mindset, and basic computer proficiency.",
     ],
     postedDate: "Academic Year 2027-28",
   },

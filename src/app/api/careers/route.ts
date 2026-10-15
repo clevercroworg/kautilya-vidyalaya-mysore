@@ -76,9 +76,7 @@ export async function POST(req: Request) {
     const gmailUser = process.env.GMAIL_USER;
     const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
     const recipientEmail =
-      process.env.CAREERS_EMAIL_TO ||
-      process.env.EMAIL_TO ||
-      "enquiry@kautilyavidyalaya.edu.in, admissions@kautilyavidyalaya.edu.in";
+      process.env.CAREERS_EMAIL_TO || "careers@kautilyavidyalaya.edu.in";
 
     if (!gmailUser || !gmailAppPassword) {
       console.warn(
@@ -107,22 +105,19 @@ export async function POST(req: Request) {
 
     const subject = `Job Application: ${fullName} – ${position} (Kautilya Vidyalaya)`;
 
-    const textContent = `New Job Application Received:
-------------------------------------------
+    const textContent = `New Job Application Received (careers@kautilyavidyalaya.edu.in):
+------------------------------------------------------------
 Applicant Name: ${fullName}
 Position Applied For: ${position}
 Email: ${email || "Not Provided"}
 Phone: ${phone || "Not Provided"}
 Highest Qualification: ${qualification}
 Total Experience: ${experience}
-Current Organization: ${currentOrg}
-Notice Period / Availability: ${noticePeriod}
-Current Location: ${location}
 Resume Attached: ${resumeFileName ? `Yes (${resumeFileName})` : "No resume uploaded"}
 Submitted At: ${timestampIST}
 
-Cover Note / Candidate Statement:
-${coverNote || "No additional statement provided."}
+Cover Statement / Note:
+${coverNote || "No cover statement provided."}
 `;
 
     const htmlContent = `
@@ -177,23 +172,11 @@ ${coverNote || "No additional statement provided."}
                 </tr>
                 <tr>
                   <td class="label">Highest Qualification</td>
-                  <td class="value">${qualification}</td>
+                  <td class="value"><strong>${qualification}</strong></td>
                 </tr>
                 <tr>
                   <td class="label">Total Experience</td>
                   <td class="value">${experience}</td>
-                </tr>
-                <tr>
-                  <td class="label">Current Organization</td>
-                  <td class="value">${currentOrg}</td>
-                </tr>
-                <tr>
-                  <td class="label">Notice Period</td>
-                  <td class="value">${noticePeriod}</td>
-                </tr>
-                <tr>
-                  <td class="label">Location / City</td>
-                  <td class="value">${location}</td>
                 </tr>
                 <tr>
                   <td class="label">Submitted At</td>
@@ -205,9 +188,9 @@ ${coverNote || "No additional statement provided."}
                 resumeFileName
                   ? `<div class="resume-box">
                       <span><strong>📎 Attached Resume:</strong> ${resumeFileName}</span>
-                      <span style="font-size: 11px; color: #047857; background: #d1fae5; padding: 2px 8px; rounded: 4px;">Attached to this Email</span>
+                      <span style="font-size: 11px; color: #047857; background: #d1fae5; padding: 2px 8px; border-radius: 4px;">Attached to Email</span>
                     </div>`
-                  : `<p style="font-size: 12px; color: #94a3b8; margin-top: 12px; italic;">No resume attachment was uploaded with this submission.</p>`
+                  : `<p style="font-size: 12px; color: #94a3b8; margin-top: 12px; font-style: italic;">No resume attachment was uploaded with this submission.</p>`
               }
 
               <div style="margin-top: 20px;">
@@ -218,7 +201,7 @@ ${coverNote || "No additional statement provided."}
               </div>
             </div>
             <div class="footer">
-              Automated recruitment notification sent to HR desk (${recipientEmail}).
+              Direct recruitment submission routed to <strong>${recipientEmail}</strong>.
             </div>
           </div>
         </body>
@@ -228,6 +211,7 @@ ${coverNote || "No additional statement provided."}
     await transporter.sendMail({
       from: `"Kautilya Careers Desk" <${gmailUser}>`,
       to: recipientEmail,
+      cc: "enquiry@kautilyavidyalaya.edu.in",
       replyTo: email || undefined,
       subject,
       text: textContent,
