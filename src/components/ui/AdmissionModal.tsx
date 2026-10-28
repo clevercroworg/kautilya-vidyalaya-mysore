@@ -55,12 +55,6 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
         }),
       });
 
-      if (typeof window !== "undefined" && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
-        (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "conversion", {
-          send_to: "AW-11418540333/cGUrCOnowfgYEK2y5MQq",
-        });
-      }
-
       setIsSubmitting(false);
       setSubmitted(true);
 
