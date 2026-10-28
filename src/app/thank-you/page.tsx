@@ -20,11 +20,7 @@ export default function ThankYouPage() {
         id="google-ads-conversion-thank-you"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('event', 'conversion', {'send_to': 'AW-11418540333/cGUrCOnowfgYEK2y5MQq'});
-          `,
+          __html: `gtag('event', 'conversion', {'send_to': 'AW-11418540333/cGUrCOnowfgYEK2y5MQq'});`,
         }}
       />
       <ThankYouClientView />
