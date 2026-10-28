@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Script from "next/script";
 import ThankYouClientView from "@/components/thank-you/ThankYouClientView";
 
 export const metadata: Metadata = {
@@ -16,9 +15,7 @@ export default function ThankYouPage() {
   return (
     <>
       {/* Event snippet for Submit lead form conversion page */}
-      <Script
-        id="google-ads-conversion-thank-you"
-        strategy="afterInteractive"
+      <script
         dangerouslySetInnerHTML={{
           __html: `gtag('event', 'conversion', {'send_to': 'AW-11418540333/cGUrCOnowfgYEK2y5MQq'});`,
         }}

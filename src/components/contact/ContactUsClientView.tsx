@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -46,7 +45,6 @@ const CLASS_OPTIONS = [
 export default function ContactUsClientView() {
   const [isAdmissionModalOpen, setIsAdmissionModalOpen] = useState(false);
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const router = useRouter();
   const [formData, setFormData] = useState({
     parentName: "",
     childName: "",
@@ -78,7 +76,7 @@ export default function ContactUsClientView() {
 
       if (res.ok) {
         setFormStatus("success");
-        router.push(`/thank-you?name=${encodeURIComponent(formData.parentName)}`);
+        window.location.assign(`/thank-you?name=${encodeURIComponent(formData.parentName)}`);
       } else {
         setFormStatus("error");
       }

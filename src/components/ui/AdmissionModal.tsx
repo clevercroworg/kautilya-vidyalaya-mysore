@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 import { X, Send, CheckCircle2 } from "lucide-react";
 
 interface AdmissionModalProps {
@@ -10,7 +9,6 @@ interface AdmissionModalProps {
 }
 
 export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps) {
-  const router = useRouter();
   const [formData, setFormData] = useState({
     parentName: "",
     location: "",
@@ -60,7 +58,7 @@ export default function AdmissionModal({ isOpen, onClose }: AdmissionModalProps)
 
       if (res.ok) {
         onClose();
-        router.push(`/thank-you?name=${encodeURIComponent(formData.parentName)}`);
+        window.location.assign(`/thank-you?name=${encodeURIComponent(formData.parentName)}`);
       }
     } catch (err) {
       console.error("Submission failed:", err);

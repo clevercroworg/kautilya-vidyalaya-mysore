@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Manrope, Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -172,20 +171,9 @@ export default function RootLayout({
       className={`${manrope.variable} ${outfit.variable} scroll-smooth`}
     >
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
-      <body className="font-sans antialiased text-slate-800 bg-white min-h-screen flex flex-col selection:bg-[#FFD907] selection:text-[#001744]">
         {/* Google tag (gtag.js) */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=AW-11418540333"
-        />
-        <Script
-          id="google-tag-gtag"
-          strategy="afterInteractive"
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11418540333" />
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -195,6 +183,12 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="font-sans antialiased text-slate-800 bg-white min-h-screen flex flex-col selection:bg-[#FFD907] selection:text-[#001744]">
         {children}
       </body>
     </html>

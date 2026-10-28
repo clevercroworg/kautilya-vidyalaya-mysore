@@ -13,10 +13,7 @@ import {
 } from "lucide-react";
 import { contactInfo } from "@/data/siteData";
 
-import { useRouter } from "next/navigation";
-
 export default function AdmissionEnquiryForm() {
-  const router = useRouter();
   const [formData, setFormData] = useState({
     parentName: "",
     location: "",
@@ -63,7 +60,7 @@ export default function AdmissionEnquiryForm() {
       setSubmitted(true);
 
       if (res.ok) {
-        router.push(`/thank-you?name=${encodeURIComponent(formData.parentName)}`);
+        window.location.assign(`/thank-you?name=${encodeURIComponent(formData.parentName)}`);
       }
     } catch (err) {
       console.error("Submission failed:", err);
