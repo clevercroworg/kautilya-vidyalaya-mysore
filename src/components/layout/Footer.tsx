@@ -8,7 +8,6 @@ import {
   Mail,
   MapPin,
   ExternalLink,
-  ChevronRight,
   ArrowUp,
   ShieldCheck,
 } from "lucide-react";
@@ -161,6 +160,11 @@ export default function Footer() {
                   Parent Perspectives
                 </Link>
               </li>
+              <li>
+                <Link href="/privacy-policy" className="hover:text-yellow-400 transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -281,6 +285,13 @@ export default function Footer() {
               className="hover:text-slate-200 transition-colors"
             >
               CBSE Affiliation
+            </Link>
+            <span>•</span>
+            <Link
+              href="/privacy-policy"
+              className="hover:text-slate-200 transition-colors"
+            >
+              Privacy Policy
             </Link>
             <span>•</span>
             <Link
