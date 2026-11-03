@@ -40,7 +40,7 @@ const tableOfContents = [
   { id: "data-sharing", label: "5. Information Sharing & Disclosure" },
   { id: "fee-payments", label: "6. Fee Payments & ERP Security" },
   { id: "data-security", label: "7. Security & Retention Policy" },
-  { id: "cookies-tracking", label: "8. Cookies & Web Analytics" },
+  { id: "cookies-tracking", label: "8. Cookies & Advertising Tags" },
   { id: "parent-rights", label: "9. Rights of Parents & Guardians" },
   { id: "grievance-officer", label: "10. Grievance Redressal Officer" },
 ];
@@ -537,7 +537,7 @@ export default function PrivacyPolicyClientView() {
                   <span>Section 8</span>
                 </div>
                 <h2 className="text-xl sm:text-2xl font-extrabold text-[#001744]">
-                  8. Cookies and Web Analytics Policy
+                  8. Cookies and Advertising Tags
                 </h2>
                 <div className="text-slate-600 text-sm leading-relaxed space-y-3">
                   <p>
@@ -550,9 +550,12 @@ export default function PrivacyPolicyClientView() {
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                      <span><strong>Performance &amp; Analytics Cookies:</strong> We utilize Google Analytics (Google Tag) to collect aggregated, non-personally identifiable statistics regarding page visits, load times, and broken links so we can continuously improve the parent experience.</span>
+                      <span><strong>Advertising &amp; Conversion Cookies:</strong> We use the Google tag (Google Ads) to measure how parents find our website through our online admission campaigns and to record when an enquiry form is successfully submitted. Google may set cookies and receive information such as your IP address, browser details, and pages visited, which is processed under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">Google&rsquo;s Privacy Policy</a>. These campaigns are addressed to parents and guardians, not to children.</span>
                     </li>
                   </ul>
+                  <p>
+                    You can manage or turn off personalised advertising from Google at any time through <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">Google Ad Settings</a>.
+                  </p>
                   <p>
                     You can configure your internet browser to refuse all or some cookies, or to alert you when cookies are being sent. Note that if you disable essential cookies, certain features of the website may become inaccessible or function suboptimally.
                   </p>
@@ -661,7 +664,7 @@ export default function PrivacyPolicyClientView() {
                 </div>
 
                 <div className="pt-2 text-xs text-slate-500 leading-relaxed">
-                  <strong>Policy Modifications:</strong> Kautilya Vidyalaya reserves the right to periodically update this Privacy Policy in response to amendments in CBSE guidelines or relevant Indian statutory legislation. When changes are made, the revision date at the top of this document will be updated accordingly. Continued use of our website or services signifies acceptance of the amended terms.
+                  <strong>Policy Modifications:</strong> Kautilya Vidyalaya reserves the right to periodically update this Privacy Policy in response to amendments in CBSE guidelines or relevant Indian statutory legislation. When changes are made, the &ldquo;Last Updated&rdquo; date shown on this page will be revised accordingly. Continued use of our website or services signifies acceptance of the amended terms.
                 </div>
               </section>
 
