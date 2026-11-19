@@ -14,62 +14,106 @@ export interface JobOpening {
   postedDate: string;
 }
 
+export interface HiringPoster {
+  src: string;
+  download: string;
+  alt: string;
+}
+
+export const HIRING_POSTERS: HiringPoster[] = [
+  {
+    src: "/images/careers/computer-teacher-hiring-poster.webp",
+    download: "/images/careers/computer-teacher-hiring-poster.jpg",
+    alt: "We Are Hiring - Computer Teacher - Kautilya Vidyalaya",
+  },
+  {
+    src: "/images/careers/marketing-hiring-poster.webp",
+    download: "/images/careers/marketing-hiring-poster.jpg",
+    alt: "We Are Hiring - Marketing Manager and Marketing Executive - Kautilya Vidyalaya",
+  },
+];
+
 export const CAREER_DEPARTMENTS = [
   "All Openings",
-  "Front Office",
-  "Admissions",
+  "Teaching",
+  "Marketing",
 ] as const;
 
 export const JOB_OPENINGS: JobOpening[] = [
   {
-    id: "front-office-associate",
-    title: "Front Office Associate",
-    department: "Front Office",
+    id: "computer-teacher",
+    title: "Computer Teacher",
+    department: "Teaching",
     type: "Full Time",
     location: "Dattagalli, Mysuru",
-    experience: "0–3 Years / Freshers Welcome",
-    qualification: "Any Graduate",
-    openingsCount: 2,
-    badge: "Official Opening • Freshers Welcome",
+    experience: "Freshers & Experienced Welcome",
+    qualification: "B.E. in Computer Science or MCA",
+    openingsCount: 1,
+    badge: "Teaching • Freshers Welcome",
     description:
-      "Serve as the welcoming face and voice of Kautilya Vidyalaya, handling visitors, parent inquiries, telephone communications, and day-to-day front office coordination.",
+      "Teach computer science and digital literacy to our students, building strong foundations in coding, computational thinking, and responsible use of technology.",
     keyResponsibilities: [
-      "Welcoming parents, visiting dignitaries, and guests with courtesy and professionalism.",
-      "Handling incoming telephone calls, general school inquiries, and appointment scheduling.",
-      "Maintaining front-desk visitor registers, student movement logs, and official records.",
-      "Coordinating with school administration and faculty for smooth daily front-desk operations.",
+      "Plan and deliver computer science lessons as per the CBSE curriculum.",
+      "Conduct practical sessions in the computer lab and guide students on coding projects.",
+      "Assess student progress through assignments, practicals, and examinations.",
+      "Support the school's technology initiatives and student tech activities.",
     ],
     requirements: [
-      "Qualification: Any Graduate from a recognized university.",
-      "Experience: Candidates with 0–3 years of experience / Freshers are welcome.",
-      "Skills: Good communication skills in English and Kannada.",
-      "Proficiency in MS Office (Word, Excel) and basic computer operations.",
+      "Qualification: B.E. in Computer Science or MCA.",
+      "Experience: Freshers and experienced candidates are welcome to apply.",
+      "Good command of English and the ability to explain concepts clearly to students.",
     ],
     postedDate: "Actively Hiring",
   },
   {
-    id: "admission-associate",
-    title: "Admission Associate",
-    department: "Admissions",
+    id: "marketing-manager",
+    title: "Marketing Manager",
+    department: "Marketing",
     type: "Full Time",
-    location: "Dattagalli, Mysuru",
-    experience: "0–4 Years / Freshers Welcome",
-    qualification: "Any Graduate / MBA",
-    openingsCount: 2,
-    badge: "Official Opening • Freshers Welcome",
+    location: "Mysuru",
+    experience: "Immediate Joining",
+    qualification: "Any Graduate",
+    openingsCount: 1,
+    badge: "Immediate Joining",
     description:
-      "Engage with prospective parents, provide personalized academic counseling, guide families through campus facilities, and manage the student admission lifecycle.",
+      "Lead the school's marketing and outreach efforts, plan admission campaigns, and strengthen Kautilya Vidyalaya's presence across Mysuru.",
     keyResponsibilities: [
-      "Conduct parent counseling sessions highlighting Kautilya's holistic CBSE education.",
-      "Guide prospective parents through admission formalities, fee structures, and document verification.",
-      "Coordinate campus tour walk-throughs and follow up with prospective admission inquiries.",
-      "Manage student enrollment files and parent orientation communication.",
+      "Plan and execute admission and outreach campaigns.",
+      "Lead and coordinate the marketing team's field and digital activities.",
+      "Build relationships with parents, communities, and local partners.",
+      "Track enquiries and report on campaign results.",
     ],
     requirements: [
-      "Qualification: Any Graduate or MBA (Marketing / HR / Education Management).",
-      "Experience: Candidates with 0–4 years of experience / Freshers are welcome.",
-      "Skills: Counselling, parent communication, and strong interpersonal skills.",
-      "Professional demeanor, active listening, and high empathy for parents and children.",
+      "Qualification: Any Graduate.",
+      "Language: Kannada, English, and Hindi.",
+      "Location: Mysore.",
+      "Immediate joining.",
+    ],
+    postedDate: "Actively Hiring",
+  },
+  {
+    id: "marketing-executive",
+    title: "Marketing Executive",
+    department: "Marketing",
+    type: "Full Time",
+    location: "Mysuru",
+    experience: "Immediate Joining",
+    qualification: "Any Graduate",
+    openingsCount: 2,
+    badge: "Immediate Joining",
+    description:
+      "Support the school's admission outreach by engaging with parents, representing the school at events, and following up on enquiries.",
+    keyResponsibilities: [
+      "Carry out field marketing and outreach activities across Mysuru.",
+      "Represent the school at events, exhibitions, and community programmes.",
+      "Follow up with prospective parents and admission enquiries.",
+      "Assist the Marketing Manager with campaign execution and reporting.",
+    ],
+    requirements: [
+      "Qualification: Any Graduate.",
+      "Language: Kannada, English, and Hindi.",
+      "Location: Mysore.",
+      "Immediate joining.",
     ],
     postedDate: "Actively Hiring",
   },
@@ -133,9 +177,9 @@ export const HIRING_PROCESS = [
 
 export const CAREER_FAQS = [
   {
-    question: "Are freshers eligible to apply for these positions?",
+    question: "Are freshers eligible to apply?",
     answer:
-      "Yes, absolutely! Freshers are warmly welcome to start their career with us. We value enthusiasm, willingness to learn, and strong communication skills.",
+      "Yes. Freshers are welcome to apply for the Computer Teacher position. We value enthusiasm, willingness to learn, and strong communication skills.",
   },
   {
     question: "What documents should I upload with my application?",
@@ -145,7 +189,7 @@ export const CAREER_FAQS = [
   {
     question: "Where will the work location be?",
     answer:
-      "All positions are based on campus at Kautilya Vidyalaya, Kanakadasanagara, Dattagalli, Mysuru, Karnataka.",
+      "All positions are based in Mysuru, at Kautilya Vidyalaya, Kanakadasanagara, Dattagalli, Mysuru, Karnataka.",
   },
   {
     question: "How can I follow up on my application?",

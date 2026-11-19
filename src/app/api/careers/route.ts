@@ -211,7 +211,6 @@ ${coverNote || "No cover statement provided."}
     await transporter.sendMail({
       from: `"Kautilya Careers Desk" <${gmailUser}>`,
       to: recipientEmail,
-      cc: "enquiry@kautilyavidyalaya.edu.in",
       replyTo: email || undefined,
       subject,
       text: textContent,

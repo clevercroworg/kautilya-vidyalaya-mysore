@@ -42,6 +42,7 @@ import {
   WHY_WORK_WITH_US,
   HIRING_PROCESS,
   CAREER_FAQS,
+  HIRING_POSTERS,
 } from "@/data/careersData";
 import { contactInfo } from "@/data/siteData";
 
@@ -50,14 +51,15 @@ export default function CareersClientView() {
   const [selectedDept, setSelectedDept] = useState<string>("All Openings");
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedJobId, setExpandedJobId] = useState<string | null>(null);
-  const [isPosterModalOpen, setIsPosterModalOpen] = useState(false);
+  const [activePosterIndex, setActivePosterIndex] = useState<number | null>(null);
+  const activePoster = activePosterIndex === null ? null : HIRING_POSTERS[activePosterIndex];
 
   // Limited & Professional Form State
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
-    position: "Front Office Associate",
+    position: JOB_OPENINGS[0].title,
     qualification: "",
     experience: "Fresher / 0–1 Year",
     coverNote: "",
@@ -228,29 +230,36 @@ export default function CareersClientView() {
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Left Column: Official Flyer Visual */}
+              {/* Left Column: Official Flyer Visuals */}
               <div className="lg:col-span-5 flex flex-col items-center">
-                <div
-                  onClick={() => setIsPosterModalOpen(true)}
-                  className="relative w-full max-w-[320px] aspect-[541/797] rounded-2xl overflow-hidden shadow-2xl border-4 border-[#FFD907] cursor-pointer group transition-transform duration-300 hover:scale-[1.02]"
-                >
-                  <Image
-                    src="/images/careers/kautilya-hiring-poster.webp"
-                    alt="Kautilya Vidyalaya We Are Hiring Poster"
-                    fill
-                    priority
-                    sizes="(max-width: 640px) 280px, 320px"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="bg-white/95 text-[#001744] text-xs font-bold px-3.5 py-2 rounded-full flex items-center gap-1.5 shadow-md">
-                      <Maximize2 className="w-3.5 h-3.5 text-blue-600" />
-                      <span>View Full Flyer</span>
-                    </span>
-                  </div>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-[440px]">
+                  {HIRING_POSTERS.map((poster, i) => (
+                    <button
+                      key={poster.src}
+                      type="button"
+                      onClick={() => setActivePosterIndex(i)}
+                      className="relative w-full aspect-[2/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-[#FFD907] cursor-pointer group transition-transform duration-300 hover:scale-[1.02]"
+                      aria-label={`View flyer: ${poster.alt}`}
+                    >
+                      <Image
+                        src={poster.src}
+                        alt={poster.alt}
+                        fill
+                        priority={i === 0}
+                        sizes="(max-width: 640px) 45vw, 220px"
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span className="bg-white/95 text-[#001744] text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md">
+                          <Maximize2 className="w-3.5 h-3.5 text-blue-600" />
+                          <span>View Flyer</span>
+                        </span>
+                      </div>
+                    </button>
+                  ))}
                 </div>
                 <span className="text-[11px] text-slate-300 mt-2.5 flex items-center gap-1">
-                  <span>Click poster to expand</span>
+                  <span>Tap a flyer to expand</span>
                   <ExternalLink className="w-3 h-3 text-[#FFD907]" />
                 </span>
               </div>
@@ -266,80 +275,49 @@ export default function CareersClientView() {
                     WE ARE <span className="text-[#FFD907]">HIRING!</span>
                   </h2>
                   <p className="text-sm sm:text-base text-yellow-300 font-extrabold mt-1">
-                    Join Our Growing Team • Freshers are welcome! Start your career with us.
+                    Join Our Growing Team • Computer Teacher, Marketing Manager &amp; Marketing Executive
                   </p>
                   <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                    Kautilya Vidyalaya is welcoming motivated individuals to join our administrative and admissions counseling team in Dattagalli, Mysuru.
+                    Kautilya Vidyalaya is welcoming motivated individuals to join our teaching and marketing teams in Mysuru.
                   </p>
                 </div>
 
-                {/* The Two Roles from Poster */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Role 1: Front Office Associate */}
-                  <div className="bg-white/95 backdrop-blur rounded-2xl p-5 text-slate-900 border border-white/20 shadow-lg flex flex-col justify-between">
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="w-7 h-7 rounded-full bg-[#001744] text-[#FFD907] font-black text-xs flex items-center justify-center">
-                          1
-                        </span>
-                        <span className="text-[10px] font-extrabold uppercase bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-md">
-                          0–3 Yrs / Freshers
-                        </span>
-                      </div>
-                      <h3 className="text-base sm:text-lg font-black text-[#001744]">
-                        Front Office Associate
-                      </h3>
-                      <div className="space-y-1.5 text-xs text-slate-600">
-                        <p>
-                          <strong className="text-slate-800">Qualification:</strong> Any Graduate
-                        </p>
-                        <p>
-                          <strong className="text-slate-800">Skills:</strong> Good communication &amp; MS Office
-                        </p>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => handleApplyClick("Front Office Associate")}
-                      className="mt-4 w-full bg-[#001744] hover:bg-blue-900 text-[#FFD907] font-bold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                {/* Roles from the Posters */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {JOB_OPENINGS.map((job, i) => (
+                    <div
+                      key={job.id}
+                      className="bg-white/95 backdrop-blur rounded-2xl p-5 text-slate-900 border border-white/20 shadow-lg flex flex-col justify-between"
                     >
-                      <span>Apply for this Role</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-
-                  {/* Role 2: Admission Associate */}
-                  <div className="bg-white/95 backdrop-blur rounded-2xl p-5 text-slate-900 border border-white/20 shadow-lg flex flex-col justify-between">
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="w-7 h-7 rounded-full bg-[#001744] text-[#FFD907] font-black text-xs flex items-center justify-center">
-                          2
-                        </span>
-                        <span className="text-[10px] font-extrabold uppercase bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-md">
-                          0–4 Yrs / Freshers
-                        </span>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="w-7 h-7 rounded-full bg-[#001744] text-[#FFD907] font-black text-xs flex items-center justify-center">
+                            {i + 1}
+                          </span>
+                          <span className="text-[10px] font-extrabold uppercase bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-md">
+                            {job.openingsCount} {job.openingsCount === 1 ? "Position" : "Positions"}
+                          </span>
+                        </div>
+                        <h3 className="text-base sm:text-lg font-black text-[#001744]">{job.title}</h3>
+                        <div className="space-y-1.5 text-xs text-slate-600">
+                          <p>
+                            <strong className="text-slate-800">Qualification:</strong> {job.qualification}
+                          </p>
+                          <p>
+                            <strong className="text-slate-800">Experience:</strong> {job.experience}
+                          </p>
+                        </div>
                       </div>
-                      <h3 className="text-base sm:text-lg font-black text-[#001744]">
-                        Admission Associate
-                      </h3>
-                      <div className="space-y-1.5 text-xs text-slate-600">
-                        <p>
-                          <strong className="text-slate-800">Qualification:</strong> Any Graduate / MBA
-                        </p>
-                        <p>
-                          <strong className="text-slate-800">Skills:</strong> Counselling, parent communication &amp; interpersonal
-                        </p>
-                      </div>
+                      <button
+                        type="button"
+                        onClick={() => handleApplyClick(job.title)}
+                        className="mt-4 w-full bg-[#001744] hover:bg-blue-900 text-[#FFD907] font-bold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                      >
+                        <span>Apply for this Role</span>
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </button>
                     </div>
-                    <button
-                      type="button"
-                      onClick={() => handleApplyClick("Admission Associate")}
-                      className="mt-4 w-full bg-[#001744] hover:bg-blue-900 text-[#FFD907] font-bold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
-                    >
-                      <span>Apply for this Role</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
+                  ))}
                 </div>
 
                 {/* Quick Email Note Bar */}
@@ -375,10 +353,10 @@ export default function CareersClientView() {
                   Current Openings
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#001744] tracking-tight mt-3">
-                  Front Office &amp; Admission Associates
+                  Teaching &amp; Marketing Positions
                 </h2>
                 <p className="text-slate-500 text-sm mt-1">
-                  Freshers are welcome! Review qualifications, experience criteria, and responsibilities below.
+                  Review qualifications, experience criteria, and responsibilities below.
                 </p>
               </div>
 
@@ -617,7 +595,7 @@ export default function CareersClientView() {
                       fullName: "",
                       email: "",
                       phone: "",
-                      position: "Front Office Associate",
+                      position: JOB_OPENINGS[0].title,
                       qualification: "",
                       experience: "Fresher / 0–1 Year",
                       coverNote: "",
@@ -1043,13 +1021,13 @@ export default function CareersClientView() {
 
         {/* POSTER MODAL LIGHTBOX */}
         <AnimatePresence>
-          {isPosterModalOpen && (
+          {activePoster && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
-              onClick={() => setIsPosterModalOpen(false)}
+              onClick={() => setActivePosterIndex(null)}
             >
               <div
                 className="relative max-w-lg w-full max-h-[90vh] bg-white rounded-3xl overflow-hidden shadow-2xl p-2"
@@ -1057,16 +1035,16 @@ export default function CareersClientView() {
               >
                 <button
                   type="button"
-                  onClick={() => setIsPosterModalOpen(false)}
+                  onClick={() => setActivePosterIndex(null)}
                   className="absolute top-4 right-4 z-10 w-9 h-9 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center shadow-lg transition-colors cursor-pointer"
                   aria-label="Close flyer"
                 >
                   <X className="w-5 h-5" />
                 </button>
-                <div className="relative aspect-[541/797] w-full rounded-2xl overflow-hidden">
+                <div className="relative aspect-[2/3] max-h-[78vh] mx-auto rounded-2xl overflow-hidden">
                   <Image
-                    src="/images/careers/kautilya-hiring-poster.webp"
-                    alt="Official Hiring Poster - Kautilya Vidyalaya"
+                    src={activePoster.src}
+                    alt={activePoster.alt}
                     fill
                     sizes="(max-width: 640px) 100vw, 520px"
                     className="object-contain"
@@ -1074,8 +1052,8 @@ export default function CareersClientView() {
                 </div>
                 <div className="p-3 text-center">
                   <a
-                    href="/images/careers/kautilya-hiring-poster.png"
-                    download="Kautilya-Vidyalaya-Hiring-Flyer.png"
+                    href={activePoster.download}
+                    download
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-900"
                   >
                     <span>Download High-Resolution Flyer</span>
