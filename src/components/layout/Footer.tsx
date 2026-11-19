@@ -33,6 +33,7 @@ export default function Footer() {
                   src="/images/kautilya-vidyalaya-logo.webp"
                   alt="Kautilya Vidyalaya"
                   fill
+                  sizes="240px"
                   className="object-contain p-1"
                 />
               </div>
